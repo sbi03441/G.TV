@@ -8,6 +8,8 @@ create table movie_com(
 );
 
 select * from movie_com order by user_id desc;
+
+alter table movie_com add recom number(10);
 drop table movie_com;
 
 --mov_no_seq 시퀀스 만들기
