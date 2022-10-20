@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title>Movie Project</title>
 
-<link rel="stylesheet" type="text/css" href="../css/main.css">
-<link rel="stylesheet" type="text/css" href="../css/movie.css">
-<link rel="stylesheet" type="text/css" href="../css/movie_sub.css">
-<link rel="stylesheet" type="text/css" href="../css/reserve_style.css">
-<link rel="stylesheet" type="text/css" href="../css/reserve_style_2.css">
-
-
-<script src="../js/jquery.js"></script>
-<script src="../js/reserve.js"></script>
-
+<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/movie.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/movie_sub.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/reserve_style.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/screening_style.css">
+<script src="./resources/js/jquery.js"></script>
+<script src="./resources/js/reserve.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400"
 	rel="stylesheet">
 <link rel="stylesheet"
@@ -37,7 +33,7 @@
 				<li><a href="index.jsp">HONE</a></li>
 				<li><a href="./html/reserve.jsp">COST</a></li>
 				<li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
-				<li><a href="./movie/movie.jsp">MOVIE</a></li>
+				<li><a href="com_write">MOVIE</a></li>
 				<li><a href="#">SNACK BAR</a></li>
 				<li><a href="./html/login.jsp" id="sign_in">SIGN IN</a></li>
 			</ul>

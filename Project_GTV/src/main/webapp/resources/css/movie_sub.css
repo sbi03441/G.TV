@@ -46,7 +46,7 @@
 	width: 48px;
 	height: 48px;
 	position: absolute;
-	background: #1b1b1b url(../image/star.png) no-repeat center;
+	background: #1b1b1b url(../images/main_movie/star.png) no-repeat center;
 	margin-right: 50px;
 	
 }
@@ -97,8 +97,8 @@
 	color: #eee;
 	text-align: center;
 	padding: 5px 30px ;
-	width: 100px;
-	height: 40px;
+	width: 150px;
+	/*height: 40px;*/
 	line-height: 40px;
 }
 
