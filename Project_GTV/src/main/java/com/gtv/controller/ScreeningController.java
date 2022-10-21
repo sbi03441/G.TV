@@ -1,12 +1,11 @@
 package com.gtv.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.ScreeningService;
@@ -19,17 +18,19 @@ public class ScreeningController {
 	private ScreeningService screeningService;
 	
 	@GetMapping("/screening")
-	public ModelAndView screening() {
+	public ModelAndView screening(Model li,ScreeningVO vo) {
 		ModelAndView m = new ModelAndView();
+		List<ScreeningVO> mlist = screeningService.getList(vo);
+		
+		List<ScreeningVO> mbranch = screeningService.getbranch(vo);
+		
+		li.addAttribute("mlist", mlist);
+		li.addAttribute("mbranch", mbranch);
 		m.setViewName("reserve/screening");
 		return m;
 	};
 	
-	@PostMapping("/screening_ok")
-	public ModelAndView screening_ok(HttpServletRequest request, HttpServletResponse response, ScreeningVO sv) {
-		return null;
-	}
-	
+
 
 	
 	

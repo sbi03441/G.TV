@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ include file="../include/header.jsp"%>
 
 <div class="body_frame">
@@ -20,7 +19,21 @@
 								<div class="scroll">
 									<div class="mCustomScrollBox">
 										<div class="mCSB_container_1">
+
 											<ul>
+												<c:if test="${!empty mlist}">
+													<c:forEach var="m" items="${mlist}">
+														<li>
+															<button type="button" id="movie_btn_0${m.mov_no}" value="_0${m.mov_no}" class="movie">
+																<span>${m.mov_name}</span>
+															</button>
+														</li>
+													</c:forEach>
+												</c:if>
+											</ul>
+
+											<!-- 
+											  <ul>
 												<li><button type="button" id="movie_btn_01" value="_01"
 														class="movie">
 														<span>블랙 아담</span>
@@ -59,6 +72,7 @@
 													</button></li>
 
 											</ul>
+											 -->
 										</div>
 									</div>
 								</div>
@@ -111,13 +125,24 @@
 
 								<div class="theaterbox box1">
 									<ul>
+										<c:if test="${!empty mbranch}">
+											<c:forEach var="m" items="${mbranch}">
+												<li>
+													<button type="button" id="theater_seo_btn_${m.sc_code}"
+														value="_${m.sc_code}" class="theater_bt">
+														<span>${m.sc_branch}</span>
+													</button>
+												</li>
+											</c:forEach>
+										</c:if>
+										<!--  
 										<li><button type="button" id="theater_seo_btn_1"
 												value="_1" class="theater_bt">
-												<span>서울1</span>
+												<span>강남</span>
 											</button></li>
 										<li><button type="button" id="theater_seo_btn_2"
 												value="_2" class="theater_bt">
-												<span>서울2</span>
+												<span>잠실</span>
 											</button></li>
 										<li><button type="button" id="theater_seo_btn_3"
 												value="_3" class="theater_bt">
@@ -139,6 +164,7 @@
 												value="_7" class="theater_bt">
 												<span>서울7</span>
 											</button></li>
+											-->
 									</ul>
 								</div>
 								<div class="theaterbox box2">
@@ -356,7 +382,12 @@
 									</li>
 									<li class="li-day">
 										<button id="day-btn_10" class="li-day-btn" value="_10">
-											<span class="span-dayweek">금</span> <span class="span-day">4</span>
+											<span class="span-dayweek">금</span> <span class="span-day">10</span>
+										</button>
+									</li>
+									<li class="li-day">
+										<button id="day-btn_11" class="li-day-btn" value="_11">
+											<span class="span-dayweek sat">토</span> <span class="span-day sat">11</span>
 										</button>
 									</li>
 								</ul>
@@ -374,7 +405,8 @@
 								<ul>
 
 									<li class="hour_color">
-										<button type=button id="hour_btn_1" value="_1" class="hour_btn">
+										<button type=button id="hour_btn_1" value="_1"
+											class="hour_btn">
 											<span class="time"> <strong> 08:50 </strong>
 											</span> <span class="title"> <strong> 컴백홈 </strong>
 											</span>
@@ -388,7 +420,8 @@
 									</li>
 
 									<li class="hour_color">
-										<button type=button id="hour_btn_2" value="_2" class="hour_btn">
+										<button type=button id="hour_btn_2" value="_2"
+											class="hour_btn">
 											<span class="time"> <strong> 11:50 </strong>
 											</span> <span class="title"> <strong> 컴백홈 </strong>
 											</span>
@@ -401,7 +434,8 @@
 										</button>
 									</li>
 									<li class="hour_color">
-										<button type=button id="hour_btn_3" value="_3" class="hour_btn">
+										<button type=button id="hour_btn_3" value="_3"
+											class="hour_btn">
 											<span class="time"> <strong> 15:50 </strong>
 											</span> <span class="title"> <strong> 컴백홈 </strong>
 											</span>
@@ -414,7 +448,8 @@
 										</button>
 									</li>
 									<li class="hour_color">
-										<button type=button id="hour_btn_4" value="_4" class="hour_btn">
+										<button type=button id="hour_btn_4" value="_4"
+											class="hour_btn">
 											<span class="time"> <strong> 19:50 </strong>
 											</span> <span class="title"> <strong> 컴백홈 </strong>
 											</span>

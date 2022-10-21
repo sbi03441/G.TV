@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "Screen"> 
+	
+	<select id="mov_list" resultType="screen">
+		select mov_no,mov_name from screening 
+	</select>
+	
+	<select id="branch_list" resultType="screen">
+		select sc_code,sc_branch from screening
+	</select>
+	
+</mapper>
