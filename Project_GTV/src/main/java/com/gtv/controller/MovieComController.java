@@ -5,10 +5,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.MovieComService;
+import com.gtv.vo.MovieComVO;
 
 @Controller
 @RequestMapping("/*")
@@ -18,7 +20,7 @@ public class MovieComController {
 	private MovieComService moviecomService;
 	
 	//영화 관람객 코멘트 쓰기
-	@GetMapping("com_write")
+	@GetMapping("/com_write")
 	public ModelAndView com_write(HttpServletRequest request) {
 		int page=1;
 		if(request.getParameter("page") != null) {
@@ -30,6 +32,16 @@ public class MovieComController {
 		mv.addObject("page", page);
 		return mv;
 	}//com_write()
+	
+	//코멘트 저장
+	@PostMapping("/com_write_ok")
+	public String com_write_ok(MovieComVO mc,HttpServletRequest request) throws Exception{
+		mc.setCont_com(cont_com);
+		
+		moviecomService.insertCom(mc);
+		return "redirect:/com_list";
+		
+	}
 	
 
 }

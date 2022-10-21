@@ -45,4 +45,42 @@
 	<!-- detail-gongjo -->
 </div>
 <!-- detail-top-wrap -->
-<hr>
+
+<div class="reviews">
+	<div class="review-tit">
+		평점 및 관람평(4,032)<a href="#open_ly" class="write_mycom com_open">내
+			평점 등록</a>
+	</div>
+	<hr>
+	<!-- 평점주기 레이어 -->
+	<div class="com_ly" id="open_ly">
+		<strong class="ly_tit">내 코멘트 등록</strong>
+		<div class="ly_inner">
+			<div class="recom">
+				<strong class="com_tit">공조2: 인터내셔널</strong> <img
+					src="./resources/images/main_movie/thumbsup.png" alt="추천"
+					class="thumbsup">
+			</div>
+			<!-- recom -->
+		</div>
+		<!-- ly_inner -->
+		<form method="post" action="com_write_ok"
+			onsubmit="return com_check();">
+			<div class="input_request">
+				<textarea id="ment" rows="5" cols="80" placeholder="코멘트를 입력해주세요."></textarea>
+			</div>
+			<!-- input_request -->
+			<div class=com_btn>
+				<button class="btn_cancel">취소</button>
+				<input type="submit" class="btn_complet" value="확인">
+			</div>
+			<!-- com_btn -->
+		</form>
+	</div>
+	<!-- com_ly -->
+
+</div>
+
+
+
+<%@ include file="../include/footer.jsp"%>

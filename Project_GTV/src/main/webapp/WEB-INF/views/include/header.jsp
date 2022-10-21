@@ -11,9 +11,11 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/movie.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/movie_sub.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/com_write.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/reserve_style.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/reserve_style_2.css">
 <script src="./resources/js/jquery.js"></script>
+<script src="./resources/js/movie/com_write.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400"
 	rel="stylesheet">
