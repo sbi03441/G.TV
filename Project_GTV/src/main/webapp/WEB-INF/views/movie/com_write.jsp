@@ -67,11 +67,11 @@
 		<form method="post" action="com_write_ok"
 			onsubmit="return com_check();">
 			<div class="input_request">
-				<textarea id="ment" rows="5" cols="80" placeholder="코멘트를 입력해주세요."></textarea>
+				<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="코멘트를 입력해주세요."></textarea>
 			</div>
 			<!-- input_request -->
 			<div class=com_btn>
-				<button class="btn_cancel">취소</button>
+				<input type="reset" value="취소" class="btn_cancel" onclick="$('#cont_com').focus();">
 				<input type="submit" class="btn_complet" value="확인">
 			</div>
 			<!-- com_btn -->

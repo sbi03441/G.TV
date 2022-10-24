@@ -34,14 +34,14 @@ public class MovieComController {
 	}//com_write()
 	
 	//코멘트 저장
-	@PostMapping("/com_write_ok")
-	public String com_write_ok(MovieComVO mc,HttpServletRequest request) throws Exception{
-		mc.setCont_com(cont_com);
-		
-		moviecomService.insertCom(mc);
-		return "redirect:/com_list";
-		
-	}
+//	@PostMapping("/com_write_ok")
+//	public String com_write_ok(MovieComVO mc,HttpServletRequest request) throws Exception{
+//		mc.setCont_com(cont_com);
+//		
+//		moviecomService.insertCom(mc);
+//		return "redirect:/com_list";
+//		
+//	}
 	
 
 }
