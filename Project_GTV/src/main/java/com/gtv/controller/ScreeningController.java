@@ -20,8 +20,7 @@ public class ScreeningController {
 	@GetMapping("/screening")
 	public ModelAndView screening(Model li,ScreeningVO vo) {
 		ModelAndView m = new ModelAndView();
-		List<ScreeningVO> mlist = screeningService.getList(vo);
-		
+		List<ScreeningVO> mlist = screeningService.getlist(vo);
 		List<ScreeningVO> mbranch = screeningService.getbranch(vo);
 		
 		li.addAttribute("mlist", mlist);
@@ -29,14 +28,5 @@ public class ScreeningController {
 		m.setViewName("reserve/screening");
 		return m;
 	};
-	
-
-
-	
-	
-	
-	
-	
-	
 	
 }

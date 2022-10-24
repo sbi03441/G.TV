@@ -6,8 +6,10 @@ import com.gtv.vo.ScreeningVO;
 
 public interface ScreeningService {
 
-	List<ScreeningVO> getList(ScreeningVO vo);
+	
 
 	List<ScreeningVO> getbranch(ScreeningVO vo);
+
+	List<ScreeningVO> getlist(ScreeningVO vo);
 
 }

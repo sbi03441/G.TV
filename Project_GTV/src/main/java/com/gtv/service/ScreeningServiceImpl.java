@@ -12,16 +12,18 @@ import com.gtv.vo.ScreeningVO;
 public class ScreeningServiceImpl implements ScreeningService {
 	@Autowired
 	private ScreeningDAO screeningDao;
-
+	
 	@Override
-	public List<ScreeningVO> getList(ScreeningVO vo) {
-		return screeningDao.getList(vo);
+	public List<ScreeningVO> getlist(ScreeningVO vo) {
+		return screeningDao.getlist(vo);
 	}
+	
 
 	@Override
 	public List<ScreeningVO> getbranch(ScreeningVO vo) {
 		
 		return screeningDao.getbranch(vo);
 	}
+
 	
 }

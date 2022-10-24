@@ -128,8 +128,8 @@
 										<c:if test="${!empty mbranch}">
 											<c:forEach var="m" items="${mbranch}">
 												<li>
-													<button type="button" id="theater_seo_btn_${m.sc_code}"
-														value="_${m.sc_code}" class="theater_bt">
+													<button type="button" id="theater_seo_btn_${m.branch_no}"
+														value="_${m.branch_no}" class="theater_bt">
 														<span>${m.sc_branch}</span>
 													</button>
 												</li>
