@@ -4,8 +4,6 @@
 .classpath
 .settings/
 .springBeans
-log4j.xml
-mybatis-config.xml
 test/
 target/
 Servers/
