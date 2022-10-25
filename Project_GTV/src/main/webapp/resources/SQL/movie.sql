@@ -3,16 +3,10 @@ create table movie(
     ,moviename varchar2(38) UNIQUE --영화제목 (uq)
 );
 
-
-
 insert into movie values(1,'공조2');
 insert into movie values(2,'블랙 아담');
 insert into movie values(3,'스마일');
 
-select * from movie;
-
-
-select * from movietotal;
 
 create table movietotal( -- 영화 정보
     movienum number(20) --영화 번호 (fk)
@@ -28,7 +22,6 @@ create table movietotal( -- 영화 정보
     ,CONSTRAINT movietotal_regiondetail_fk FOREIGN key(theaternum) REFERENCES regiondetail(theaternum)
 );
 
-
 insert into movietotal values(1,1,1,108,'2022.10.25','09','00','11','00'); --공조2,강남,서울
 insert into movietotal values(1,1,1,108,'2022.10.25','12','00','14','00'); --공조2,강남,서울
 insert into movietotal values(1,2,1,108,'2022.10.25','08','50','10','50');--공조2,잠실,서울
@@ -42,7 +35,6 @@ create table regiondetail(
     ,regionnum number(20)--서울,경기,인천지역 번호(nn)
 );
 
-select * from regiondetail;
 
 insert into regiondetail values('1','강남','1'); 
 insert into regiondetail values('2','잠실','1');
@@ -68,17 +60,6 @@ insert into theater values(6,'2관',11,108);
 insert into theater values(7,'1관',12,108);
 insert into theater values(8,'2관',12,108);
 
-
-
-select * from theater;
-
-commit;
-
-select * from com;
-
-
-
-
 create table com(
     com_num number(20) primary key
     ,movienum number(20) --영화번호(fk  pk)
@@ -98,7 +79,7 @@ select com_num_seq.nextval,movienum,moviename from movie;
 
 insert into com(com_num,movienum,moviename) values(com_num_seq.nextval,1,'공조2');
 
-
+select distinct mov_no,mov_name from screening
 
 
 --시퀀스 com_num 

@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class ComVO {
-
+	
+	private int com_num;
 	private int movienum;
 	private String moviename;
 	// private String user_id varchar2(38)

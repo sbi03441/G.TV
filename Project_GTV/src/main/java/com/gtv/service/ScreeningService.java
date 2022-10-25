@@ -2,14 +2,14 @@ package com.gtv.service;
 
 import java.util.List;
 
-import com.gtv.vo.ScreeningVO;
+import com.gtv.vo.MovieVO;
+import com.gtv.vo.RegiondetailVO;
 
 public interface ScreeningService {
 
-	
 
-	List<ScreeningVO> getbranch(ScreeningVO vo);
+	List<MovieVO> getList(MovieVO mv);
 
-	List<ScreeningVO> getlist(ScreeningVO vo);
+	List<RegiondetailVO> getBranch(RegiondetailVO rv);
 
 }

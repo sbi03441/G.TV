@@ -2,12 +2,14 @@ package com.gtv.dao;
 
 import java.util.List;
 
-import com.gtv.vo.ScreeningVO;
+import com.gtv.vo.MovieVO;
+import com.gtv.vo.RegiondetailVO;
 
 public interface ScreeningDAO {
 
-	List<ScreeningVO> getlist(ScreeningVO vo);
+	List<MovieVO> getList(MovieVO mv);
 
-	List<ScreeningVO> getbranch(ScreeningVO vo);
+	List<RegiondetailVO> getBranch(RegiondetailVO rv);
+
 
 }

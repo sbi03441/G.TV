@@ -24,8 +24,8 @@
 												<c:if test="${!empty mlist}">
 													<c:forEach var="m" items="${mlist}">
 														<li>
-															<button type="button" id="movie_btn_0${m.mov_no}" value="_0${m.mov_no}" class="movie">
-																<span>${m.mov_name}</span>
+															<button type="button" id="movie_btn_0${m.movienum}" value="_0${m.movienum}" class="movie">
+																<span>${m.moviename}</span>
 															</button>
 														</li>
 													</c:forEach>

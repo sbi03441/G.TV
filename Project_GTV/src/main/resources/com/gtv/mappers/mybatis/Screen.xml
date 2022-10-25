@@ -6,12 +6,11 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "Screen"> 
 	
-	<select id="mov_list" resultType="screen">
-		select distinct mov_no,mov_name from screening
+	<select id="mlist" resultType="movie">
+		select * from movie
 	</select>
 	
-	<select id="branch_list" resultType="screen">
-		select distinct sc_branch,branch_no from screening
+	<select>
 	</select>
 	
 </mapper>

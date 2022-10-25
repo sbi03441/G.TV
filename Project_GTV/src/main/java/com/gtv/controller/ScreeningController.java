@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.ScreeningService;
-import com.gtv.vo.ScreeningVO;
+import com.gtv.vo.MovieVO;
+import com.gtv.vo.RegiondetailVO;
 
 @Controller
 public class ScreeningController {
@@ -18,13 +19,13 @@ public class ScreeningController {
 	private ScreeningService screeningService;
 	
 	@GetMapping("/screening")
-	public ModelAndView screening(Model li,ScreeningVO vo) {
+	public ModelAndView screening(Model li,MovieVO mv,RegiondetailVO rv) {
 		ModelAndView m = new ModelAndView();
-		List<ScreeningVO> mlist = screeningService.getlist(vo);
-		List<ScreeningVO> mbranch = screeningService.getbranch(vo);
+		List<MovieVO> mlist = screeningService.getList(mv);
+		List<RegiondetailVO> rlist = screeningService.getBranch(rv);
 		
 		li.addAttribute("mlist", mlist);
-		li.addAttribute("mbranch", mbranch);
+		
 		m.setViewName("reserve/screening");
 		return m;
 	};

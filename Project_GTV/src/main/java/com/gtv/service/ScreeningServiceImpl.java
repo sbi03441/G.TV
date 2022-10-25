@@ -6,24 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gtv.dao.ScreeningDAO;
+import com.gtv.vo.MovieVO;
+import com.gtv.vo.RegiondetailVO;
 import com.gtv.vo.ScreeningVO;
 
 @Service
 public class ScreeningServiceImpl implements ScreeningService {
 	@Autowired
 	private ScreeningDAO screeningDao;
-	
-	@Override
-	public List<ScreeningVO> getlist(ScreeningVO vo) {
-		return screeningDao.getlist(vo);
-	}
-	
 
 	@Override
-	public List<ScreeningVO> getbranch(ScreeningVO vo) {
-		
-		return screeningDao.getbranch(vo);
+	public List<MovieVO> getList(MovieVO mv) {
+		return screeningDao.getList(mv);
 	}
+
+	@Override
+	public List<RegiondetailVO> getBranch(RegiondetailVO rv) {
+		return screeningDao.getBranch(rv);
+	}
+	
+	
+
+	
+
+
+
 
 	
 }
