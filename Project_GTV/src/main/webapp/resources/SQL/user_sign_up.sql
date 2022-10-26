@@ -21,3 +21,8 @@ create sequence user_no_seq
 start with 1 -- 1부터 시작
 increment by 1 -- 1씩 증가
 nocache; -- 임시메모리 사용안함
+
+alter table movie_user drop column email;
+select * from movie_user;
+alter table movie_user add email varchar2(30) not null;
+alter table movie_user add email_domain varchar2(30) not null;
