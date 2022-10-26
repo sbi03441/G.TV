@@ -32,81 +32,13 @@
 												</c:if>
 											</ul>
 
-											<!-- 
-											  <ul>
-												<li><button type="button" id="movie_btn_01" value="_01"
-														class="movie">
-														<span>블랙 아담</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_02" value="_02"
-														class="movie">
-														<span>리멤버</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_03" value="_03"
-														class="movie">
-														<span>귀못</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_04" value="_04"
-														class="movie">
-														<span>인생은 아름다워</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_05" value="_05"
-														class="movie">
-														<span>자백</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_06" value="_06"
-														class="movie">
-														<span>공조2: 인터내셔날</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_07" value="_07"
-														class="movie">
-														<span>정직한 후보 2</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_08" value="_08"
-														class="movie">
-														<span>미혹</span>
-													</button></li>
-												<li><button type="button" id="movie_btn_09" value="_09"
-														class="movie">
-														<span>오펀: 천사의 탄생</span>
-													</button></li>
-
-											</ul>
-											 -->
+											
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!--  
-						<div class="other-list">
-							<button type="button" class="btn-tab">큐레이션</button>
-							<div class="list" style="display: none;">
-								<div class="scroll">
-									<div class="mCustomScrollBox">
-										<div class="mCSB_container">
-											<ul>
-												<li>영화1</li>
-												<li>영화2</li>
-												<li>영화3</li>
-												<li>영화4</li>
-												<li>영화5</li>
-												<li>영화6</li>
-												<li>영화7</li>
-												<li>영화8</li>
-												<li>영화9</li>
-												<li>영화10</li>
-												<li>영화11</li>
-												<li>영화12</li>
-												<li>영화13</li>
-												<li>영화14</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						-->
+						
 					</div>
 				</div>
 				<div class="theater-choice">
@@ -117,118 +49,42 @@
 						<div class="all-list">
 							<button type="button" class="btn-tab on">전체</button>
 							<div class="theater_tab">
-								<input type="radio" name="tabmenu" id="tab01"> <label
-									for="tab01">서울</label> <input type="radio" name="tabmenu"
-									id="tab02"> <label for="tab02">경기</label> <input
-									type="radio" name="tabmenu" id="tab03"> <label
-									for="tab03">대전</label>
-
+								<c:if test="${!empty region}">
+									<c:forEach var="re" items="${region}">
+										<input type="radio" name="tabmenu" id="tab0${re.regionnum}"> 
+										<label for="tab0${re.regionnum}">${re.regionname}</label>
+									</c:forEach>
+								</c:if>
 								<div class="theaterbox box1">
 									<ul>
-										<c:if test="${!empty mbranch}">
-											<c:forEach var="m" items="${mbranch}">
+										<c:if test="${!empty rlist}">
+											<c:forEach var="r" items="${rlist}">
+												<c:if test="${r.regionnum == 1}">
 												<li>
-													<button type="button" id="theater_seo_btn_${m.branch_no}"
-														value="_${m.branch_no}" class="theater_bt">
-														<span>${m.sc_branch}</span>
+													<button type="button" id="theater_seo_btn_${r.theaternum}"
+														value="_${r.theaternum}" class="theater_bt">
+														<span>${r.branchname}</span>
 													</button>
 												</li>
+												</c:if>
 											</c:forEach>
 										</c:if>
-										<!--  
-										<li><button type="button" id="theater_seo_btn_1"
-												value="_1" class="theater_bt">
-												<span>강남</span>
-											</button></li>
-										<li><button type="button" id="theater_seo_btn_2"
-												value="_2" class="theater_bt">
-												<span>잠실</span>
-											</button></li>
-										<li><button type="button" id="theater_seo_btn_3"
-												value="_3" class="theater_bt">
-												<span>서울3</span>
-											</button></li>
-										<li><button type="button" id="theater_seo_btn_4"
-												value="_4" class="theater_bt">
-												<span>서울4</span>
-											</button></li>
-										<li><button type="button" id="theater_seo_btn_5"
-												value="_5" class="theater_bt">
-												<span>서울5</span>
-											</button></li>
-										<li><button type="button" id="theater_seo_btn_6"
-												value="_6" class="theater_bt">
-												<span>서울6</span>
-											</button></li>
-										<li><button type="button" id="theater_seo_btn_7"
-												value="_7" class="theater_bt">
-												<span>서울7</span>
-											</button></li>
-											-->
 									</ul>
 								</div>
 								<div class="theaterbox box2">
 									<ul>
-										<li><button type="button" id="theater_gy_btn_1"
-												value="_1" class="theater_bt">
-												<span>경기1</span>
-											</button></li>
-										<li><button type="button" id="theater_gy_btn_2"
-												value="_2" class="theater_bt">
-												<span>경기2</span>
-											</button></li>
-										<li><button type="button" id="theater_gy_btn_3"
-												value="_3" class="theater_bt">
-												<span>경기3</span>
-											</button></li>
-										<li><button type="button" id="theater_gy_btn_4"
-												value="_4" class="theater_bt">
-												<span>경기4</span>
-											</button></li>
-										<li><button type="button" id="theater_gy_btn_5"
-												value="_5" class="theater_bt">
-												<span>경기5</span>
-											</button></li>
-										<li><button type="button" id="theater_gy_btn_6"
-												value="_6" class="theater_bt">
-												<span>경기6</span>
-											</button></li>
-										<li><button type="button" id="theater_gy_btn_7"
-												value="_7" class="theater_bt">
-												<span>경기7</span>
-											</button></li>
-									</ul>
-								</div>
-								<div class="theaterbox box3">
-									<ul>
-										<li><button type="button" id="theater_dae_btn_1"
-												value="_1" class="theater_bt">
-												<span>대전1</span>
-											</button></li>
-										<li><button type="button" id="theater_dae_btn_2"
-												value="_2" class="theater_bt">
-												<span>대전2</span>
-											</button></li>
-										<li><button type="button" id="theater_dae_btn_3"
-												value="_3" class="theater_bt">
-												<span>대전3</span>
-											</button></li>
-										<li><button type="button" id="theater_dae_btn_4"
-												value="_4" class="theater_bt">
-												<span>대전4</span>
-											</button></li>
-										<li><button type="button" id="theater_dae_btn_5"
-												value="_5" class="theater_bt">
-												<span>대전5</span>
-											</button></li>
-										<li><button type="button" id="theater_dae_btn_6"
-												value="_6" class="theater_bt">
-												<span>대전6</span>
-											</button></li>
-										<li><button type="button" id="theater_dae_btn_7"
-												value="_7" class="theater_bt">
-												<span>대전7</span>
-											</button></li>
+										<c:if test="${!empty rlist}">
+											<c:forEach var="r" items="${rlist}">
+												<c:if test="${r.regionnum == 2}">
+												<li>
+													<button type="button" id="theater_seo_btn_${r.theaternum}"
+														value="_${r.theaternum}" class="theater_bt">
+														<span>${r.branchname}</span>
+													</button>
+												</li>
+												</c:if>
+											</c:forEach>
+										</c:if>
 									</ul>
 								</div>
 							</div>
@@ -250,7 +106,7 @@
 									<li class="li-month">
 										<div>
 											<span class="span-year">2022</span> <span class="span-month">10</span>
-											<div></div>
+											<div>${dayWeekList[1].year}qweqweqweqweq</div>
 										</div>
 									</li>
 									<li class="li-day">

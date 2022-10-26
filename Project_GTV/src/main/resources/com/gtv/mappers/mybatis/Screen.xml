@@ -10,7 +10,16 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select * from movie
 	</select>
 	
-	<select>
+	<select id="rlist" resultType="region">
+		select theaternum,branchname,regionnum from regiondetail
+	</select>
+	
+	<select id="regionlist" resultType="region">
+		select distinct regionnum,regionname from regiondetail 
+	</select>
+	
+	<select id="movie" resultType="total">
+	
 	</select>
 	
 </mapper>

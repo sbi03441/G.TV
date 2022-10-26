@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.gtv.vo.MovieVO;
+import com.gtv.vo.MovietotalVO;
 import com.gtv.vo.RegiondetailVO;
 import com.gtv.vo.ScreeningVO;
 
@@ -25,6 +26,16 @@ public class ScreeningDAOImpl implements ScreeningDAO {
 	@Override
 	public List<RegiondetailVO> getBranch(RegiondetailVO rv) {
 		return sqlSession.selectList("rlist", rv);
+	}
+
+	@Override
+	public List<RegiondetailVO> getRegion(RegiondetailVO rv) {
+		return sqlSession.selectList("regionlist", rv);
+	}
+
+	@Override
+	public List<MovietotalVO> getMovie(MovietotalVO mvo) {
+		return sqlSession.selectList("movie", mvo);
 	}
 	
 

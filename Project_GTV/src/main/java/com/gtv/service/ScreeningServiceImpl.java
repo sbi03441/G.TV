@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gtv.dao.ScreeningDAO;
 import com.gtv.vo.MovieVO;
+import com.gtv.vo.MovietotalVO;
 import com.gtv.vo.RegiondetailVO;
 import com.gtv.vo.ScreeningVO;
 
@@ -23,6 +24,16 @@ public class ScreeningServiceImpl implements ScreeningService {
 	@Override
 	public List<RegiondetailVO> getBranch(RegiondetailVO rv) {
 		return screeningDao.getBranch(rv);
+	}
+
+	@Override
+	public List<RegiondetailVO> getRegion(RegiondetailVO rv) {
+		return screeningDao.getRegion(rv);
+	}
+
+	@Override
+	public List<MovietotalVO> getMovie(MovietotalVO mvo) {
+		return screeningDao.getMovie(mvo);
 	}
 	
 	

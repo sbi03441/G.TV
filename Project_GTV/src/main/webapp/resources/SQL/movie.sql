@@ -22,6 +22,8 @@ create table movietotal( -- 영화 정보
     ,CONSTRAINT movietotal_regiondetail_fk FOREIGN key(theaternum) REFERENCES regiondetail(theaternum)
 );
 
+select * from movietotal;
+
 insert into movietotal values(1,1,1,108,'2022.10.25','09','00','11','00'); --공조2,강남,서울
 insert into movietotal values(1,1,1,108,'2022.10.25','12','00','14','00'); --공조2,강남,서울
 insert into movietotal values(1,2,1,108,'2022.10.25','08','50','10','50');--공조2,잠실,서울
@@ -33,13 +35,19 @@ create table regiondetail(
     theaternum number(20) primary key--지점번호 (pk)
     ,branchname varchar2(38) -- 지점 이름 (nn)
     ,regionnum number(20)--서울,경기,인천지역 번호(nn)
+    ,regionname varchar2(38) --지역이름(nn)
 );
 
 
-insert into regiondetail values('1','강남','1'); 
-insert into regiondetail values('2','잠실','1');
-insert into regiondetail values('11','판교','2');
-insert into regiondetail values('12','구리','2');
+alter table regiondetail add regionname varchar2(38);
+update regiondetail set regionname='서울' where regionnum=1;
+update regiondetail set regionname='경기' where regionnum=2;
+
+insert into regiondetail values('1','강남','1','서울'); 
+insert into regiondetail values('2','잠실','1','서울');
+insert into regiondetail values('11','판교','2','경기');
+insert into regiondetail values('12','구리','2','경기');
+
 
 
 create table theater(
@@ -87,3 +95,28 @@ create SEQUENCE com_num_seq
 start with 1
 INCREMENT by 1
 NOCACHE;
+
+
+
+create table test_sample2(
+    t_no int primary key
+    ,t_title varchar2(38)
+    ,t_cont varchar2(500)
+);
+
+select * from test_sample2;
+
+    create sequence t_no_seq_2
+start with 1
+increment by 1
+nocache;
+
+
+
+
+
+
+
+
+
+
