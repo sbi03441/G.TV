@@ -43,8 +43,11 @@ create table regiondetail(
     theaternum number(20) primary key--지점번호 (pk)
     ,branchname varchar2(38) -- 지점 이름(nn)
     ,regionnum number(20) --서울,경기,인천지역 번호(nn)
+    ,regionname varchar2(38)--(nn)
 );
 
+update regiondetail set regionname='서울' where regionnum=1;
+update regiondetail set regionname='경기' where regionnum=2;
 drop table regiondetail;
 select * from regiondetail;
 insert into regiondetail values('1','강남','1'); --서울과 강남을 1로 잡음
@@ -75,6 +78,8 @@ create table com(
 );
 
 insert into com(com_num,movienum,moviename) values(com_num_seq.nextval,1,'공조2');
+insert into com (com_num,cont_com,upload_com) values(com_num_seq.nextval,'funny!',sysdate);
+update com set cont_com='funny', upload_com=sysdate where com_num=1;
 insert into com (com_num,movienum,moviename)
 select com_num_seq.nextval,movienum,moviename from movie;
 
@@ -93,3 +98,10 @@ increment by 1
 nocache;
 
 drop table com;
+
+commit;
+
+create table movie_reg(
+    movie_num number(20) primary key,
+    movie_tit varchar2(50)
+);

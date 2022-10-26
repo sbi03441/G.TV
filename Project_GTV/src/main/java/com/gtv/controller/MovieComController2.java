@@ -17,7 +17,7 @@ import com.gtv.vo.ComVO;
 
 @Controller
 @RequestMapping("/*")
-public class MovieComController {
+public class MovieComController2 {
 	
 	@Autowired
 	private MovieComService moviecomService;

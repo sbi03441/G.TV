@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class ComVO {
 
+	private int com_num;
 	private int movienum;
 	private String moviename;
 	private String cont_com;

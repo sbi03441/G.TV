@@ -1,9 +1,9 @@
 package com.gtv.service;
 
-import com.gtv.vo.MovieComVO;
+import com.gtv.vo.ComVO;
 
 public interface MovieComService {
 
-	void insertCom(MovieComVO mc);
+	void insertCom(ComVO c);
 
 }

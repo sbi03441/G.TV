@@ -67,6 +67,8 @@
 		<form method="post" action="com_write_ok"
 			onsubmit="return com_check();">
 			<div class="input_request">
+				<input type="hidden" name="movienum" value="1">
+				<input type="hidden" name="moviename" value="공조2">
 				<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="코멘트를 입력해주세요."></textarea>
 			</div>
 			<!-- input_request -->

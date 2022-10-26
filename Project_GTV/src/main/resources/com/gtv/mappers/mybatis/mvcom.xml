@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="movcom">
 
-	<insert id="com_in">
-		insert into movie_com (mov_no,cont_com,upload_com) values(mov_no_seq.nextval,#{cont_com},sysdate)
+	<insert id="com_in" parameterType="com">
+		insert into com (com_num,cont_com,upload_com) values(com_num_seq.nextval,#{cont_com},sysdate)
 	</insert>
   
 </mapper> 

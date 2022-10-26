@@ -30,7 +30,7 @@
 						<li><a href="index.jsp">HONE</a></li>
 						<li><a href="./html/reserve.jsp">COST</a></li>
 						<li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
-						<li><a href="com_write">MOVIE</a></li>
+						<li><a href="movie">MOVIE</a></li>
 						<li><a href="#">SNACK BAR</a></li>
 						<li><a href="./html/login.jsp" id="sign_in">SIGN IN</a></li>
 					</ul>

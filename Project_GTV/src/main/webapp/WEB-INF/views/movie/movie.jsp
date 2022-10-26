@@ -8,11 +8,11 @@
 		<div class="swiper-wrapper">
 			<!-- Slides -->
 			<div class="swiper-slide" 
-				style="background-image: url(../image/honest.jpeg);"><a href="#"><img src="../image/pbt.png" alt="제작자: Uniconlabs"></a></div>
+				style="background-image: url(./resources/images/main_movie/honest.jpeg);"><a href="#"><img src="./resources/images/main_movie/pbt.png" alt="제작자: Uniconlabs"></a></div>
 			<div class="swiper-slide"
-				style="background-image: url(../image/gong.jpg);"><a href="#"><img src="../image/pbt.png" alt="제작자: Uniconlabs"></a></div>
+				style="background-image: url(./resources/images/main_movie/gong.jpg);"><a href="#"><img src="./resources/images/main_movie/pbt.png" alt="제작자: Uniconlabs"></a></div>
 			<div class="swiper-slide"
-				style="background-image: url(../image/avatar.jpeg);"><a href="#"><img src="../image/pbt.png" alt="제작자: Uniconlabs"></a></div>
+				style="background-image: url(./resources/images/main_movie/avatar.jpeg);"><a href="#"><img src="./resources/images/main_movie/pbt.png" alt="제작자: Uniconlabs"></a></div>
 			
 		</div>
 		<!-- If we need pagination -->
@@ -65,23 +65,23 @@
 		<div class="top5_title">
 			<div class="title_area">현재 상영작
 			<strong style="color: red;"> TOP 5</strong></div>
-			<div class="moredetails">더 살펴보기<img alt="화살표" src="../image/right-arrow.png"></div>
+			<div class="moredetails">더 살펴보기<img alt="화살표" src="./resources/images/main_movie/right-arrow.png"></div>
 		</div>
 		<!-- top5_title -->
 		<div class="top5_programes">
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/hansan.jpg" alt="한산">
+				<img src="./resources/images/main_movie/hansan.jpg" alt="한산">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
-					<div class="btm-info"><a href="movie_sub.jsp">상세정보</a></div>
+					<div class="btm-info"><a href="com_write?movienum=1&moviename=공조2">상세정보</a></div>
 				</div>
 			</div>
 			<!-- 한산 -->
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/money.jpeg" alt="money_heist">
+				<img src="./resources/images/main_movie/money.jpeg" alt="money_heist">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -91,7 +91,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/woyoungwo.jpeg" alt="우영우">
+				<img src="./resources/images/main_movie/woyoungwo.jpeg" alt="우영우">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -101,7 +101,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/hansan.jpg" alt="한산">
+				<img src="./resources/images/main_movie/hansan.jpg" alt="한산">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -111,7 +111,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/money.jpeg" alt="money_heist">
+				<img src="./resources/images/main_movie/money.jpeg" alt="money_heist">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -128,13 +128,13 @@
 		<div class="top5_title">
 			<div class="title_area">상영 예정작
 			<strong style="color: red;"> TOP 5</strong></div> 
-			<div class="moredetails">더 살펴보기<img alt="화살표" src="../image/right-arrow.png"></div>
+			<div class="moredetails">더 살펴보기<img alt="화살표" src="./resources/images/main_movie/right-arrow.png"></div>
 		</div>
 		<!-- top5_title -->
 		<div class="top5_programes">
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/hansan.jpg" alt="한산">
+				<img src="./resources/images/main_movie/hansan.jpg" alt="한산">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -144,7 +144,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/money.jpeg" alt="money_heist">
+				<img src="./resources/images/main_movie/money.jpeg" alt="money_heist">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -154,7 +154,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/woyoungwo.jpeg" alt="우영우">
+				<img src="./resources/images/main_movie/woyoungwo.jpeg" alt="우영우">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -164,7 +164,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/hansan.jpg" alt="한산">
+				<img src="./resources/images/main_movie/hansan.jpg" alt="한산">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -174,7 +174,7 @@
 
 			<div class="card-box">
 				<div class="img-gradient"></div>
-				<img src="../image/money.jpeg" alt="money_heist">
+				<img src="./resources/images/main_movie/money.jpeg" alt="money_heist">
 				<div class="text-wrap">
 					<div id="booking"><a href="#">예매하기</a></div>
 					<div class="btm-info"><a href="#">상세정보</a></div>
@@ -189,14 +189,14 @@
 	
 	<div class="banner_01">
 		<a href="#">
-			<img src="../image/suri.jpeg" alt="수리남">
+			<img src="./resources/images/main_movie/suri.jpeg" alt="수리남">
 		</a>
 	</div>
 	<!-- banner_01 -->
 	<hr>
 	<div id="ad-beer">
 		<a href="#">
-			<img src="../image/beer.jpeg" alt="맥주광고">
+			<img src="./resources/images/main_movie/beer.jpeg" alt="맥주광고">
 		</a>
 	</div>
 	<!-- ad-beer -->

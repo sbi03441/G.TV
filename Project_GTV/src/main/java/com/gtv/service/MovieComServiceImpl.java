@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gtv.dao.MovieComDAO;
-import com.gtv.vo.MovieComVO;
+import com.gtv.vo.ComVO;
 
 @Service
 public class MovieComServiceImpl implements MovieComService {
@@ -13,8 +13,8 @@ public class MovieComServiceImpl implements MovieComService {
 	private MovieComDAO moviecomDao;
 
 	@Override
-	public void insertCom(MovieComVO mc) {
-		moviecomDao.insertCom(mc);
+	public void insertCom(ComVO c) {
+		moviecomDao.insertCom(c);
 	}
 	
 }

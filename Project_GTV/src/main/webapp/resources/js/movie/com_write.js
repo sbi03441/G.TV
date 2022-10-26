@@ -3,9 +3,9 @@
  */
 
 function com_check(){
-	if($.trim($("#ment").val())==""){
+	if($.trim($("#cont_com").val())==""){
       alert("코멘트를 남겨주세요!");
-      $("#ment").val("").focus();
+      $("#cont_com").val("").focus();
       return false;
 	}
 }

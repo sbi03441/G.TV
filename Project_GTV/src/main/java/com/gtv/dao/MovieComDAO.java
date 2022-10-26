@@ -1,9 +1,9 @@
 package com.gtv.dao;
 
-import com.gtv.vo.MovieComVO;
+import com.gtv.vo.ComVO;
 
 public interface MovieComDAO {
 
-	void insertCom(MovieComVO mc);
+	void insertCom(ComVO c);
 
 }
