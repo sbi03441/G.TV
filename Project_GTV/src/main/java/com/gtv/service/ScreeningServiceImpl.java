@@ -32,8 +32,8 @@ public class ScreeningServiceImpl implements ScreeningService {
 	}
 
 	@Override
-	public List<MovietotalVO> getMovie(MovietotalVO mvo) {
-		return screeningDao.getMovie(mvo);
+	public MovieVO getMovieData(int movienum) {
+		return screeningDao.getMovieData(movienum);
 	}
 	
 	

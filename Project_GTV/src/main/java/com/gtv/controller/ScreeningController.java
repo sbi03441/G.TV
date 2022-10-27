@@ -1,19 +1,20 @@
 package com.gtv.controller;
 
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.ScreeningService;
@@ -34,87 +35,100 @@ public class ScreeningController {
 		List<MovieVO> mlist = screeningService.getList(mv);
 		List<RegiondetailVO> rlist = screeningService.getBranch(rv);
 		List<RegiondetailVO> region = screeningService.getRegion(rv);
-		//List<MovietotalVO> mtotal = screeningService.getMovie(mvo);
-
-		SimpleDateFormat moviedate = new SimpleDateFormat("yyyy-MM-dd");
-		String[] nowTime = moviedate.format(new Date()).split("-");
-		int year = Integer.parseInt(nowTime[0]);
-		int month = Integer.parseInt(nowTime[1]);
-		int preDay = Integer.parseInt(nowTime[2]) - 1;
-
+		
+		
+		String date = LocalDate.now().toString();
+		String[] nowdate = date.split("-");
+		int year = Integer.parseInt(nowdate[0]);
+		int month = Integer.parseInt(nowdate[1]);
+		int day = Integer.parseInt(nowdate[2]);
+		
 		Calendar cal = Calendar.getInstance();
-		cal.set(year, month, preDay);
+		cal.set(year, month, day);
 		int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-
+		
 		List<DateVO> dayWeekList = new ArrayList<DateVO>();
 		String strMonth = "";
+		
 		int cnt = 0;
 		for (int i = 0; i < 15; i++) {
 
-			DateVO dto = new DateVO();
+			DateVO dvo = new DateVO();
 
-			if ((preDay + i - 2) >= lastDay) {
+			if ((day + i - 2) >= lastDay) {
 				cnt++;
 				int nextMonthDay = 0;
 
-				if (month == 12) {
+				if(month == 12) {
 					year++;
 					month = 0;
 				}
-
-				dto.setYear(Integer.toString(year));
-
-				if ((month + 1) < 10) {
+				
+				dvo.setYear(Integer.toString(year));
+				
+				if((month + 1)<10) {
 					strMonth = "0" + Integer.toString(month + 1);
+				}else {
+					strMonth = Integer.toString(month+1);
 				}
-
-				dto.setMonth(strMonth);
-				dto.setDay(Integer.toString(nextMonthDay + cnt));
-
-				LocalDate date = LocalDate.of(year, month + 1, nextMonthDay + cnt);
-				DayOfWeek dayOfWeek = date.getDayOfWeek();
-				dto.setDayOfweek(dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.KOREAN));
-
-				dayWeekList.add(dto);
-
+				
+				dvo.setMonth(strMonth);
+				dvo.setDay(Integer.toString(nextMonthDay + cnt));
+				
+				
+				LocalDate date2 = LocalDate.of(year, month + 1, nextMonthDay + cnt);
+				DayOfWeek dayOfWeek = date2.getDayOfWeek();
+				dvo.setDayOfweek(dayOfWeek.getDisplayName(TextStyle.FULL, Locale.KOREAN).substring(0, 1));			
+				
+				dayWeekList.add(dvo);
+				
 				continue;
 			}
-			dto.setYear(Integer.toString(year));
 
-			if ((month) < 10) {
+			dvo.setYear(Integer.toString(year));
+			
+			if((month)<10) {
 				strMonth = "0" + Integer.toString(month);
+			}else {
+				strMonth = Integer.toString(month);
 			}
+			
+			dvo.setMonth(strMonth);
+			dvo.setDay(Integer.toString(day + i));
 
-			dto.setMonth(strMonth);
-			dto.setDay(Integer.toString(preDay + i));
-
-			LocalDate date = LocalDate.of(year, month, preDay + i);
-			DayOfWeek dayOfWeek = date.getDayOfWeek();
-			dto.setDayOfweek(dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.KOREAN));
-
-			dayWeekList.add(dto);
+			LocalDate date2 = LocalDate.of(year, month, day + i);
+			DayOfWeek dayOfWeek = date2.getDayOfWeek();
+			dvo.setDayOfweek(dayOfWeek.getDisplayName(TextStyle.FULL, Locale.KOREAN).substring(0, 1));			
+			
+			dayWeekList.add(dvo);
 		}
 		
-		
 
-		List<String> timeList = new ArrayList<String>();
-		String strI = "";
-		for(int i=0;i<10;i++) {
-			strI = Integer.toString(i);
-			if(i<10) {
-				strI = "0" + strI;
-			}
-			timeList.add(strI);
-		}
-		
-		System.out.println(dayWeekList);
-		
+		m.addObject("dayWeekList", dayWeekList);
 		m.addObject("mlist", mlist);
 		m.addObject("rlist", rlist);
 		m.addObject("region", region);
-		m.addObject("dayWeekList", dayWeekList);
-		m.addObject("timeList", timeList);
 		m.setViewName("reserve/screening");
 		return m;
 	}
+	
+	@RequestMapping(value = "/movieData")
+	public ModelAndView movieData(HttpServletRequest request) throws Exception {
+
+		int movienum = Integer.parseInt(request.getParameter("movienum"));
+
+		ModelAndView mav = new ModelAndView();
+
+		MovieVO movieData = screeningService.getMovieData(movienum);
+
+		mav.addObject("movieData", movieData);
+		
+		
+		mav.setViewName("jsonView");
+
+		return mav;
+	}
+	
+	
+	
 }

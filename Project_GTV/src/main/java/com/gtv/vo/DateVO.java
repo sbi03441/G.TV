@@ -1,10 +1,9 @@
 package com.gtv.vo;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+
+@Data
 public class DateVO {
 	
 	private String year;

@@ -7,6 +7,8 @@ insert into movie values(1,'공조2');
 insert into movie values(2,'블랙 아담');
 insert into movie values(3,'스마일');
 
+select * from movie where movienum=1;
+
 
 create table movietotal( -- 영화 정보
     movienum number(20) --영화 번호 (fk)
@@ -104,15 +106,14 @@ create table test_sample2(
     ,t_cont varchar2(500)
 );
 
-select * from test_sample2;
 
-    create sequence t_no_seq_2
+create sequence t_no_seq_2
 start with 1
 increment by 1
 nocache;
 
 
-
+select * from test_sample2;
 
 
 

@@ -18,8 +18,8 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select distinct regionnum,regionname from regiondetail 
 	</select>
 	
-	<select id="movie" resultType="total">
-	
+	<select id="moviedata" resultType="movie">
+		select * from movie where movienum=#{movienum}
 	</select>
 	
 </mapper>

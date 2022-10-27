@@ -46,18 +46,8 @@
   
 }
 
-$( document ).ready( function() {
-    $( '.movie' ).click( function() {
-       $( '#movie_btn'+ $(this).val() ).toggleClass( 'active' );
-    });
- });
 
 
-$( document ).ready( function() {
-    $( '.theater_bt' ).click( function() {
-       $( '#theater_seo_btn'+ $(this).val() ).toggleClass( 'active' );
-    });
- });
 
 $( document ).ready( function() {
     $( '.theater_bt' ).click( function() {
@@ -89,6 +79,65 @@ $( document ).ready( function() {
        $( '#seat_btn'+ $(this).val() ).toggleClass( 'on' );
     });
  });
+
+
+function mnClk(movienum){
+	if($('#movieSel').val() == ""){
+		$('#movie_btn_0' + movienum).addClass('active');
+	} else {
+		$('#movie_btn_0' + $('#movieSel').val()).removeClass('active');
+		$('#movie_btn_0' + movienum).addClass('active');
+	}
+	
+	
+	$('#movieSel').val(movienum);
+	
+	var params = "movienum=" + movienum;
+
+	$.ajax({
+		type:"POST",
+		url:"movieData",
+		data: params,
+		success:function(data){
+			alert("영화 선택");
+		}
+	});
+	
+}
+
+
+function regionClk(theaternum){
+	
+	if($('#regionSel').val() == ""){
+		$('#theater_seo_btn_' + theaternum).addClass('active');
+	} else {
+		$('#theater_seo_btn_' + $('#regionSel').val()).removeClass('active');
+		$('#theater_seo_btn_' + theaternum).addClass('active');
+	}
+	$('#regionSel').val(theaternum);
+	
+	var params = "theaternum=" + theaternum;
+
+	$.ajax({
+		type:"POST",
+		url:"regionDetailList",
+		data: params
+	});
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

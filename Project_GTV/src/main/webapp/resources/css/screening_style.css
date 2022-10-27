@@ -395,19 +395,19 @@
 	
 }
 
-.span-dayweek.sat{
+.span-dayweek.토{
 	color:#0080ff;
 }
 
-.span-day.sat{
+.span-day.토{
 	color:#0080ff;
 }
 
-.span-dayweek.sun{
+.span-dayweek.일{
 	color:#ff0000;
 }
 
-.span-day.sun{
+.span-day.일{
 	color:#ff0000;
 }
 
