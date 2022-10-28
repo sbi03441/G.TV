@@ -1,3 +1,4 @@
+--영화 테이블
 create table movie(
     movienum number(20) primary key-- 영화번호(pk)
     ,moviename varchar2(38) --영화제목(nn)
@@ -67,6 +68,7 @@ create table theater(
 
 drop table theater;
 
+--영화 코멘트 테이블
 create table com(
     movienum number(20) --영화번호(fk-pk)
     ,moviename varchar2(38) --영화제목(fk-uq)
@@ -84,7 +86,7 @@ insert into com (com_num,movienum,moviename)
 select com_num_seq.nextval,movienum,moviename from movie;
 
 
-
+(com_num,cont_com,upload_com)
 
 --com_num primary key 추가
 alter table com add com_num number(20) primary key;
@@ -101,7 +103,24 @@ drop table com;
 
 commit;
 
+--영화 등록 테이블
 create table movie_reg(
     movie_num number(20) primary key,
     movie_tit varchar2(50)
 );
+
+select * from movie_reg;
+
+--영화 이미지 테이블
+create table movie_img(
+    uuid varchar2(100) primary key,
+    imgName varchar2(30),
+    path varchar2(200)
+);
+
+CREATE SEQUENCE movie_img_uuid_seq
+start with 1
+increment by 1
+nocache;
+
+select * from movie_img;
