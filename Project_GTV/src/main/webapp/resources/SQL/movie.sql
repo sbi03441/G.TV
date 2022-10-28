@@ -33,6 +33,10 @@ insert into movietotal values(1,2,1,108,'2022.10.25','11','40','13','40');--공�
 insert into movietotal values(2,1,1,108,'2022.10.25','13','10','14','40');--블랙아담,강남,서울
 insert into movietotal values(2,1,1,108,'2022.10.25','16','00','17','30');--블랙아담,강남,서울
 
+
+
+
+
 create table regiondetail(
     theaternum number(20) primary key--지점번호 (pk)
     ,branchname varchar2(38) -- 지점 이름 (nn)

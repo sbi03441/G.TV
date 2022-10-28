@@ -35,13 +35,11 @@ public class ScreeningServiceImpl implements ScreeningService {
 	public MovieVO getMovieData(int movienum) {
 		return screeningDao.getMovieData(movienum);
 	}
-	
-	
 
-	
-
-
-
+	@Override
+	public RegiondetailVO getRegiondetail(int theaternum) {
+		return screeningDao.getRegiondetail(theaternum);
+	}
 
 	
 }

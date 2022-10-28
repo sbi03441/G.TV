@@ -16,5 +16,11 @@ public interface ScreeningDAO {
 
 	MovieVO getMovieData(int movienum);
 
+	RegiondetailVO getRegiondetail(int theaternum);
+
+
+
+
+
 
 }

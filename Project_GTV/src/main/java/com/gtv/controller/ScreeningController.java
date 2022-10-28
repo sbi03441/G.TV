@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.ScreeningService;
@@ -29,7 +31,7 @@ public class ScreeningController {
 	@Autowired
 	private ScreeningService screeningService;
 
-	@GetMapping("/screening")
+	@RequestMapping("/screening")
 	public ModelAndView screening(Model li, MovieVO mv, RegiondetailVO rv, MovietotalVO mvo) throws Exception {
 		ModelAndView m = new ModelAndView();
 		List<MovieVO> mlist = screeningService.getList(mv);
@@ -112,22 +114,54 @@ public class ScreeningController {
 		return m;
 	}
 	
+
+	@ResponseBody
 	@RequestMapping(value = "/movieData")
-	public ModelAndView movieData(HttpServletRequest request) throws Exception {
+	public String regionDetailList(HttpServletRequest request) throws Exception {
 
 		int movienum = Integer.parseInt(request.getParameter("movienum"));
 
 		ModelAndView mav = new ModelAndView();
-
 		MovieVO movieData = screeningService.getMovieData(movienum);
 
 		mav.addObject("movieData", movieData);
 		
-		
-		mav.setViewName("jsonView");
 
-		return mav;
+		return "screening";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/regionDetailList")
+	public String movieData(HttpServletRequest request) throws Exception {
+
+		int theaternum = Integer.parseInt(request.getParameter("theaternum"));
+		ModelAndView mav = new ModelAndView();
+		RegiondetailVO regvo = screeningService.getRegiondetail(theaternum);
+
+		mav.addObject("regvo", regvo);
+		
+
+		return "screening";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/movieTotalData",method= {RequestMethod.POST,RequestMethod.GET} ,consumes="application/json")
+	public String dayData(@RequestParam(value="movienum",required=false) String movienum,@RequestParam(value="theaternum",required=false) String theaternum,HttpServletRequest request) throws Exception {
+
+		movienum = request.getParameter("movienum");
+		theaternum = request.getParameter("theaternum");
+		
+	
+		System.out.println(movienum+theaternum);
+		
+		return "screening";
+		
+		
+	}
+	
+	
+	
+	
 	
 	
 	

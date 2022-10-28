@@ -22,4 +22,10 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select * from movie where movienum=#{movienum}
 	</select>
 	
+	<select id="regiondetail" resultType="region">
+		select * from regiondetail where theaternum=#{theaternum}
+	</select>
+	
+	
+	
 </mapper>

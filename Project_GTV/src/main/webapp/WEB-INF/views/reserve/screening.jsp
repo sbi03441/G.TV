@@ -14,7 +14,7 @@
 					<form action="" method="post" name="myForm">
 					<input type="hidden" id="movieSel" name="movieSel" value="" />
 					<input type="hidden" id="regionSel" name="regionSel" value="" />	
-					
+					<input type="hidden" id="dateSel" name="dateSel" value=""/>
 					
 					
 					<div class="movie-choice">
@@ -123,8 +123,8 @@
 										<c:forEach var="dvo" items="${dayWeekList }">
 											<c:if test="${! empty dayWeekList }">
 												<li class="li-day">
-													<button id="day-btn_${dvo.day}" class="li-day-btn"
-														value="_${dvo.day}">
+													<button type="button" id="day-btn_${dvo.day}" class="li-day-btn"
+														value="_${dvo.day}" onclick="dateClk(${dvo.year},${dvo.month},${dvo.day});">
 														<span class="span-dayweek ${dvo.dayOfweek}">${dvo.dayOfweek}</span>
 														<span class="span-day ${dvo.dayOfweek}">${dvo.day}</span>
 													</button>

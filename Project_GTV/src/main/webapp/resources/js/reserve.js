@@ -48,25 +48,6 @@
 
 
 
-
-$( document ).ready( function() {
-    $( '.theater_bt' ).click( function() {
-       $( '#theater_gy_btn'+ $(this).val() ).toggleClass( 'active' );
-    });
- });
- 
- $( document ).ready( function() {
-    $( '.theater_bt' ).click( function() {
-       $( '#theater_dae_btn'+ $(this).val() ).toggleClass( 'active' );
-    });
- });
-
- $( document ).ready( function() {
-    $( '.li-day-btn' ).click( function() {
-       $( '#day-btn'+ $(this).val() ).toggleClass( 'select' );
-    });
- });
-
  $( document ).ready( function() {
     $( '.hour_btn' ).click( function() {
        $( '#hour_btn'+ $(this).val() ).toggleClass( 'sel' );
@@ -99,7 +80,10 @@ function mnClk(movienum){
 		url:"movieData",
 		data: params,
 		success:function(data){
-			alert("영화 선택");
+			
+		},
+		error:function(e){
+			alert(e.responseText);
 		}
 	});
 	
@@ -117,16 +101,64 @@ function regionClk(theaternum){
 	$('#regionSel').val(theaternum);
 	
 	var params = "theaternum=" + theaternum;
-
+	
 	$.ajax({
 		type:"POST",
 		url:"regionDetailList",
-		data: params
+		data: params,
+		success:function(data){
+			
+		},
+		error:function(e){
+			alert(e.responseText);
+		}
 	});
 	
 }
 
 
+function dateClk(year,month,day){
+	
+	if($('#dateSel').val() == ""){
+		$('#day-btn_'+day).addClass('select');
+	} else {
+		$('#day-btn_' + $('#dateSel').val()).removeClass('select');
+		$('#day-btn_' +day).addClass('select');
+	}
+	$('#dateSel').val(day);
+	var strMonth = "";
+	
+	if(month<10){
+		strMonth = "0" + String(month);
+	}else{
+		strMonth = String(month);
+	}
+	
+	var strDate = "";
+	
+	strDate = year+"."+strMonth+"."+day;
+	
+	
+
+	$.ajax({
+		type:"POST",
+		url:"movieTotalData",
+		data: {"movienum":$movieSel,"theaternum":$regionSel},
+		dataType:"json",
+		success:function(data){
+			alert("날짜 선택");
+		},
+		error:function(e){
+			alert(e.responseText);
+		}
+	});
+	
+	
+	
+	
+	
+
+}
 
 
 
