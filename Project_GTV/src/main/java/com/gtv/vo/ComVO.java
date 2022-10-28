@@ -13,4 +13,7 @@ public class ComVO {
 	private String cont_com;
 	private String upload_com;
 	
+	//ÆäÀÌÂ¡
+	private int startrow;
+	private int endrow;
 }

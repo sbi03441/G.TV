@@ -1,5 +1,7 @@
 package com.gtv.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,16 @@ public class MovieComServiceImpl implements MovieComService {
 	@Override
 	public void insertCom(ComVO c) {
 		moviecomDao.insertCom(c);
+	}
+
+	@Override
+	public int getRowCount() {
+		return moviecomDao.getRowCount();
+	}
+
+	@Override
+	public List<ComVO> getComList(ComVO c) {
+		return moviecomDao.getComList(c);
 	}
 	
 }

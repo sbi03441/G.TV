@@ -1,5 +1,7 @@
 package com.gtv.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,6 +17,16 @@ public class MovieComDAOImpl implements MovieComDAO {
 	@Override
 	public void insertCom(ComVO c) {
 		sqlSession.insert("com_in", c);
+	}
+
+	@Override
+	public int getRowCount() {
+		return sqlSession.selectOne("c_count");
+	}
+
+	@Override
+	public List<ComVO> getComList(ComVO c) {
+		return sqlSession.selectList("c_list", c);
 	}
 
 }

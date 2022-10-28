@@ -53,7 +53,7 @@
 	</div>
 	<hr>
 	<!-- 평점주기 레이어 -->
-	<div class="com_ly" id="open_ly">
+	<div class="com_ly" id="open_ly" style="display: none;">
 		<strong class="ly_tit">내 코멘트 등록</strong>
 		<div class="ly_inner">
 			<div class="recom">
@@ -72,15 +72,27 @@
 				<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="코멘트를 입력해주세요."></textarea>
 			</div>
 			<!-- input_request -->
-			<div class=com_btn>
-				<input type="reset" value="취소" class="btn_cancel" onclick="$('#cont_com').focus();">
-				<input type="submit" class="btn_complet" value="확인">
-			</div>
-			<!-- com_btn -->
+				
+			<input type="submit" class="btn_complet" value="확인">
+			<input type="reset" value="취소" class="btn_cancel" onclick="$('#cont_com').focus();">
 		</form>
 	</div>
 	<!-- com_ly -->
 
+   <script>
+   let target=document.querySelector('.com_open');
+   let btnPopClose=document.querySelector('.com_ly .btn_cancel');
+   let targetID;
+
+   target.addEventListener('click',function(event){
+   	targetID=this.getAttribute('href');
+   	document.querySelector(targetID).style.display='block';
+   });
+   
+   btnPopClose.addEventListener('click',function(event){
+	  this.parentNode.parentNode.style.display='none'; 
+   });
+   </script>
 </div>
 
 

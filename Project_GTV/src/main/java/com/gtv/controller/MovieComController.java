@@ -1,10 +1,13 @@
 package com.gtv.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +26,6 @@ public class MovieComController {
 	@Autowired
 	private MovieComService moviecomService;
 	
-//	//영화등록
-//		@GetMapping("/register")
-//		public void register() {
-//			
-//		}
-//	
 	//영화리스트
 	@GetMapping("/movie")
 	public ModelAndView movie(HttpServletRequest request) {
@@ -67,6 +64,38 @@ public class MovieComController {
 		//또한 2개이상 쓸 경우, 데이터는 소멸한다. 따라서 맵을 이용하여 한번에 값전달해야한다.
 		return "redirect:/com_list";
 		
+	}
+	
+	//코멘트 리스트
+	@GetMapping("com_list")
+	public String com_list(Model m,HttpServletRequest request,ComVO c) {
+		int page=1;
+		int limit=5; //한페이지에 보여지는 목록개수
+		if(request.getParameter("page") != null) {
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		c.setStartrow((page-1)*5+1);
+		c.setEndrow(c.getStartrow()+limit-1);
+		
+		int totalCount=this.moviecomService.getRowCount();//총 코멘트 개수
+		List<ComVO> clist=this.moviecomService.getComList(c); //코멘트 목록
+		
+		/*페이징 관련 연산*/
+		int maxpage=(int)((double)totalCount/limit+0.95);//총 페이지 수
+		int startpage=(((int)((double)page/10+0.9))-1)*10+1;//시작페이지
+		int endpage=maxpage;//현재페이지에 보여질 마지막 페이지
+		
+		if(endpage > startpage+10-1) endpage=startpage+10-1;
+		
+		m.addAttribute("list", clist);//list 키 이름에 목록 저장
+		m.addAttribute("totalCount", totalCount);
+		m.addAttribute("startpage", startpage);
+		m.addAttribute("endpage", endpage);
+		m.addAttribute("maxpage", maxpage);
+		m.addAttribute("page", page);
+		
+		return "movie/com_list";
+			
 	}
 	
 

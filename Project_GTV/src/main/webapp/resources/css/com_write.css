@@ -7,9 +7,21 @@
 	padding: 10px;
 	border-radius: 10px;
 }
+
+/*.com_ly{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,.5);
+	font-size: 0;
+	text-align: center;
+	overflow: hidden;
+	
+}*/
 .com_ly{
-	position: absolute;
-    top: 0;
+	position: fixed;
     width: 535px;
     heigth: 535px;
     overflow: hidden;
@@ -23,6 +35,21 @@
     -webkit-box-shadow: 0 7px 31px rgb(0 0 0 / 50%);
     box-shadow: 0 7px 31px rgb(0 0 0 / 50%);
 }
+
+/*.com_ly:after{
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	content: '';
+}*/
+
+/*.com_ly .test{
+	display: inline-block;
+	background: #fff;
+	width: 535px;
+	height: 335px;
+	vertical-align: middle;
+}*/
 
 .com_ly .ly_tit{
 	display: block;
@@ -65,25 +92,30 @@
 .com_ly form .input_request textarea{
 	color: #000;
 	font-size: 20px;
+	width: 530px;
 }
 
-.com_btn{
+/*.btn_complet,
+.btn_cancel{
 	text-align: center;
 	margin-top: 20px;
-}
+}*/
 .btn_cancel{
 	color: #333;
     font-weight: 500;
     border: solid 1px #c3c3c3;
     background-color: #fff;
     padding: 10px 40px;
+    margin-left: 10px
+   
 }
 
 .btn_complet{
-	margin-left: 5px;
     color: #fff;
     font-weight: 500;
     border: solid 1px #ff5257;
     background-color: #ff5257;
     padding: 10px 40px;
+    margin-top: 30px;
+    margin-left: 150px;
 }
