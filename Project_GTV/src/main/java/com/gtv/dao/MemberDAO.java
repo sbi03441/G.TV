@@ -9,5 +9,7 @@ public interface MemberDAO {
 	MemberVO loginCheck(String input_id);
 
 	MemberVO find_id(MemberVO m);
+
+	void insertAuth(String id);
 	
 }

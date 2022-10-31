@@ -9,11 +9,11 @@ import com.gtv.vo.MemberVO;
 
 public class CustomUser extends User {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; // í˜ì´ì§€ì—ì„œ ì›Œë‹ì´ ë°œìƒí•˜ì§€ì•ŠìŒ
 	
 	public CustomUser(MemberVO vo) {
 		super(vo.getUser_id(), vo.getUser_pw(), vo.getAuth() );
-	} // »ı¼ºÀÚ ¿À¹ö·Îµù
+	}
 	
 	
 	public CustomUser(String username, String password,

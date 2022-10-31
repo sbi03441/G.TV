@@ -16,24 +16,24 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		// ÆäÀÌÁö ´Ù½Ã ÀÛ¼ºÇØ¾ßÇÔ.
-		System.out.println("·Î±×ÀÎ ¼º°ø");
+		
+		System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
 		
 		List<String> roleNames = new ArrayList<String>();
 		
 		authentication.getAuthorities().forEach(authority ->{
 			roleNames.add(authority.getAuthority());
-		}); // ·Î±×ÀÎ ÇÑ »ç¿ëÀÚ¿¡°Ô ºÎ¿©ÇÑ ±ÇÇÒÀ» ±¸ÇØ¼­ ¹®ÀÚ¿­·Î Ã¼Å©ÇÑ ´ÙÀ½ ÄÃ·º¼Ç¿¡ Ãß°¡
+		}); // ë¡œê·¸ì¸ í•œ ì‚¬ìš©ìì—ê²Œ ë¶€ì—¬í•œ ê¶Œí• ì„ êµ¬í•´ì„œ ë¬¸ìì—´ë¡œ ì²´í¬í•œ ë‹¤ìŒ ì»¬ë ‰ì…˜ì— ì¶”ê°€
 		
-		System.out.println("ROLE NAMES : " + roleNames); // »ç¿ëÀÚ ±ÇÇÑÀ» Ãâ·Â
+		System.out.println("ROLE NAMES : " + roleNames); // ì‚¬ìš©ì ê¶Œí•œì„ ì¶œë ¥
 		
-		if(roleNames.contains("ADMIN")) { // °ü¸®ÀÚ ±ÇÇÑÀÏ¶§
+		if(roleNames.contains("ADMIN")) { // ê´€ë¦¬ì ê¶Œí•œì¼ë•Œ
 			response.sendRedirect("/admin/main");
 			return;
 		}
 		
-		if(roleNames.contains("MEMBER")) { // ÀÏ¹İ È¸¿øÀÏ¶§
-			response.sendRedirect("/sample/member");
+		if(roleNames.contains("MEMBER")) { // ì¼ë°˜ íšŒì›ì¼ë•Œ
+			response.sendRedirect("/");
 			return;
 		}
 		

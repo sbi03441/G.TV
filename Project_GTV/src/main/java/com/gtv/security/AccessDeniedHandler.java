@@ -15,12 +15,12 @@ public class AccessDeniedHandler implements org.springframework.security.web.acc
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		
-		System.out.println("AccessDeniedHandlerÀÛµ¿");
+		System.out.println("AccessDeniedHandlerë°œë™");
 		
 		PrintWriter out = response.getWriter();
 		
 		out.print("<script>");
-		out.print("alert=('·Î±×ÀÎÀÌ ÇÊ¿äÇÑ ¼­ºñ½ºÀÔ´Ï´Ù.');");
+		out.print("alert=('ë‹¤ì‹œ ë¡œê·¸ì¸í•´ì£¼ì„¸ìš”.');");
 		out.print("</script>");
 		
 		response.sendRedirect("/login");

@@ -90,17 +90,18 @@ href="/resources/css/sign_up.css" />
 	<div id="sign_up">
 		<form name = "m" onsubmit="return join_check();" method = "post" action = "sign_up_ok">
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
-			<a href="pj_main.html" id="main_title">G.TV</a> <b id="id_title">아이디</b>
+			<a href="pj_main.html" id="main_title">G.TV</a> 
+			<b id="id_title">아이디</b>
 			<div id="id_box">
 				<input type="text" id="sign_id_input" name = "user_id">
 			</div>
 			<b id="pwd_title">비밀번호</b>
 			<div id="pwd_box">
-				<input type="text" id="sign_pwd_input" name = "user_pw">
+				<input type="password" id="sign_pwd_input" name = "user_pw">
 			</div>
 			<b id="pwd_check_title">비밀번호 재확인</b>
 			<div id="pwd_box_check">
-				<input type="text" id="sign_pwd_input2">
+				<input type="password" id="sign_pwd_input2">
 			</div>
 			<b id="name_title">이름</b>
 			<div id="name_box">

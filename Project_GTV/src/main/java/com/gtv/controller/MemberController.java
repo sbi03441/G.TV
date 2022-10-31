@@ -2,10 +2,12 @@ package com.gtv.controller;
 
 import java.io.PrintWriter;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +21,15 @@ import com.gtv.vo.MemberVO;
 import pwdconv.PwdChange;
 
 @Controller
-public class MemberComtroller {
+public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
 	
-	//濡쒓렇�씤
+	@Inject
+	BCryptPasswordEncoder pwdEncoder;
+	
+	//
 	@RequestMapping("/customlogin")
 	public ModelAndView login() {
 		
@@ -33,7 +38,7 @@ public class MemberComtroller {
 		return m;
 	}
 	
-	//�쉶�썝媛��엯 �럹�씠吏�
+	//
 	@RequestMapping("sign_up")
 	public String sign_up(Model m) {
 
@@ -49,38 +54,39 @@ public class MemberComtroller {
 		
 	
 	
-	//�쉶�썝媛��엯 �쑀�� ���옣
-	@RequestMapping("sign_up_ok")
-	public String sign_up_ok(MemberVO m) {
+	//
+	@RequestMapping(value = "sign_up_ok", method = RequestMethod.POST)
+	public String sign_up_ok(MemberVO m) throws Exception{
 		
-		m.setUser_pw(PwdChange.getPassWordToXEMD5String(m.getUser_pw()));
+		String pwd = pwdEncoder.encode(m.getUser_pw());				
+		m.setUser_pw(pwd);
 		this.memberService.insertMember(m);
-		return "redirect:/user/sign_up";
+		return "redirect:/customlogin";
 	}
 	
-	//濡쒓렇�씤 �씤利�
-	@RequestMapping("login_ok")
+	//
+	@RequestMapping(value = "login_ok", method = RequestMethod.POST)
 	public String login_ok(String user_id, String user_pw, HttpSession session, HttpServletResponse response) throws Exception {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		MemberVO dm = this.memberService.loginCheck(user_id); //媛��엯�쉶�썝 1�씠怨�, �븘�씠�뵒媛� 留욎쑝硫� 濡쒓렇�씤 �씤利�. �깉�눜 �쉶�썝 2�뒗 濡쒓렇�씤 �씤利� 紐삵븿
+		MemberVO dm = this.memberService.loginCheck(user_id); //DB에서 아이디값을 가져옴
 		
 		if(dm == null) {
 			out.println("<script>");
-			out.println("alert('媛��엯 �븞�맂 �쉶�썝�엯�땲�떎!');");
-			out.println("history.go(-1);");
+			out.println("alert('아이디가 틀립니다');");
+			out.println("history.back();");
 			out.println("</script>");
 		}else {
-			if(!dm.getUser_pw().contentEquals(PwdChange.getPassWordToXEMD5String(user_pw))) {
+			if(!pwdEncoder.matches(dm.getUser_pw(), user_pw)) {
 				out.println("<script>");
-				out.println("alert('鍮꾨쾲�씠 �떎由낅땲�떎!');");
+				out.println("alert('비밀번호가 틀렸습니다.');");
 				out.println("history.back();");
 				out.println("</script>");
 			}else {
-				session.setAttribute("id", user_id); //�꽭�뀡 �븘�씠�뵒�뿉 �븘�씠�뵒 ���옣
-				return "redirect:/user/cus_info"; //硫붿씤�쑝濡� �씠�룞
+				session.setAttribute("id", user_id); //
+				return "redirect:/user/cus_info"; //
 			}
 		}
 		return null;
@@ -123,7 +129,7 @@ public class MemberComtroller {
 		
 		if(pm == null) {
 			out.println("<script>");
-			out.println("alert('�쉶�썝�젙蹂대�� 李얠쓣 �닔 �뾾�뒿�땲�떎!\\n �삱諛붾Ⅸ �븘�씠�뵒�� �씠由꾩쓣 �엯�젰�븯�꽭�슂!);");
+			out.println("alert('占쎌돳占쎌뜚占쎌젟癰귣�占쏙옙 筌≪뼚�뱽 占쎈땾 占쎈씨占쎈뮸占쎈빍占쎈뼄!\\n 占쎌궞獄쏅뗀�뀲 占쎈툡占쎌뵠占쎈탵占쏙옙 占쎌뵠�뵳袁⑹뱽 占쎌뿯占쎌젾占쎈릭占쎄쉭占쎌뒄!);");
 			out.println("history.back();");
 			out.println("</script>");
 		}else {

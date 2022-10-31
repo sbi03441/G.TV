@@ -25,6 +25,6 @@ public class MemberVO {
 	private String del_cont;
 	private String del_date;
 	
-	// ¿©±â¿¡ ¸â¹ö ±ÇÇÑ Ãß°¡
+	// ì´ê³³ì— ê¶Œí•œì •ë³´ê°€ ë“¤ì–´ì˜¨ë‹¤.
 	private List<AuthVO> auth;
 }

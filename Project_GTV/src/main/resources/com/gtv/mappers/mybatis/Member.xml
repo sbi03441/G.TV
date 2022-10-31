@@ -7,10 +7,11 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 <mapper namespace = "Member"> <!-- 메퍼 네임스페이스 명을 Member로 지정 -->
 
 	<resultMap type="member" id="memberMap">
-		<id property="user_no" column="user_no"/>
+		<id property="user_id" column="user_id"/>
 		<!-- 프로퍼티 속성값 userid는 MemberVO 빈클래스 변수명이고, 컬럼속성값 userid는 tbl_member테이블의 컬럼명이다.
 			이 id영역은 구분 아이디 기준(유일아이디를 뜻한다.) -->
-		<result property="user_id" column="user_id"/>
+			
+		<result property="user_no" column="user_no"/>
 		<result property="user_pw" column="user_pw"/>
 		<result property="user_name" column="user_name"/>
 		<result property="user_state" column="user_state"/>
@@ -20,22 +21,26 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<resultMap type="authvo" id="authMap">
-		<result property="user_no" column="user_no"/>
+		<result property="user_id" column="user_id"/>
 		<result property="authority" column="authority"/>
 	</resultMap>
 
 	<select id="read_meminfo" parameterType="java.lang.String" resultMap="memberMap">
 	<!-- java.lang 또는 parameterType은 생략 가능하다. -->
-		select mem.user_no, user_id, user_pw, user_name, user_state, user_date, authority
-			from movie_user mem LEFT OUTER JOIN gtv_authorities auth on mem.user_no = auth.user_no
+		select mem.user_id, user_no, user_pw, user_name, user_state, user_date, authority
+			from movie_user mem LEFT OUTER JOIN gtv_authorities auth on mem.user_id = auth.user_id
 			where mem.user_id = #{id}
 	</select>
 	
 	<insert id = "m_in">
 	 insert into movie_user (user_no,user_id,user_pw,user_name,user_gender,user_phone1,user_phone2,user_phone3,
-	 user_birth1,user_birth2,user_birth3,email,email_domain,user_date,user_state) values(user_no_seq.nextval,#{user_id},#{user_pw},
+	 user_birth1,user_birth2,user_birth3,email,email_domain,user_date) values(user_no_seq.nextval,#{user_id},#{user_pw},
 	 #{user_name},#{user_gender},#{user_phone1},#{user_phone2},#{user_phone3},#{user_birth1},#{user_birth2},#{user_birth3},#{email},
-	 #{email_domain},sysdate,1)
+	 #{email_domain},sysdate)
+	</insert>
+	
+	<insert id="mem_auth" parameterType="String">
+		insert into gtv_authorities (user_id, authority) values (#{id}, 'MEMBER')
 	</insert>
 	
 	<select id = "login_ck" resultType = "member">

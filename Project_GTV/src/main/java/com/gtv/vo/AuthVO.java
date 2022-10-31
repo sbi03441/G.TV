@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class AuthVO implements GrantedAuthority {
 
-	private String user_no;
+	private String user_id;
 	private String authority;
 	
 	@Override

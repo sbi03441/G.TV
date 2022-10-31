@@ -19,10 +19,10 @@ public class UserDetailsService implements org.springframework.security.core.use
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("Load User By UserName : " + username);
 		
-		MemberVO vo = this.memberMapperDao.readMember(username); // DB·ÎºÎÅÍ ¾ÆÀÌµğ¿¡ ÇØ´çÇÏ´Â È¸¿øÁ¤º¸¸¦ ±¸ÇÔ
+		MemberVO vo = this.memberMapperDao.readMember(username); // DBë¡œë¶€í„° ì•„ì´ë””ì— í•´ë‹¹í•˜ëŠ” íšŒì›ì •ë³´ë¥¼ êµ¬í•¨
 		System.out.println("queried by member Info : " + vo);
 		
-		return (vo == null)? null : new CustomUser(vo); // »ı¼ºÀÚ¸¦ È£ÃâÇØ¼­ °Ë»öµÈ È¸¿øÁ¤º¸°ªÀ» ³Ñ±è. ±×·±´ÙÀ½ »ı¼ºµÈ °´Ã¼¸¦ ¹İÈ¯
+		return (vo == null)? null : new CustomUser(vo); // ìƒì„±ìë¥¼ í˜¸ì¶œí•´ì„œ ê²€ìƒ‰ëœ íšŒì›ì •ë³´ê°’ì„ ë„˜ê¹€. ê·¸ëŸ°ë‹¤ìŒ ìƒì„±ëœ ê°ì²´ë¥¼ ë°˜í™˜
 	}
 
 }

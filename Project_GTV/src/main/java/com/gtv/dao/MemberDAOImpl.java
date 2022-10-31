@@ -3,6 +3,7 @@ package com.gtv.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gtv.vo.MemberVO;
 
@@ -12,15 +13,19 @@ public class MemberDAOImpl implements MemberDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
 	@Override
 	public void insertMember(MemberVO m) {
 		this.sqlSession.insert("m_in",m);
-		
+	}
+	
+	@Override
+	public void insertAuth(String id) {
+		this.sqlSession.insert("mem_auth", id);
 	}
 
 	@Override
 	public MemberVO loginCheck(String input_id) {
-		
 		return this.sqlSession.selectOne("login_ck", input_id);
 	}
 
@@ -29,4 +34,5 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return this.sqlSession.selectOne("Ser_id", m);
 	}
+
 }
