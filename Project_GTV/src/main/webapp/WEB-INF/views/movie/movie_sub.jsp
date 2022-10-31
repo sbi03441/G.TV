@@ -3,12 +3,12 @@
 <%--상단 공통 페이지 외부 포함 파일 불러오기 --%>
 
 <div class="video-wrap">
-	<video src="../video/gonjo.mp4" controls></video>
+	<video src="./resources/video/gonjo.mp4" controls></video>
 </div>
 
 <div class="detail-top-wrap">
 	<div class="poster">
-		<img src="../image/gongjo_sub.png" alt="공조포스터">
+		<img src="./resources/images/main_movie/gongjo_sub.png" alt="공조포스터">
 	</div>
 	<!-- poster -->
 	<div class="detail-gongjo">
@@ -35,7 +35,7 @@
 		</ul>
 		<!-- detail-info2 -->
 		<div class="detail-botton">
-			<img id="click-like" src="../image/icon2.svg">
+			<img id="click-like" src="./resources/images/main_movie/icon2.svg">
 			<div id="booking-btm">
 				<a href="#">예매하기</a>
 			</div>
@@ -56,30 +56,83 @@
 			<li class="cont3">수사 중의 실수로 사이버 수사대로 전출됐던 남한 형사 '강진태'(유해진)는 광수대
 				복귀를 위해 모두가 기피하는 '철령'의 파트너를 자청한다.</li>
 			<li class="cont3">이렇게 다시 공조하게 된 '철령'과 '진태!</li>
-			<li class="cont3">'철령'과 재화한 '민영'(임윤아)의 마음도 불타오르는 가운데, '철령'과 '진태'는 여전히 서로의 속내를 의심하면서도
-			 나름 그럴싸한 공조 수사를 펼친다.</li>
+			<li class="cont3">'철령'과 재화한 '민영'(임윤아)의 마음도 불타오르는 가운데, '철령'과
+				'진태'는 여전히 서로의 속내를 의심하면서도 나름 그럴싸한 공조 수사를 펼친다.</li>
 		</ul>
 	</div>
 	<!-- movie-detail -->
 
 	<div class="reviews">
-		<div class="review-tit">평점 및 관람평(4,032)</div>
+
+		<div class="review-tit">
+			평점 및 관람평(4,032)<a href="com_list" class="write_mycom">내
+				평점 등록</a>
+		</div>
 		<hr>
+		<!-- 평점주기 레이어 -->
+		<div class="com_ly"  style="display: none;">
+			<strong class="ly_tit">내 코멘트 등록</strong>
+			<div class="ly_inner">
+				<div class="recom">
+					<strong class="com_tit">공조2: 인터내셔널</strong> <img
+						src="./resources/images/main_movie/thumbsup.png" alt="추천"
+						class="thumbsup">
+				</div>
+				<!-- recom -->
+			</div>
+			<!-- ly_inner -->
+			<form method="post" action="com_write_ok"
+				onsubmit="return com_check();">
+				<div class="input_request">
+					<input type="hidden" name="movienum" value="1"> <input
+						type="hidden" name="moviename" value="공조2">
+					<textarea name="cont_com" id="cont_com" rows="5" cols="80"
+						placeholder="코멘트를 입력해주세요."></textarea>
+				</div>
+				<!-- input_request -->
+
+				<input type="submit" class="btn_complet" value="확인"> <input
+					type="reset" value="취소" class="btn_cancel"
+					onclick="$('#cont_com').focus();">
+			</form>
+		</div>
+		<!-- com_ly -->
+
+		<script>
+			let target = document.querySelector('.com_open');
+			let btnPopClose = document.querySelector('.com_ly .btn_cancel');
+			let targetID;
+
+			target.addEventListener('click', function(event) {
+				targetID = this.getAttribute('href');
+				document.querySelector(targetID).style.display = 'block';
+			});
+
+			btnPopClose.addEventListener('click', function(event) {
+				this.parentNode.parentNode.style.display = 'none';
+			});
+		</script>
+
+
 		<div class="person">
 			<div id="women">
 				<img alt="사람 아이콘  제작자: Good Ware - Flaticon"
-					src="../image/woman.png">
+					src="./resources/images/main_movie/woman.png">
 				<div class="percent">58.8%</div>
 			</div>
 			<div id="men">
-				<img alt="사람 아이콘  제작자: Freepik" src="../image/man.png">
+				<img alt="사람 아이콘  제작자: Freepik"
+					src="./resources/images/main_movie/man.png">
 				<div class="percent">41.2%</div>
 			</div>
 		</div>
 		<!-- person -->
 		<div id="graph">
-			<img alt="제작자: Pixel Perfect" src="../image/graph.png">
-			<div class="age"><em>10대</em> <em>20대</em> <em>30대</em></div>
+			<img alt="제작자: Pixel Perfect"
+				src="./resources/images/main_movie/graph.png">
+			<div class="age">
+				<em>10대</em> <em>20대</em> <em>30대</em>
+			</div>
 		</div>
 	</div>
 	<!-- reviews -->

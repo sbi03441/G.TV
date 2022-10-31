@@ -12,4 +12,6 @@ public interface MovieComDAO {
 
 	List<ComVO> getComList(ComVO c);
 
+	ComVO getCont(int com_num);
+
 }

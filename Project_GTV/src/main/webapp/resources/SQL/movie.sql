@@ -14,6 +14,7 @@ insert into movie values('3','스마일');
 
 --added movie
 
+--영화 정보 테이블
 create table movietotal( -- 영화 정보
     movienum number(20) --영화 번호 (fk)
     ,theaternum number(20) -- 지점 번호(fk)
@@ -40,6 +41,7 @@ select * from movietotal;
 
 --added movietotal
 
+--영화 지역 정보
 create table regiondetail(
     theaternum number(20) primary key--지점번호 (pk)
     ,branchname varchar2(38) -- 지점 이름(nn)
@@ -57,6 +59,7 @@ insert into regiondetail values('11','판교','2');
 insert into regiondetail values('12','구리','2');
 --added regiondetail
 
+--영화 상영관 정보
 create table theater(
     thnum number(20)--상영관 번호 thnum
     ,thname varchar2(38) -- 상영관 이름 thname
@@ -91,7 +94,7 @@ insert into com (com_num,cont_com,upload_com) values(com_num_seq.nextval,#{cont_
 --com_num primary key 추가
 alter table com add com_num number(20) primary key;
 
-select * from com;
+select * from com order by com_num desc;
 
 --com_num sequence 만들기
 create SEQUENCE com_num_seq
@@ -100,5 +103,5 @@ increment by 1
 nocache;
 
 drop table com;
-
+select count(*) from com;
 commit;

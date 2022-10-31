@@ -29,4 +29,9 @@ public class MovieComDAOImpl implements MovieComDAO {
 		return sqlSession.selectList("c_list", c);
 	}
 
+	@Override
+	public ComVO getCont(int com_num) {
+		return sqlSession.selectOne("c_cont", com_num);
+	}
+
 }

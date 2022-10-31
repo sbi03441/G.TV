@@ -28,5 +28,10 @@ public class MovieComServiceImpl implements MovieComService {
 	public List<ComVO> getComList(ComVO c) {
 		return moviecomDao.getComList(c);
 	}
+
+	@Override
+	public ComVO getCont(int com_num) {
+		return moviecomDao.getCont(com_num);
+	}
 	
 }
