@@ -87,6 +87,8 @@ function mnClk(movienum){
 		}
 	});
 	
+	
+	
 }
 
 
@@ -114,18 +116,20 @@ function regionClk(theaternum){
 		}
 	});
 	
+
+	
 }
 
 
 function dateClk(year,month,day){
 	
-	if($('#dateSel').val() == ""){
+	if($('#dateSel2').val() == ""){
 		$('#day-btn_'+day).addClass('select');
 	} else {
-		$('#day-btn_' + $('#dateSel').val()).removeClass('select');
+		$('#day-btn_' + $('#dateSel2').val()).removeClass('select');
 		$('#day-btn_' +day).addClass('select');
 	}
-	$('#dateSel').val(day);
+	$('#dateSel2').val(day);
 	var strMonth = "";
 	
 	if(month<10){
@@ -137,16 +141,53 @@ function dateClk(year,month,day){
 	var strDate = "";
 	
 	strDate = year+"."+strMonth+"."+day;
+	$('#dateSel').val(strDate);
 	
+	selectConfirm();
 	
+}
 
+function selectConfirm(){
+	
+	var flag = false;
+	
+	var movieSel = $('#movieSel').val();
+	if(movieSel !=""){
+		params =  movieSel;
+		flag = true;
+	}
+	
+	var regionSel = $('#regionSel').val();
+	if(regionSel !=""){
+		params = regionSel;
+		flag = true;
+	}
+	
+	var dateSel = $('#dateSel').val();
+	if(dateSel !=""){
+		params =  dateSel;
+		flag = true;
+	}
+	
+	movieTotalData(params)
+	
+}
+
+
+function movieTotalData(params){
+	
+	
+	var movieSele = $('#movieSel').val();
+	var regionSele = $('#regionSel').val();
+	var dateSele = $('#dateSel').val();
+	
 	$.ajax({
 		type:"POST",
 		url:"movieTotalData",
-		data: {"movienum":$movieSel,"theaternum":$regionSel},
-		dataType:"json",
+		data: {movieSel:movieSele,regionSel:regionSele,dateSel:dateSele},
+		traditional:true,
 		success:function(data){
-			alert("날짜 선택");
+			
 		},
 		error:function(e){
 			alert(e.responseText);
@@ -154,15 +195,7 @@ function dateClk(year,month,day){
 	});
 	
 	
-	
-	
-	
-
 }
-
-
-
-
 
 
 

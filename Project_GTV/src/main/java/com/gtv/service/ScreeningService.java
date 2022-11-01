@@ -19,6 +19,8 @@ public interface ScreeningService {
 
 	RegiondetailVO getRegiondetail(int theaternum);
 
+	List<MovietotalVO> getMovieTotalList(MovietotalVO mtvo);
+
 
 
 

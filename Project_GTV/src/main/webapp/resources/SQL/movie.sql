@@ -24,18 +24,25 @@ create table movietotal( -- 영화 정보
     ,CONSTRAINT movietotal_regiondetail_fk FOREIGN key(theaternum) REFERENCES regiondetail(theaternum)
 );
 
+alter table movietotal add movietotalnum number(20) primary key; -- 영화 정보 번호
+alter table movietotal add moviename varchar2(38); --영화 이름
+alter table movietotal add branchname varchar2(38); --지점 이름
+alter table movietotal add thname varchar2(38); --상영관 이름
+alter table movietotal add totalseat number(20); --전체 좌석
+
 select * from movietotal;
 
-insert into movietotal values(1,1,1,108,'2022.10.25','09','00','11','00'); --공조2,강남,서울
-insert into movietotal values(1,1,1,108,'2022.10.25','12','00','14','00'); --공조2,강남,서울
-insert into movietotal values(1,2,1,108,'2022.10.25','08','50','10','50');--공조2,잠실,서울
-insert into movietotal values(1,2,1,108,'2022.10.25','11','40','13','40');--공조2,잠실,서울
-insert into movietotal values(2,1,1,108,'2022.10.25','13','10','14','40');--블랙아담,강남,서울
-insert into movietotal values(2,1,1,108,'2022.10.25','16','00','17','30');--블랙아담,강남,서울
+insert into movietotal values(1,1,1,108,'2022.11.7','09','00','11','00',1,'공조2','강남','1관',108); --공조2,강남,서울
+insert into movietotal values(1,1,1,108,'2022.11.7','12','00','14','00',2,'공조2','강남','2관',108); --공조2,강남,서울
+insert into movietotal values(1,2,1,108,'2022.11.7','08','50','10','50',3,'공조2','잠실','1관',108);--공조2,잠실,서울
+insert into movietotal values(1,2,1,108,'2022.11.7','11','40','13','40',4,'공조2','잠실','2관',108);--공조2,잠실,서울
+insert into movietotal values(2,1,1,108,'2022.11.7','13','10','14','40',5,'블랙아담','강남','1관',108);--블랙아담,강남,서울
+insert into movietotal values(2,1,1,108,'2022.11.7','16','00','17','30',6,'블랙아담','강남','2관',108);--블랙아담,강남,서울
 
+delete movietotal;
 
-
-
+select * from movietotal where movienum=1 and theaternum=1 and strdate='2022.11.7';
+commit;
 
 create table regiondetail(
     theaternum number(20) primary key--지점번호 (pk)

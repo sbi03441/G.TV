@@ -115,9 +115,9 @@ public class ScreeningController {
 	}
 	
 
-	@ResponseBody
+	
 	@RequestMapping(value = "/movieData")
-	public String regionDetailList(HttpServletRequest request) throws Exception {
+	public ModelAndView regionDetailList(HttpServletRequest request) throws Exception {
 
 		int movienum = Integer.parseInt(request.getParameter("movienum"));
 
@@ -126,37 +126,79 @@ public class ScreeningController {
 
 		mav.addObject("movieData", movieData);
 		
+		mav.setViewName("jsonView");
 
-		return "screening";
+		return mav;
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping(value = "/regionDetailList")
-	public String movieData(HttpServletRequest request) throws Exception {
+	public ModelAndView movieData(HttpServletRequest request) throws Exception {
 
 		int theaternum = Integer.parseInt(request.getParameter("theaternum"));
 		ModelAndView mav = new ModelAndView();
 		RegiondetailVO regvo = screeningService.getRegiondetail(theaternum);
 
 		mav.addObject("regvo", regvo);
-		
+		mav.setViewName("jsonView");
 
-		return "screening";
+		return mav;
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/movieTotalData",method= {RequestMethod.POST,RequestMethod.GET} ,consumes="application/json")
-	public String dayData(@RequestParam(value="movienum",required=false) String movienum,@RequestParam(value="theaternum",required=false) String theaternum,HttpServletRequest request) throws Exception {
-
-		movienum = request.getParameter("movienum");
-		theaternum = request.getParameter("theaternum");
-		
 	
-		System.out.println(movienum+theaternum);
+	@RequestMapping(value = "/movieTotalData")
+	public ModelAndView movieTotalData(HttpServletRequest request) throws Exception {
+		ModelAndView mav = new ModelAndView();
+
+		String movieSel = request.getParameter("movieSel");
+		String regionSel = request.getParameter("regionSel");
+		String dateSel = request.getParameter("dateSel");
 		
-		return "screening";
+		System.out.println("값: " + movieSel+","+regionSel+","+dateSel);
+		
+		List<MovietotalVO> mtlist = getMtlist(movieSel,regionSel,dateSel);
+
+		mav.addObject("mtlist", mtlist);
 		
 		
+		mav.setViewName("jsonView");
+		
+		return mav;
+		
+		
+	}
+
+
+
+	public List<MovietotalVO> getMtlist(String movieSel, String regionSel, String dateSel) throws Exception {
+		
+		int nmovieSel=0;
+		if(movieSel !=null) {
+			nmovieSel = Integer.parseInt(movieSel);
+		}
+		
+		int nregionSel = 0 ;
+		if(regionSel != null) {
+			nregionSel = Integer.parseInt(regionSel);
+		}
+		
+		if(dateSel == null) {
+			dateSel = "";
+		}
+		
+		
+		MovietotalVO mtvo = new MovietotalVO();
+		mtvo.setMovienum(nmovieSel);
+		mtvo.setTheaternum(nregionSel);
+		mtvo.setStrdate(dateSel);
+		
+		
+		
+		List<MovietotalVO> movietotallist = screeningService.getMovieTotalList(mtvo);
+		
+		System.out.println(movietotallist);
+		
+		return movietotallist;
 	}
 	
 	

@@ -10,12 +10,12 @@
 			</div>
 			<div class="quick-reserve-include">
 				<div class="quick-reserve-area">
-				
-					<form action="" method="post" name="myForm">
+					
+					<form action="" method="post" name="myForm" id="movieform">
 					<input type="hidden" id="movieSel" name="movieSel" value="" />
 					<input type="hidden" id="regionSel" name="regionSel" value="" />	
 					<input type="hidden" id="dateSel" name="dateSel" value=""/>
-					
+					<input type="hidden" id="dateSel2" name="dateSel2" value=""/>
 					
 					<div class="movie-choice">
 						<p class="tit" style="color: white;">영화</p>
@@ -144,22 +144,25 @@
 							<div class="movie-schedule-area">
 								<div class="result">
 									<ul>
-
-										<li class="hour_color">
-											<button type=button id="hour_btn_1" value="_1"
-												class="hour_btn">
-												<span class="time"> <strong> 08:50 </strong>
-												</span> <span class="title"> <strong> 컴백홈 </strong>
-												</span>
-												<div class="info">
-													<span class="theater"> 강남 <br> 3관
-													</span> <span class="seat"> <strong class="now">123</strong>
-														<span>/</span> <em class="all">123</em>
-													</span>
-												</div>
-											</button>
-										</li>
-
+										<c:if test="${!empty mtlist }">
+											<c:forEach var="mt" items="${mtlist}">
+												<li class="hour_color">
+													<button type=button id="hour_btn_${mt.movietotalnum}" value="_${mt.movietotalnum}"
+														class="hour_btn">
+														<span class="time"> <strong> ${mt.strhour}:${mt.strmin} </strong>
+														</span> <span class="title"> <strong> ${mt.moviename} </strong>
+														</span>
+														<div class="info">
+															<span class="theater"> ${mt.branchname} <br> ${mt.thname}
+															</span> <span class="seat"> <strong class="now">${mt.remainseat}</strong>
+																<span>/</span> <em class="all">${mt.totalseat}</em>
+															</span>
+														</div>
+													</button>
+												</li>
+											</c:forEach>
+										</c:if>
+										<!--  
 										<li class="hour_color">
 											<button type=button id="hour_btn_2" value="_2"
 												class="hour_btn">
@@ -202,6 +205,7 @@
 												</div>
 											</button>
 										</li>
+										-->
 									</ul>
 								</div>
 							</div>

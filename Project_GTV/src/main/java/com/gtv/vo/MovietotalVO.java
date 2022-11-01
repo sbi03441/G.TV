@@ -14,5 +14,9 @@ public class MovietotalVO {
 	private String strmin;		//시작 분								    
 	private	String endhour;		//종영 시간							    
 	private String endmin;		//종영 분								   
-		
+	private int movietotalnum;
+	private String moviename;
+	private String branchname;
+	private String thname;
+	private int totalseat;
 }

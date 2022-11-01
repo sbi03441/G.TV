@@ -26,6 +26,10 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select * from regiondetail where theaternum=#{theaternum}
 	</select>
 	
+	<select id="movietotallist" resultType="total">
+		select * from movietotal where movienum=#{movienum} and theaternum=#{theaternum} and strdate=#{strdate}
+	</select>
+	
 	
 	
 </mapper>
