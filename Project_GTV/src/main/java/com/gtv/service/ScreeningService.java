@@ -21,6 +21,8 @@ public interface ScreeningService {
 
 	List<MovietotalVO> getMovieTotalList(MovietotalVO mtvo);
 
+	MovietotalVO movieselect(MovietotalVO mtvo);
+
 
 
 

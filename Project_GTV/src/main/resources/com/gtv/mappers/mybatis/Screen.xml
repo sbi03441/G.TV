@@ -31,5 +31,9 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<select id="movieselect" resultType="total">
+		select * from movietotal where movietotalnum=#{movietotalnum}
+	</select>
+	
 	
 </mapper>

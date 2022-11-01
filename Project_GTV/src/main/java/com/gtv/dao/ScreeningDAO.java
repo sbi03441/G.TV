@@ -20,6 +20,8 @@ public interface ScreeningDAO {
 
 	List<MovietotalVO> getMovieTotalList(MovietotalVO mtvo);
 
+	MovietotalVO movieselect(MovietotalVO mtvo);
+
 
 
 

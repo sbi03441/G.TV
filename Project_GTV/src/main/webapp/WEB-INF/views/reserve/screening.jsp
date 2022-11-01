@@ -11,11 +11,13 @@
 			<div class="quick-reserve-include">
 				<div class="quick-reserve-area">
 					
-					<form action="" method="post" name="myForm" id="movieform">
+					<form action="reserve" method="post" name="myForm" id="movieform">
 					<input type="hidden" id="movieSel" name="movieSel" value="" />
 					<input type="hidden" id="regionSel" name="regionSel" value="" />	
 					<input type="hidden" id="dateSel" name="dateSel" value=""/>
 					<input type="hidden" id="dateSel2" name="dateSel2" value=""/>
+					<input type="hidden" id="movieTotalSel" name="movieTotalSel" value=""/>
+					
 					
 					<div class="movie-choice">
 						<p class="tit" style="color: white;">영화</p>
@@ -143,94 +145,17 @@
 						<div class="hour-schedule">
 							<div class="movie-schedule-area">
 								<div class="result">
-									<ul>
-										<c:if test="${!empty mtlist }">
-											<c:forEach var="mt" items="${mtlist}">
-												<li class="hour_color">
-													<button type=button id="hour_btn_${mt.movietotalnum}" value="_${mt.movietotalnum}"
-														class="hour_btn">
-														<span class="time"> <strong> ${mt.strhour}:${mt.strmin} </strong>
-														</span> <span class="title"> <strong> ${mt.moviename} </strong>
-														</span>
-														<div class="info">
-															<span class="theater"> ${mt.branchname} <br> ${mt.thname}
-															</span> <span class="seat"> <strong class="now">${mt.remainseat}</strong>
-																<span>/</span> <em class="all">${mt.totalseat}</em>
-															</span>
-														</div>
-													</button>
-												</li>
-											</c:forEach>
-										</c:if>
-										<!--  
-										<li class="hour_color">
-											<button type=button id="hour_btn_2" value="_2"
-												class="hour_btn">
-												<span class="time"> <strong> 11:50 </strong>
-												</span> <span class="title"> <strong> 컴백홈 </strong>
-												</span>
-												<div class="info">
-													<span class="theater"> 강남 <br> 4관
-													</span> <span class="seat"> <strong class="now">123</strong>
-														<span>/</span> <em class="all">123</em>
-													</span>
-												</div>
-											</button>
-										</li>
-										<li class="hour_color">
-											<button type=button id="hour_btn_3" value="_3"
-												class="hour_btn">
-												<span class="time"> <strong> 15:50 </strong>
-												</span> <span class="title"> <strong> 컴백홈 </strong>
-												</span>
-												<div class="info">
-													<span class="theater"> 강남 <br> 5관
-													</span> <span class="seat"> <strong class="now">123</strong>
-														<span>/</span> <em class="all">123</em>
-													</span>
-												</div>
-											</button>
-										</li>
-										<li class="hour_color">
-											<button type=button id="hour_btn_4" value="_4"
-												class="hour_btn">
-												<span class="time"> <strong> 19:50 </strong>
-												</span> <span class="title"> <strong> 컴백홈 </strong>
-												</span>
-												<div class="info">
-													<span class="theater"> 강남 <br> 6관
-													</span> <span class="seat"> <strong class="now">123</strong>
-														<span>/</span> <em class="all">123</em>
-													</span>
-												</div>
-											</button>
-										</li>
-										-->
+									<ul id="movieschedule">
+										
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="end">
-						<div class="end_area">
-							<div class="tit_area">
-								<p class="titl">컴백홈</p>
-								<p class="cate">2D</p>
-							</div>
-							<div class="info-area">
-								<p class="theater">강남</p>
-								<p class="special">3관</p>
-								<p class="date">
-									<span>2022.11.11</span> <span>(월)</span>
-								</p>
-								<div class="time">09:00~11:30</div>
-								<p class="poster">
-									<img src="">
-								</p>
-							</div>
-							<div class="result-area">
-								<a href="../html/reserve_2.jsp" class="result-btn"> 좌석선택 </a>
-							</div>
+						<div class="end_area" id="moviesele">
+							
+							
 						</div>
 					</div>
 					

@@ -28,7 +28,7 @@
 					</h1>
 					<ul class="nav">
 						<li><a href="index.jsp">HONE</a></li>
-						<li><a href="./html/reserve.jsp">COST</a></li>
+						<li><a href="/screening">RESERVE</a></li>
 						<li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
 						<li><a href="com_write">MOVIE</a></li>
 						<li><a href="#">SNACK BAR</a></li>

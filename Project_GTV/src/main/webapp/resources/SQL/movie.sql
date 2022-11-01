@@ -24,13 +24,15 @@ create table movietotal( -- 영화 정보
     ,CONSTRAINT movietotal_regiondetail_fk FOREIGN key(theaternum) REFERENCES regiondetail(theaternum)
 );
 
+
+        
 alter table movietotal add movietotalnum number(20) primary key; -- 영화 정보 번호
 alter table movietotal add moviename varchar2(38); --영화 이름
 alter table movietotal add branchname varchar2(38); --지점 이름
 alter table movietotal add thname varchar2(38); --상영관 이름
 alter table movietotal add totalseat number(20); --전체 좌석
 
-select * from movietotal;
+    select * from movietotal;
 
 insert into movietotal values(1,1,1,108,'2022.11.7','09','00','11','00',1,'공조2','강남','1관',108); --공조2,강남,서울
 insert into movietotal values(1,1,1,108,'2022.11.7','12','00','14','00',2,'공조2','강남','2관',108); --공조2,강남,서울
@@ -100,7 +102,7 @@ select com_num_seq.nextval,movienum,moviename from movie;
 
 insert into com(com_num,movienum,moviename) values(com_num_seq.nextval,1,'공조2');
 
-select distinct mov_no,mov_name from screening
+select distinct mov_no,mov_name from screening;
 
 
 --시퀀스 com_num 
@@ -110,21 +112,41 @@ INCREMENT by 1
 NOCACHE;
 
 
-
-create table test_sample2(
-    t_no int primary key
-    ,t_title varchar2(38)
-    ,t_cont varchar2(500)
+create table tbl_boardEx(
+    board_no number(38) primary key,
+    board_title varchar2(20) not null,
+    board_writer varchar2(20) not null,
+    board_hit number(38) default 0,
+    board_date date
 );
 
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목1','글쓴이1',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목2','글쓴이2',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목3','글쓴이3',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목4','글쓴이4',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목5','글쓴이5',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목6','글쓴이6',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목7','글쓴이7',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목8','글쓴이8',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목9','글쓴이9',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목10','글쓴이10',0,sysdate);
+insert into tbl_boardEx values(tbl_seq.nextval,'글제목11','글쓴이11',0,sysdate);
 
-create sequence t_no_seq_2
+
+
+
+
+create sequence tbl_seq
 start with 1
 increment by 1
 nocache;
 
+select * from tbl_boardex;
 
-select * from test_sample2;
+
+
+commit;
+
 
 
 

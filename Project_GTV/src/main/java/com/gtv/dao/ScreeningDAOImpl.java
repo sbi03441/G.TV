@@ -48,6 +48,11 @@ public class ScreeningDAOImpl implements ScreeningDAO {
 		return sqlSession.selectList("movietotallist", mtvo);
 	}
 
+	@Override
+	public MovietotalVO movieselect(MovietotalVO mtvo) {
+		return sqlSession.selectOne("movieselect", mtvo);
+	}
+
 
 	
 

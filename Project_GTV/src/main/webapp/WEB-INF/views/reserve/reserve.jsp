@@ -170,18 +170,17 @@
 				<div class="seat-result">
 					<div class="seat_wrap">
 						<div class="tit_area">
-							<p class="titl">컴백홈</p>
+							<p class="titl">${movietotal.moviename }</p>
 							<p class="cate">2D</p>
 						</div>
 						<div class="info-area">
-							<p class="theater">강남</p>
-							<p class="special">3관</p>
+							<p class="theater">${movietotal.branchname }</p>
+							<p class="special">${movietotal.thname }</p>
 							<p class="date">
-								<span>2022.11.11</span>
-								<span>(월)</span>
+								<span>${movietotal.strdate }</span>
 							</p>
 							<div class="time">
-								09:00~11:30
+								${movietotal.strhour}:${movietotal.strmin}~${movietotal.endhour}:${movietotal.endmin}
 							</div>
 							<p class="poster">
 								<img src="">

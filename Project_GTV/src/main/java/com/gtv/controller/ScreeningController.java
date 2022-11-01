@@ -14,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.ScreeningService;
@@ -138,7 +135,7 @@ public class ScreeningController {
 		int theaternum = Integer.parseInt(request.getParameter("theaternum"));
 		ModelAndView mav = new ModelAndView();
 		RegiondetailVO regvo = screeningService.getRegiondetail(theaternum);
-
+		
 		mav.addObject("regvo", regvo);
 		mav.setViewName("jsonView");
 
@@ -147,25 +144,17 @@ public class ScreeningController {
 	
 	
 	@RequestMapping(value = "/movieTotalData")
-	public ModelAndView movieTotalData(HttpServletRequest request) throws Exception {
-		ModelAndView mav = new ModelAndView();
-
+	public String movieTotalData(HttpServletRequest request,Model model) throws Exception {
+		
 		String movieSel = request.getParameter("movieSel");
 		String regionSel = request.getParameter("regionSel");
 		String dateSel = request.getParameter("dateSel");
 		
-		System.out.println("값: " + movieSel+","+regionSel+","+dateSel);
-		
 		List<MovietotalVO> mtlist = getMtlist(movieSel,regionSel,dateSel);
 
-		mav.addObject("mtlist", mtlist);
-		
-		
-		mav.setViewName("jsonView");
-		
-		return mav;
-		
-		
+		model.addAttribute("mtlist", mtlist);
+
+		return "reserve/movieschedule";
 	}
 
 
@@ -196,10 +185,33 @@ public class ScreeningController {
 		
 		List<MovietotalVO> movietotallist = screeningService.getMovieTotalList(mtvo);
 		
-		System.out.println(movietotallist);
+		
 		
 		return movietotallist;
 	}
+	
+	@RequestMapping(value = "/movieSelect")
+	public String movieSelect(HttpServletRequest request,Model model) throws Exception {
+		
+		String movieTotalSel = request.getParameter("movieTotalSel");
+		int movieTotalSeln = 0;
+		movieTotalSeln = Integer.parseInt(movieTotalSel);
+		
+		MovietotalVO mtvo = new MovietotalVO();
+		mtvo.setMovietotalnum(movieTotalSeln);
+		
+		MovietotalVO movieselect = screeningService.movieselect(mtvo);
+		
+		model.addAttribute("movieselect", movieselect);
+		
+		
+		return "reserve/movieselect";
+	}
+
+
+	
+	
+	
 	
 	
 	

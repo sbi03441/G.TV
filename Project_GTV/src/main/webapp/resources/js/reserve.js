@@ -48,11 +48,7 @@
 
 
 
- $( document ).ready( function() {
-    $( '.hour_btn' ).click( function() {
-       $( '#hour_btn'+ $(this).val() ).toggleClass( 'sel' );
-    });
- });
+
 
 
 $( document ).ready( function() {
@@ -175,8 +171,6 @@ function selectConfirm(){
 
 
 function movieTotalData(params){
-	
-	
 	var movieSele = $('#movieSel').val();
 	var regionSele = $('#regionSel').val();
 	var dateSele = $('#dateSel').val();
@@ -186,17 +180,43 @@ function movieTotalData(params){
 		url:"movieTotalData",
 		data: {movieSel:movieSele,regionSel:regionSele,dateSel:dateSele},
 		traditional:true,
-		success:function(data){
-			
+		success:function(result){
+			console.log(result)
+			$("#movieschedule").html(result);
+		},
+		error:function(e){
+			alert(e.responseText);
+		}
+	});
+}
+
+
+function hourClk(movietotalnum){
+	if($('#movieTotalSel').val() == ""){
+		$('#hour_btn_' + movietotalnum).addClass('sel');
+	} else {
+		$('#hour_btn_' + $('#movieTotalSel').val()).removeClass('sel');
+		$('#hour_btn_' + movietotalnum).addClass('sel');
+	}
+	$('#movieTotalSel').val(movietotalnum);
+	
+	var movieTotalSele = $('#movieTotalSel').val();
+	
+	$.ajax({
+		type:"POST",
+		url:"movieSelect",
+		data: {movieTotalSel:movieTotalSele},
+		traditional:true,
+		success:function(result){
+			$("#moviesele").html(result);
 		},
 		error:function(e){
 			alert(e.responseText);
 		}
 	});
 	
-	
-}
 
+}
 
 
 

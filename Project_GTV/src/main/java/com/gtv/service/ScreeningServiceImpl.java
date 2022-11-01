@@ -46,5 +46,10 @@ public class ScreeningServiceImpl implements ScreeningService {
 		return screeningDao.getMovieTotalList(mtvo);
 	}
 
+	@Override
+	public MovietotalVO movieselect(MovietotalVO mtvo) {
+		return screeningDao.movieselect(mtvo);
+	}
+
 	
 }
