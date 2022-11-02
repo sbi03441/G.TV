@@ -34,4 +34,14 @@ public class MovieComDAOImpl implements MovieComDAO {
 		return sqlSession.selectOne("c_cont", com_num);
 	}
 
+	@Override
+	public void editCom(ComVO ec) {
+		sqlSession.update("c_edit", ec);
+	}
+
+	@Override
+	public void delCom(int com_num) {
+		sqlSession.delete("c_del", com_num);
+	}
+
 }

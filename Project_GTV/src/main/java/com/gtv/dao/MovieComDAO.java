@@ -14,4 +14,8 @@ public interface MovieComDAO {
 
 	ComVO getCont(int com_num);
 
+	void editCom(ComVO ec);
+
+	void delCom(int com_num);
+
 }

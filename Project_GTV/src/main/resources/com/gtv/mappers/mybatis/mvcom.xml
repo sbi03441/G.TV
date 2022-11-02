@@ -30,4 +30,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	<select id="c_cont" parameterType="int" resultType="com">
   		select cont_com from com where com_num=#{com_num}
   	</select>
+  	
+  	<!-- 수정 -->
+  	<update id="c_edit" parameterType="com">
+  		update com set cont_com=#{cont_com} where com_num=#{com_num}
+  	</update>
+  	
+  	<!-- 삭제 -->
+  	<delete id="c_del">
+  		delete from com where com_num=#{com_num}
+  	</delete>
 </mapper> 

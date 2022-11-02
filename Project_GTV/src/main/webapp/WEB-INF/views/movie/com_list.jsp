@@ -67,19 +67,25 @@
 	<!-- com_write -->
 </div> 
 <!-- reviews -->
-<hr>
+
 <div class="com_result">
+
 <ul>
 		<li class="totalCont">코멘트 수: ${totalCount}개</li>
 <c:if test="${!empty clist }">
 	<c:forEach var="c" items="${clist }">
 		<li class="com_num">${c.com_num }</li>
-		<li class="cont"><a href="#open_edit" class="com_edit">${c.cont_com }</a></li>
+		<li class="cont">${c.cont_com }</li>
 		<!--  <li>${c.cont_com }</li> 아이디 받아오기-->
 		<li class="cont_detail">${c.upload_com }</li>
+		<input type="submit" value="삭제" id="com-remove" onclick="if(confirm('정말 삭제하시겠습니까?') == true){
+			location='com_del?com_num=${c.com_num}&page=${page }';
+				}else{return ;}">
+		<input type="button" value="수정" onclick="location='com_edit?com_num=${c.com_num}&page=${page }';">
 	</c:forEach>
 </c:if>
 </ul>
+
 
 <c:if test="${empty clist }">
 	<ul>
@@ -116,45 +122,6 @@
 </ul>
 </div>
 <!--com_result-->
-	<div class="com_ly" id="open_edit" style="display: none;">
-		<strong class="ly_tit">내 코멘트 수정</strong>
-		<div class="ly_inner">
-			<div class="recom">
-				<strong class="com_tit">공조2: 인터내셔널</strong> <img
-					src="./resources/images/main_movie/thumbsup.png" alt="추천"
-					class="thumbsup">
-			</div>
-			<!-- recom -->
-		</div>
-		<!-- ly_inner -->
-		<form method="post" action="com_edit_ok"
-			onsubmit="return com_check();">
-			<div class="input_request">
-				<input type="hidden" name="movienum" value="1">
-				<input type="hidden" name="moviename" value="공조2">
-				<textarea name="cont_com" id="cont_com" rows="5" cols="80">${c.cont_com }</textarea>
-			</div>
-			<!-- input_request -->
-				
-			<input type="submit" class="btn_complet" value="확인">
-			<input type="reset" value="취소" class="btn_cancel" onclick="$('#cont_com').focus();">
-		</form>
-	</div>
-	<!-- com_ly -->
-	
-	   <script>
-   let target=document.querySelector('.com_edit');
-   let btnPopClose=document.querySelector('.com_ly .btn_cancel');
-   let targetID;
 
-   target.addEventListener('click',function(event){
-   	targetID=this.getAttribute('href');
-   	document.querySelector(targetID).style.display='block';
-   });
-   
-   btnPopClose.addEventListener('click',function(event){
-	  this.parentNode.parentNode.style.display='none'; 
-   });
-   </script>
 
 <%@ include file="../include/footer.jsp"%>

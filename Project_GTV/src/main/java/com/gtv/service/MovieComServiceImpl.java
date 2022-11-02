@@ -33,5 +33,15 @@ public class MovieComServiceImpl implements MovieComService {
 	public ComVO getCont(int com_num) {
 		return moviecomDao.getCont(com_num);
 	}
+
+	@Override
+	public void editCom(ComVO ec) {
+		moviecomDao.editCom(ec);
+	}
+
+	@Override
+	public void delCom(int com_num) {
+		moviecomDao.delCom(com_num);
+	}
 	
 }
