@@ -103,9 +103,12 @@ public class MovieComController {
 	}
 	
 	//코멘트 수정폼
-	@GetMapping("com_edit")
-	public String com_edit(Model m, int com_num, int page,HttpServletRequest request) {
+	@GetMapping("/com_edit")
+	public String com_editPopUp(Model m, int com_num, int page,HttpServletRequest request) {
 		ComVO c=moviecomService.getCont(com_num);
+		
+		com_num =Integer.parseInt(request.getParameter("com_num"));
+		System.out.println("번호: " + com_num);
 		
 		String cont_com=request.getParameter("cont_com");
 		System.out.println("코멘트: "+cont_com);
@@ -115,17 +118,21 @@ public class MovieComController {
 		return "redirect:/com_list";
 	}
 	
-//	//수정완료
-//	@PostMapping("com_edit_ok")
-//	public ModelAndView com_edit_ok(int page, ComVO ec) {
-//		moviecomService.editCom(ec);
-//		
-//		ModelAndView mc=new ModelAndView();
-//		mc.setViewName("redirect:/com_list?page="+page+"#open_edit");
-//		mc.addObject("com_num", ec.getCom_num());
-//		mc.addObject("page", page);
-//		return mc;
-//	}
+	//수정완료
+	@PostMapping("/com_edit_ok")
+	public String com_edit_ok(ComVO ec, HttpServletRequest request,RedirectAttributes rttr) {
+		
+		String cont_com=request.getParameter("cont_com");
+		
+		System.out.println("코멘트: " +cont_com);
+		
+//		ec.setCont_com(cont_com);
+		moviecomService.editCom(ec);
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/com_list";
+		
+	}
 	
 	//삭제
 	@RequestMapping("com_del")

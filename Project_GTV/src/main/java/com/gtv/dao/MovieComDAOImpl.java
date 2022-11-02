@@ -36,6 +36,7 @@ public class MovieComDAOImpl implements MovieComDAO {
 
 	@Override
 	public void editCom(ComVO ec) {
+		System.out.println(ec.getCont_com() + " , " + ec.getCom_num());
 		sqlSession.update("c_edit", ec);
 	}
 

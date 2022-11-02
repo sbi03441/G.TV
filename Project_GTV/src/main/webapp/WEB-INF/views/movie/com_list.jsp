@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header.jsp"%>
 <%--상단 공통 페이지 외부 포함 파일 불러오기 --%>
 
@@ -44,84 +44,145 @@
 	</div>
 	<!-- detail-gongjo -->
 </div>
-<!-- detail-top-wrap --> 
+<!-- detail-top-wrap -->
 <div class="reviews">
-	<div class="review-tit">
-		평점 및 관람평(4,032)
-	</div>
+	<div class="review-tit">평점 및 관람평(4,032)</div>
 	<hr>
 	<div class="com_write">
-		<form method="post" action="com_edit_ok"
+		<form method="post" action="com_write_ok"
 			onsubmit="return com_check();">
 			<div class="input_request">
-				<input type="hidden" name="movienum" value="1">
-				<input type="hidden" name="moviename" value="공조2">
-				<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="코멘트를 입력해주세요."></textarea>
+				<input type="hidden" name="movienum" value="1"> <input
+					type="hidden" name="moviename" value="공조2">
+				<textarea name="cont_com" id="cont_com" rows="5" cols="80"
+					placeholder="코멘트를 입력해주세요."></textarea>
 			</div>
 			<!-- input_request -->
-				
-			<input type="submit" class="btn_complet" value="확인">
-			<input type="reset" value="취소" class="btn_cancel" onclick="$('#cont_com').focus();">
+
+			<input type="submit" class="btn_complet" value="확인"> <input
+				type="reset" value="취소" class="btn_cancel"
+				onclick="$('#cont_com').focus();">
 		</form>
 	</div>
 	<!-- com_write -->
-</div> 
+</div>
 <!-- reviews -->
 
 <div class="com_result">
 
-<ul>
-		<li class="totalCont">코멘트 수: ${totalCount}개</li>
-<c:if test="${!empty clist }">
-	<c:forEach var="c" items="${clist }">
-		<li class="com_num">${c.com_num }</li>
-		<li class="cont">${c.cont_com }</li>
-		<!--  <li>${c.cont_com }</li> 아이디 받아오기-->
-		<li class="cont_detail">${c.upload_com }</li>
-		<input type="submit" value="삭제" id="com-remove" onclick="if(confirm('정말 삭제하시겠습니까?') == true){
-			location='com_del?com_num=${c.com_num}&page=${page }';
-				}else{return ;}">
-		<input type="button" value="수정" onclick="location='com_edit?com_num=${c.com_num}&page=${page }';">
-	</c:forEach>
-</c:if>
-</ul>
-
-
-<c:if test="${empty clist }">
 	<ul>
 		<li class="totalCont">코멘트 수: ${totalCount}개</li>
-		<li class="empty_com">이 영화에 대한 코멘트가 없습니다!</li>
-	</ul>
-</c:if>
+		<c:if test="${!empty clist }">
+			<c:forEach var="c" items="${clist }">
+				<li class="com_num">${c.com_num }</li>
+				<li class="cont">${c.cont_com }</li>
+				<!--  <li>${c.cont_com }</li> 아이디 받아오기-->
+				<li class="cont_detail">${c.upload_com }</li>
+				<input type="submit" value="삭제" id="com-remove"
+					onclick="if(confirm('정말 삭제하시겠습니까?') == true){
+			location='com_del?com_num=${c.com_num}&page=${page }';
+				}else{return ;}">
+				<%-- <input type="button" value="수정" onclick="location='com_edit?com_num=${c.com_num}&page=${page }';">--%>
+				<input type="button" class="com_open" value="수정"
+					onclick="location.href='javascript:doDisplay();';">
 
-<%--페이징 --%>
-<ul class="paging">
-	<c:if test="${page <=1 }">
+<script>
+
+</script>
+				<!-- 평점주기 레이어 -->
+				<div class="com_ly" id="open_ly" style="display: none;">
+					<strong class="ly_tit">내 코멘트 등록</strong>
+					<div class="ly_inner">
+						<div class="recom">
+							<strong class="com_tit">공조2: 인터내셔널</strong> <img
+								src="./resources/images/main_movie/thumbsup.png" alt="추천"
+								class="thumbsup">
+						</div>
+						<!-- recom -->
+					</div>
+					<!-- ly_inner -->
+					<form method="post" action="com_edit_ok"
+						>
+						<div class="input_request">
+							<input type="hidden" name="movienum" value="1"> <input
+								type="hidden" name="moviename" value="공조2">
+							<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="수정할 글을 적어주세요!"></textarea>
+						</div>
+						<!-- input_request -->
+
+						<input type="submit" value="수정" class="btn_complet" onclick="location='com_edit_ok';"><input
+							type="reset" value="취소" class="btn_cancel"
+							onclick="$('#cont_com').focus();">
+					</form>
+				</div>
+				<!-- com_ly -->
+
+				<script>
+					function doDisplay() {
+						let con = document.getElementById("open_ly");
+						if (con.style.display == 'none') {
+							con.style.display = 'block';
+						} else {
+							con.style.display == 'none'
+						}
+					}
+					
+					function goPage(){
+						location='com_edit?com_num=${c.com_num}&page=${page }';
+					}
+
+					let btnPopClose = document
+							.querySelector('.com_ly .btn_cancel');
+					btnPopClose.addEventListener('click', function(event) {
+						this.parentNode.parentNode.style.display = 'none';
+					});
+					
+				</script>
+			</c:forEach>
+		</c:if>
+	</ul>
+
+
+	<c:if test="${empty clist }">
+		<ul>
+			<li class="totalCont">코멘트 수: ${totalCount}개</li>
+			<li class="empty_com">이 영화에 대한 코멘트가 없습니다!</li>
+		</ul>
+	</c:if>
+
+	<%--페이징 --%>
+	<ul class="paging">
+		<c:if test="${page <=1 }">
 		[이전]&nbsp;
 	</c:if>
-	<c:if test="${page > 1 }">
-		<a href="com_list?page=${page-1}">[이전]</a>&nbsp;
+		<c:if test="${page > 1 }">
+			<a href="com_list?page=${page-1}">[이전]</a>&nbsp;
 	</c:if>
-	
-	<%--현재 쪽번호 출력 --%>
-	<c:forEach var="a" begin="${startpage }" end="${endpage }" step="1">
-		<c:if test="${a == page }"><%--현재 쪽번호가 선택된 경우 --%>
+
+		<%--현재 쪽번호 출력 --%>
+		<c:forEach var="a" begin="${startpage }" end="${endpage }" step="1">
+			<c:if test="${a == page }">
+				<%--현재 쪽번호가 선택된 경우 --%>
 			<${a }>
 		</c:if>
-		<c:if test="${a != page }"><%--현재 쪽번호가 선택 안된 경우 --%>
-			<a href="com_list?page=${a }">[${a }]</a>&nbsp;
+			<c:if test="${a != page }">
+				<%--현재 쪽번호가 선택 안된 경우 --%>
+				<a href="com_list?page=${a }">[${a }]</a>&nbsp;
 		</c:if>
-	</c:forEach>
-	
-	<c:if test="${page >= maxpage }">
+		</c:forEach>
+
+		<c:if test="${page >= maxpage }">
 		다음
 	</c:if>
-	<c:if test="${page < maxpage }">
-		<a href="com_list?page=${page+1 }">[다음]</a>
-	</c:if>
-</ul>
+		<c:if test="${page < maxpage }">
+			<a href="com_list?page=${page+1 }">[다음]</a>
+		</c:if>
+	</ul>
 </div>
 <!--com_result-->
+
+
+
 
 
 <%@ include file="../include/footer.jsp"%>

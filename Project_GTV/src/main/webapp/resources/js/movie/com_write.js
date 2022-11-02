@@ -10,13 +10,6 @@ function com_check(){
 	}
 }
 
-/*function comRCheck(){
-	if(comfirm("정말 삭제하시겠습니까?") == true){
-		document.edit-com.submit();
-	}else{
-		return false;
-	}
-}*/
 
 
 	
