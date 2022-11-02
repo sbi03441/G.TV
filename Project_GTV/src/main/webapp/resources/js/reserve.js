@@ -14,14 +14,14 @@
     number = parseInt(number) - 1;
   }
   
-  if(number<0){
-  
-  }else if(number>=0){
-  	if(number<7){
-  		resultElement.innerText = number;
-  	}
-
+  if(0<=number && number<=6){
+  	resultElement.innerText = number;
+  }else if(number>6){
+  	alert("인원 선택은 6명까지 가능합니다.");
+  	number = parseInt(number) - 1;
+  	resultElement.innerText = number;
   }
+  
   
 }
  
@@ -35,14 +35,16 @@
   }else if(type === 'minus')  {
     number = parseInt(number) - 1;
   }
-  if(number<0){
   
-  }else if(number>=0){
-  	if(number<7){
-  		resultElement.innerText = number;
-  	}
-
+  if(0<=number && number<=6){
+  	resultElement.innerText = number;
+  }else if(number>6){
+  	alert("인원 선택은 6명까지 가능합니다.");
+  	number = parseInt(number) - 1;
+  	resultElement.innerText = number;
   }
+  
+  
   
 }
 
@@ -214,8 +216,6 @@ function hourClk(movietotalnum){
 			alert(e.responseText);
 		}
 	});
-	
-
 }
 
 

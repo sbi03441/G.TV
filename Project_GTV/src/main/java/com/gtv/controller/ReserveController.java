@@ -1,5 +1,7 @@
 package com.gtv.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.ReserveService;
 import com.gtv.vo.MovietotalVO;
+import com.gtv.vo.SeatNumberVO;
 
 @Controller
 public class ReserveController {
@@ -18,19 +21,30 @@ public class ReserveController {
 	
 	@RequestMapping("/reserve")
 	public ModelAndView reserve(HttpServletRequest request) {
+		
 		ModelAndView mav = new ModelAndView();
-		
 		int movieTotalSel = Integer.parseInt(request.getParameter("movieTotalSel"));
-		
 		MovietotalVO mtvo = new MovietotalVO();
 		mtvo.setMovietotalnum(movieTotalSel);
 		
 		MovietotalVO movietotal = reserveService.getMovie(mtvo);
 		
+		List<SeatNumberVO> sv = reserveService.seatview(mtvo);
 		
+		
+		
+		System.out.println(sv);
+		mav.addObject("sv", sv);
 		mav.addObject("movietotal", movietotal);
 		mav.setViewName("reserve/reserve");
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

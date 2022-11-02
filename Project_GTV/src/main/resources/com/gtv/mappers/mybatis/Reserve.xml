@@ -10,4 +10,9 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select * from movietotal where movietotalnum=#{movietotalnum}
 	</select>
 	
+	<select id="seatview" resultType="seat">
+		select seatnum from seatnumber where movietotalnum=#{movietotalnum}
+	</select>
+	
+	
 </mapper>

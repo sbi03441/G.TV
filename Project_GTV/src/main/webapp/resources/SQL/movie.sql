@@ -10,6 +10,8 @@ insert into movie values(3,'스마일');
 select * from movie where movienum=1;
 
 
+
+
 create table movietotal( -- 영화 정보
     movienum number(20) --영화 번호 (fk)
     ,theaternum number(20) -- 지점 번호 (fk)
@@ -83,6 +85,33 @@ insert into theater values(6,'2관',11,108);
 insert into theater values(7,'1관',12,108);
 insert into theater values(8,'2관',12,108);
 
+create table reservation(
+    reservenum number(20) primary key --예매 번호
+    ,movietotalnum number(20) --fk 영화 정보 번호
+    --,user_id varchar2(38) -- fk 유저 아이디
+    ,adult number(20) -- 성인
+    ,teen number(20) --청소년
+    ,seat varchar2(38) -- 좌석 번호
+    ,payment number(20) -- 결제금액
+     ,CONSTRAINT reservation_movietotalnum_fk FOREIGN key(movietotalnum) REFERENCES movietotal(movietotalnum)
+);
+
+select * from reservation;
+
+create table seatnumber(
+    movietotalnum number(20) --영화정보번호(fk)
+    ,seatnum varchar2(38) --좌석 번호
+    ,CONSTRAINT seatnumber_movietotalnum_fk FOREIGN key(movietotalnum) REFERENCES movietotal(movietotalnum)
+);
+
+insert into seatnumber values(1,'a1');
+insert into seatnumber values(1,'a5');
+
+select seatnum from seatnumber where movietotalnum=1;
+
+commit;
+
+
 create table com(
     com_num number(20) primary key
     ,movienum number(20) --영화번호(fk  pk)
@@ -94,17 +123,6 @@ create table com(
      ,CONSTRAINT com_moviename_fk FOREIGN key(moviename) REFERENCES movie(moviename)
 );
 
-
-
-insert into com(com_num,movienum,moviename)
-select com_num_seq.nextval,movienum,moviename from movie;
-
-
-insert into com(com_num,movienum,moviename) values(com_num_seq.nextval,1,'공조2');
-
-select distinct mov_no,mov_name from screening;
-
-
 --시퀀스 com_num 
 create SEQUENCE com_num_seq
 start with 1
@@ -112,40 +130,6 @@ INCREMENT by 1
 NOCACHE;
 
 
-create table tbl_boardEx(
-    board_no number(38) primary key,
-    board_title varchar2(20) not null,
-    board_writer varchar2(20) not null,
-    board_hit number(38) default 0,
-    board_date date
-);
-
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목1','글쓴이1',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목2','글쓴이2',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목3','글쓴이3',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목4','글쓴이4',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목5','글쓴이5',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목6','글쓴이6',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목7','글쓴이7',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목8','글쓴이8',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목9','글쓴이9',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목10','글쓴이10',0,sysdate);
-insert into tbl_boardEx values(tbl_seq.nextval,'글제목11','글쓴이11',0,sysdate);
-
-
-
-
-
-create sequence tbl_seq
-start with 1
-increment by 1
-nocache;
-
-select * from tbl_boardex;
-
-
-
-commit;
 
 
 

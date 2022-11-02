@@ -233,6 +233,12 @@ h2.tit{
 	background-image: url('../images/reserve/background-red.png')
 }
 
+.seat-condition.standard.common.sel{
+	background-color: #ccc!important;
+	background-position: center 0;
+	background-image: url('https://img.megabox.co.kr/static/pc/images/common/bg/bg-seat-condition-finish.png')!important;
+}
+
 .btn-seat-row{
 	overflow: hidden;
 	display: inline-block;
@@ -432,7 +438,7 @@ button.seat-condition.standard:hover{
 	width:50%;
 	height: 40px;
 	margin: 0;
-	padding: 0;
+	padding: 7px;
 	font-size:1.2em;
 	border: 0;
 	border-radius: 0;
