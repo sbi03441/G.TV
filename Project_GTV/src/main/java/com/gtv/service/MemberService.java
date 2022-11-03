@@ -11,4 +11,8 @@ public interface MemberService {
 
 	MemberVO find_id(MemberVO m);
 
+	MemberVO find_pwd(MemberVO m);
+
+	void updatePwd(MemberVO m);
+
 }

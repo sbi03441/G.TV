@@ -25,6 +25,10 @@ public class MemberVO {
 	private String del_cont;
 	private String del_date;
 	
-	// 이곳에 권한정보가 들어온다.
+	// 권한정보
 	private List<AuthVO> auth;
+	
+	// 어드민 페이징 변수
+	private int startrow;
+	private int endrow;
 }

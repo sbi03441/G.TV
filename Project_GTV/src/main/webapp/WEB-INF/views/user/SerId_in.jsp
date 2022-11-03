@@ -104,23 +104,71 @@
  width:700px;
  height:500px;
 }
+
+#SerId_show b{
+    color:black;
+    font-size:32px;
+}
+
+#SerId_show{
+  position:relative;
+  left:150px;
+  top:-163px;
+  color:black;
+  font-size:32px;
+  
+}
+
+#login_page{
+ color:black;
+ width:175px;
+ height:45px;
+ background-color:white;
+ border-width:2px;
+ border-color:black;
+ position:relative;
+ left:236px;
+ top:215px;
+ visibility:hidden;
+}
+
+
+
 </style>
 <script>
+
 $(function(){
 	$('#SerId_button').click(function(){
-		$('#SerId_reslt').empty();
+		
+		var user_name = $("#user_name").val();
+		var user_birth1 = $("#user_birth1").val();
+		var user_birth2 = $("#user_birth2").val();
+		var user_birth3 = $("#user_birth3").val();
+	
+		
+		var param = {"user_name":user_name, "user_birth1":user_birth1, "user_birth2": user_birth2, "user_birth3":user_birth3}
+		
 		$.ajax({
-			type:"POST",
+			anyne: true,
+			method:"POST",
 			url:"/SerId_in_ok",
-			data:{
-				user_name : $('#user_name'),
-				user_birth1 : $('#user_birth1'),
-				user_birth2 : $('#user_birth2'),
-				user_birth3 : $('#user_birth3')				
-			},
+			dataType:"html",
+			contentType:"application/json",
+			data:JSON.stringify(param),
 			success: function(data){
-				$('#SerId_reslt').load('SerId_in_ok.jsp');
-			}
+				var id = data;
+				var result = "<div id = 'SerId_show'>고객님의 id는 <b>"+id+"</b>입니다.</div>";
+				$('#SerId_reslt').html(result);
+				var button = document.getElementById('login_page');
+				button.style.visibility = "visible";   
+			},
+		    error: function(data) {
+		    	alert("해당 이름과 생년월일에 맞는 아이디가 존재하지 않습니다.");
+		    	$('#user_name').val('');
+		    	$('#user_birth1').val('');
+		    	$('#user_birth2').val('');
+		    	$('#user_birth3').val('');
+		    }
 			
 		});
 	});
@@ -129,13 +177,14 @@ $(function(){
 <body>
 	<div id="SerId_in">
 		<b id="SerId_in_title">아이디 찾기</b> 
+		<button type = 'button' id = 'login_page' onclick = "location.href = 'login'" style='cursor:pointer'>로그인</button>
 		<div id = "SerId_reslt">
-		<input type="text" id="user_name" name = "user_name"
+		<input type="text" id="user_name" 
 			placeholder="이름">
 		<div id = "birth_form">
-			<input type="text" id="user_birth1" name = "user_birth1" placeholder="년"> <input
-				type="text" id="user_birth2" name = "user_birth2" placeholder="월"> <input
-				type="text" id="user_birth3" name = "user_birth3" placeholder="일"></div>
+			<input type="text" id="user_birth1" placeholder="년"> <input
+				type="text" id="user_birth2" placeholder="월"> <input
+				type="text" id="user_birth3" placeholder="일"></div>
 			<button type="button" id="SerId_button">찾아보기</button>
 			<b id="SerId_in_desc">찾고자 하는 아이디의 이름과 생년월일을 적어주세요</b>
 			

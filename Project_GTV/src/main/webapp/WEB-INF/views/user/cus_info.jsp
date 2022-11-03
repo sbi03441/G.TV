@@ -3,37 +3,7 @@
 <script src="/resources/js/jquery.js"></script>
 <link rel="stylesheet" type="text/css" 
 href="/resources/css/sign_up.css" />
-<script>
-$(function(){
-	 $('#payment_info_btn').click(function(){
-		 $('#payment_history').load('payment_history.jsp');
-		 $('#inquiry_history').empty();
-		 $('#info_edit').empty();
-	 });
-});
 
-$(function(){
-	 $('#inquiry_history_btn').click(function(){
-		 $('#inquiry_history').load('inquiry_history.jsp');
-		 $('#payment_history').empty();
-		 $('#info_edit').empty();
-	 });
-});
-
-$(function(){
-	 $('#info_edit_btn').click(function(){
-		 $('#info_edit').load('info_edit.jsp');
-		 $('#payment_history').empty();
-		 $('#inquiry_history').empty();
-	 });
-});
-
-
-
-
-
-	 
-</script>
 <style>
 #cus_info {
 	background-color: white;
@@ -129,6 +99,36 @@ li a:hover{
  
 }
 </style>
+
+<script>
+$(function(){
+	 $('#payment_info_btn').click(function(){
+		 $('#payment_history').load('payment_history.jsp');
+		 $('#inquiry_history').empty();
+		 $('#info_edit').empty();
+	 });
+});
+
+$(function(){
+	 $('#inquiry_history_btn').click(function(){
+		 $('#inquiry_history').load('inquiry_history.jsp');
+		 $('#payment_history').empty();
+		 $('#info_edit').empty();
+	 });
+});
+
+$(function(){
+	 $('#info_edit_btn').click(function(){
+		 
+	 });
+});
+
+
+
+
+
+	 
+</script>
 
 <div id="cus_info">
 	<img src="resources/image/profile.jpg"> <a

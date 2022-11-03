@@ -50,4 +50,12 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	<select id = "Ser_id" resultType = "member">
 	 select user_id from movie_user where user_name = #{user_name} and user_birth1 = #{user_birth1} and user_birth2 = #{user_birth2} and user_birth3 = #{user_birth3}
 	</select>
+	
+	<select id = "Ser_pwd" resultType = "member">
+	 select * from movie_user where user_id = #{user_id} and user_name = #{user_name}
+	</select>
+	 
+	<select id = "pw_edit">
+	 update movie_user set user_pw = #{user_pw} where user_id = #{user_id}
+	</select>
 </mapper>

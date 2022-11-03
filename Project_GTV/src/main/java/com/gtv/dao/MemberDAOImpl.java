@@ -34,5 +34,16 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return this.sqlSession.selectOne("Ser_id", m);
 	}
+	
+	@Override
+	public MemberVO find_pwd(MemberVO m) {
+		return this.sqlSession.selectOne("Ser_pwd", m);
+	}
+
+	@Override
+	public void updatePwd(MemberVO m) {
+	    this.sqlSession.update("pw_edit", m);
+		
+	}
 
 }

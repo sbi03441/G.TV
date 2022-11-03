@@ -29,4 +29,14 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO find_id(MemberVO m) {
 		return this.MemberDao.find_id(m);
 	}
+	
+	@Override
+	public MemberVO find_pwd(MemberVO m) {
+		return this.MemberDao.find_pwd(m);
+	}
+
+	@Override
+	public void updatePwd(MemberVO m) {
+		this.MemberDao.updatePwd(m);		
+	}
 }
