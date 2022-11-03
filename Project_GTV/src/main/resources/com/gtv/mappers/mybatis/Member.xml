@@ -40,7 +40,7 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="mem_auth" parameterType="String">
-		insert into gtv_authorities (user_id, authority) values (#{id}, 'MEMBER')
+		insert into gtv_authorities (user_id, authority) values (#{id}, 'ROLE_MEMBER')
 	</insert>
 	
 	<select id = "login_ck" resultType = "member">

@@ -1,8 +1,10 @@
 package com.gtv.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -17,8 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.MemberService;
 import com.gtv.vo.MemberVO;
-
-import pwdconv.PwdChange;
 
 @Controller
 public class MemberController {
@@ -49,12 +49,9 @@ public class MemberController {
 	public String cus_info() {
 		
 		return "/user/cus_info";
-	}
-		
-		
+	}	
 	
-	
-	//
+	// 회원가입
 	@RequestMapping(value = "sign_up_ok", method = RequestMethod.POST)
 	public String sign_up_ok(MemberVO m) throws Exception{
 		
@@ -64,8 +61,8 @@ public class MemberController {
 		return "redirect:/customlogin";
 	}
 	
-	//
-	@RequestMapping(value = "login_ok", method = RequestMethod.POST)
+	// 로그인확인
+	/*@RequestMapping(value = "login_ok", method = RequestMethod.POST)
 	public String login_ok(String user_id, String user_pw, HttpSession session, HttpServletResponse response) throws Exception {
 		
 		response.setContentType("text/html;charset=UTF-8");
@@ -90,7 +87,7 @@ public class MemberController {
 			}
 		}
 		return null;
-	}
+	} */
 		
 //	@RequestMapping(value = "my_info")
 //	@ResponseBody
@@ -129,7 +126,7 @@ public class MemberController {
 		
 		if(pm == null) {
 			out.println("<script>");
-			out.println("alert('占쎌돳占쎌뜚占쎌젟癰귣�占쏙옙 筌≪뼚�뱽 占쎈땾 占쎈씨占쎈뮸占쎈빍占쎈뼄!\\n 占쎌궞獄쏅뗀�뀲 占쎈툡占쎌뵠占쎈탵占쏙옙 占쎌뵠�뵳袁⑹뱽 占쎌뿯占쎌젾占쎈릭占쎄쉭占쎌뒄!);");
+			out.println("alert('회원정보를 찾을 수 없습니다!\\n 올바른 아이디와 비밀번호를 입력해주세요!);");
 			out.println("history.back();");
 			out.println("</script>");
 		}else {

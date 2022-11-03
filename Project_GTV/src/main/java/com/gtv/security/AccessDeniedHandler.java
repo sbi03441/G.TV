@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.access.AccessDeniedException;
 
@@ -16,14 +17,16 @@ public class AccessDeniedHandler implements org.springframework.security.web.acc
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		
 		System.out.println("AccessDeniedHandler발동");
-		
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		out.print("<script>");
-		out.print("alert=('다시 로그인해주세요.');");
-		out.print("</script>");
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
-		response.sendRedirect("/login");
+		out.print("<script>");
+		out.print("alert('로그인이 필요합니다.');");
+		out.print("location='/customlogin';");
+		out.print("</script>");
 
 	}
 

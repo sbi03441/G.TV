@@ -28,9 +28,10 @@ function login_check(){
          <input name = "user_id" id = "user_id" type="text" placeholder = "아이디">
          <input name = "user_pw" id = "user_pw" type="password" placeholder = "비밀번호">
       </div>
-      <div id = "login_btn"><button type = "submit">로그인</button></div></form>
-      <div id = "id_check"><input type = "checkbox" name = "remember-me" id = "remember-me"><label for = "remember-me" id = "remem_label">자동로그인</label></div>
-      <div id = "SerN_in"><a href = "SerId_in">아이디 찾기</a>|<a href = "SerPwd_in">비밀번호 찾기</a> <a>|</a> <a href = "sign_up">회원가입</a></div>
+      <div id = "login_btn"><button type = "submit">로그인</button></div>
+      </form>
+      <div id = "id_ch eck"><input type = "checkbox" name = "remember-me" id = "remember-me"><label for = "remember-me" id = "remem_label">자동로그인</label></div>
+      <div id = "SerN_in"><a href = "SerId_in">아이디 찾기</a> | <a href = "SerPwd_in">비밀번호 찾기</a> | <a href = "sign_up">회원가입</a></div>
       
     </div>
     

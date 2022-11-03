@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
@@ -23,21 +24,19 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		
 		authentication.getAuthorities().forEach(authority ->{
 			roleNames.add(authority.getAuthority());
-		}); // 로그인 한 사용자에게 부여한 권할을 구해서 문자열로 체크한 다음 컬렉션에 추가
+		}); // 로그인 한 사용자에게 부여한 권할을 구해서 문자열로 체크한 다음 컬렉션에 추가 
 		
 		System.out.println("ROLE NAMES : " + roleNames); // 사용자 권한을 출력
 		
-		if(roleNames.contains("ADMIN")) { // 관리자 권한일때
-			response.sendRedirect("/admin/main");
-			return;
-		}
-		
-		if(roleNames.contains("MEMBER")) { // 일반 회원일때
+		if(roleNames.contains("ROLE_ADMIN")) { // 관리자 권한일때
 			response.sendRedirect("/");
 			return;
 		}
 		
-		response.sendRedirect("/");
+		if(roleNames.contains("ROLE_MEMBER")) { // 일반 회원일때
+			response.sendRedirect("/");
+			return;
+		}
 
 	}
 
