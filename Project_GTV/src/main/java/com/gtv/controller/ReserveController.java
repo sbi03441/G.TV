@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gtv.service.ReserveService;
 import com.gtv.vo.MovietotalVO;
 import com.gtv.vo.SeatNumberVO;
+import com.gtv.vo.Seat_theaterVO;
 
 @Controller
 public class ReserveController {
@@ -29,12 +30,12 @@ public class ReserveController {
 		
 		MovietotalVO movietotal = reserveService.getMovie(mtvo);
 		
-		List<SeatNumberVO> sv = reserveService.seatview(mtvo);
+		List<Seat_theaterVO> stv = reserveService.getSeat(mtvo);
+		
+		System.out.println(stv);
 		
 		
-		
-		System.out.println(sv);
-		mav.addObject("sv", sv);
+		mav.addObject("seat", stv);
 		mav.addObject("movietotal", movietotal);
 		mav.setViewName("reserve/reserve");
 		return mav;

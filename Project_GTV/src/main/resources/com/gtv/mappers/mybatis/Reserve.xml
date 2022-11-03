@@ -11,7 +11,11 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="seatview" resultType="seat">
-		select seatnum from seatnumber where movietotalnum=#{movietotalnum}
+		select * from seatnumber where movietotalnum=#{movietotalnum}
+	</select>
+	
+	<select id="getseat" resultType="seat">
+		select * from seat_theater where movietotalnum=#{movietotalnum}
 	</select>
 	
 	

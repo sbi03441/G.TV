@@ -1,64 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-	<div class="inner-wrap">
-		<div class="quick_reserve">
-			<h2 class="tit">빠른예매</h2>
-			<div class="seat-select-section">
-				<form action="" method="post" name="reserveForm" id="reserveForm">
-					<input type="hidden" id="movieTotalSel" name="movieTotalSel" value="${movietotal.movietotalnum }"/>
-					<input type="hidden" id="adultSel" name="adultSel" value=""/>
-					<input type="hidden" id="teenSel" name="teenSel" value=""/>
-					<input type="hidden" id="seat1Sel" name="seat1Sel" value=""/>
-					<input type="hidden" id="seat2Sel" name="seat2Sel" value=""/>
-					<input type="hidden" id="seat3Sel" name="seat3Sel" value=""/>
-					<input type="hidden" id="seat4Sel" name="seat4Sel" value=""/>
-					<input type="hidden" id="seat5Sel" name="seat5Sel" value=""/>
-					<input type="hidden" id="seat6Sel" name="seat6Sel" value=""/>
-					<input type="hidden" id="paySel" name="paySel" value=""/>
-					<input type="hidden" id="useridSel" name="useridSel" value=""/>
-					
-					<div class="seat-section">
-						<div class="tit-util">
-							<h3 class="tit small">관람인원선택</h3>
-						</div>
-						<div class="seat-area">
-							<div class="seat-count" style="min-height:52px;">
-								<div class="cell">
-									<p class="txt">성인</p>
-									<div class="count">
-										<button type="button" class="down" onclick='count("minus")' title="성인 좌석 선택 감소">-</button>
-										<div class="number">
-											<button type="button" class="now" id="now" title="성인 현재 좌석 선택 수">0</button>
-										</div>
-										<button type="button" class="up" onclick='count("plus")' title="성인 좌석 선택 증가">+</button>
+<div class="inner-wrap">
+	<div class="quick_reserve">
+		<h2 class="tit">빠른예매</h2>
+		<div class="seat-select-section">
+			<form action="" method="post" name="reserveForm" id="reserveForm">
+				<input type="hidden" id="movieTotalSel" name="movieTotalSel"
+					value="${movietotal.movietotalnum }" /> <input type="hidden"
+					id="adultSel" name="adultSel" value="" /> <input type="hidden"
+					id="teenSel" name="teenSel" value="" /> <input type="hidden"
+					id="seat1Sel" name="seat1Sel" value="" /> <input type="hidden"
+					id="seat2Sel" name="seat2Sel" value="" /> <input type="hidden"
+					id="seat3Sel" name="seat3Sel" value="" /> <input type="hidden"
+					id="seat4Sel" name="seat4Sel" value="" /> <input type="hidden"
+					id="seat5Sel" name="seat5Sel" value="" /> <input type="hidden"
+					id="seat6Sel" name="seat6Sel" value="" /> <input type="hidden"
+					id="paySel" name="paySel" value="" /> <input type="hidden"
+					id="useridSel" name="useridSel" value="" />
+
+				<div class="seat-section">
+					<div class="tit-util">
+						<h3 class="tit small">관람인원선택</h3>
+					</div>
+					<div class="seat-area">
+						<div class="seat-count" style="min-height: 52px;">
+							<div class="cell">
+								<p class="txt">성인</p>
+								<div class="count">
+									<button type="button" class="down" onclick='count("minus")'
+										title="성인 좌석 선택 감소">-</button>
+									<div class="number">
+										<button type="button" class="now" id="now"
+											title="성인 현재 좌석 선택 수">0</button>
 									</div>
-								</div>
-								<div class="cell">
-									<p class="txt">청소년</p>
-									<div class="count">
-										<button type="button" class="down" onclick='count2("minus")' title="청소년 좌석 선택 감소">-</button>
-										<div class="number">
-											<button type="button" class="now" id="now2" title="청소년 현재 좌석 선택 수">0</button>
-										</div>
-										<button type="button" class="up" onclick='count2("plus")' title="청소년 좌석 선택 증가">+</button>
-									</div>
+									<button type="button" class="up" onclick='count("plus")'
+										title="성인 좌석 선택 증가">+</button>
 								</div>
 							</div>
-							<div class="seat-layout">
-								<div class="scroll">
-									<div class="mCustomScrollBox">
-										<div class="mSCB_container">
-											<div id="seatLayout">
-												
+							<div class="cell">
+								<p class="txt">청소년</p>
+								<div class="count">
+									<button type="button" class="down" onclick='count2("minus")'
+										title="청소년 좌석 선택 감소">-</button>
+									<div class="number">
+										<button type="button" class="now" id="now2"
+											title="청소년 현재 좌석 선택 수">0</button>
+									</div>
+									<button type="button" class="up" onclick='count2("plus")'
+										title="청소년 좌석 선택 증가">+</button>
+								</div>
+							</div>
+						</div>
+						<div class="seat-layout">
+							<div class="scroll">
+								<div class="mCustomScrollBox">
+									<div class="mSCB_container">
+										<div id="seatLayout">
+													
 												<div>
 													<div class="screen" style="position:absolute; left:281px; top:10px;">screen</div>
+													<table>
+									<c:forEach begin="1" end="13" var="i">
+										<tr>
+											<td><c:if test="${i eq 1}">
+													<c:set value="A" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 2}">
+													<c:set value="B" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 3}">
+													<c:set value="C" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 4}">
+													<c:set value="D" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 5}">
+													<c:set value="E" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 6}">
+													<c:set value="F" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 7}">
+													<c:set value="G" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 8}">
+													<c:set value="H" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 9}">
+													<c:set value="I" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 10}">
+													<c:set value="J" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 11}">
+													<c:set value="K" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 12}">
+													<c:set value="L" var="seatInit"></c:set>
+												</c:if> <c:if test="${i eq 13}">
+													<c:set value="M" var="seatInit"></c:set>
+												</c:if>${seatInit}</td>
+											<c:forEach begin="1" end="15" var="j">
+												<td class="bookable"><label for="seat${(i-1)*15 + j}">
+														<input type="checkBox" class="seat" name="${seatInit}${j}"
+														id="seat${(i-1)*15 + j}" value="${seatInit}${j}">&nbsp${j}&nbsp
+												</label></td>
+												<c:if test="${j eq 4}">
+													<td></td>
+												</c:if>
+												<c:if test="${j eq 11}">
+													<td></td>
+												</c:if>
+											</c:forEach>
+										</tr>
+									</c:forEach>
+								</table>
+													<!-- 
 													<button type="button" class="btn-seat-row" title="A 행" style="position:absolute; left:236px; top:52px;">A</button>
-													<button type="button" id="seat_btn_a1" value="_a1" class="seat-condition standard common" title="A1" style="position:absolute; left:281px; top:50px; width:20px;"><span class="num">1</span></button>
+													<button type="button" id="seat_btn1" value="1" class="seat-condition standard common" title="A1" style="position:absolute; left:281px; top:50px; width:20px;"><span class="num">1</span></button>
 													<button type="button" id="seat_btn_a2" value="_a2" class="seat-condition standard common" title="A2" style="position:absolute; left:301px; top:50px; width:20px;"><span class="num">2</span></button>
 													<button type="button" id="seat_btn_a3" value="_a3" class="seat-condition standard common" title="A3" style="position:absolute; left:321px; top:50px; width:20px;"><span class="num">3</span></button>
 													<button type="button" id="seat_btn_a4" value="_a4" class="seat-condition standard common" title="A4" style="position:absolute; left:349px; top:50px; width:20px;"><span class="num">4</span></button>
-													<button type="button" id="seat_btn_a5" value="_a5" class="seat-condition standard common" title="A5" style="position:absolute; left:369px; top:50px; width:20px;"><span class="num">5</span></button>
+													<button type="button" id="seat_btn5" value="5" class="seat-condition standard common" title="A5" style="position:absolute; left:369px; top:50px; width:20px;"><span class="num">5</span></button>
 													<button type="button" id="seat_btn_a6" value="_a6" class="seat-condition standard common" title="A6" style="position:absolute; left:389px; top:50px; width:20px;"><span class="num">6</span></button>
 													<button type="button" id="seat_btn_a7" value="_a7" class="seat-condition standard common" title="A7" style="position:absolute; left:409px; top:50px; width:20px;"><span class="num">7</span></button>
 													<button type="button" id="seat_btn_a8" value="_a8" class="seat-condition standard common" title="A8" style="position:absolute; left:429px; top:50px; width:20px;"><span class="num">8</span></button>
@@ -170,54 +223,100 @@
 													<button type="button" id="seat_btn_i10" value="_i10" class="seat-condition standard common" title="I10" style="position:absolute; left:477px; top:210px; width:20px;"><span class="num">10</span></button>
 													<button type="button" id="seat_btn_i11" value="_i11" class="seat-condition standard common" title="I11" style="position:absolute; left:497px; top:210px; width:20px;"><span class="num">11</span></button>
 													<button type="button" id="seat_btn_i12" value="_i12" class="seat-condition standard common" title="I12" style="position:absolute; left:517px; top:210px; width:20px;"><span class="num">12</span></button>
+													 -->
 												</div>
-											</div>
+												 
 										</div>
 									</div>
 								</div>
-									
 							</div>
-						</div>
-						
-					</div>
-					<div class="seat-result">
-						<div class="seat_wrap">
-							<div class="tit_area">
-								<p class="titl">${movietotal.moviename }</p>
-								<p class="cate">2D</p>
-							</div>
-							<div class="info-area">
-								<p class="theater">${movietotal.branchname }</p>
-								<p class="special">${movietotal.thname }</p>
-								<p class="date">
-									<span>${movietotal.strdate }</span>
-								</p>
-								<div class="time">
-									${movietotal.strhour}:${movietotal.strmin}~${movietotal.endhour}:${movietotal.endmin}
-								</div>
-								<p class="poster">
-									<img src="">
-								</p>
-							</div>
-							<div class="choice-seat-area"></div>
-							<div class="pay-area">
-								<div class="pay">
-									<p class="pay-tit">최종결제금액</p>
-									<div class="money">
-										<em>0</em>
-										<span style="display: block; float:left; padding: 0 0 0 5px; line-height: 35px;">원</span>
-									</div>
-								</div>
-							</div>
-							<div class="finish-area">
-								<a class="finish-area-btn" href="/screening" >이전</a>
-								<input type="submit" class="finish-area-btn active" value="결제" />
-							</div>
+
 						</div>
 					</div>
-				</form>
-			</div>
+
+				</div>
+				<div class="seat-result">
+					<div class="seat_wrap">
+						<div class="tit_area">
+							<p class="titl">${movietotal.moviename }</p>
+							<p class="cate">2D</p>
+						</div>
+						<div class="info-area">
+							<p class="theater">${movietotal.branchname }</p>
+							<p class="special">${movietotal.thname }</p>
+							<p class="date">
+								<span>${movietotal.strdate }</span>
+							</p>
+							<div class="time">
+								${movietotal.strhour}:${movietotal.strmin}~${movietotal.endhour}:${movietotal.endmin}
+							</div>
+							<p class="poster">
+								<img src="">
+							</p>
+						</div>
+						<div class="choice-seat-area"></div>
+						<div class="pay-area">
+							<div class="pay">
+								<p class="pay-tit">최종결제금액</p>
+								<div class="money">
+									<em>0</em> <span
+										style="display: block; float: left; padding: 0 0 0 5px; line-height: 35px;">원</span>
+								</div>
+							</div>
+						</div>
+						<div class="finish-area">
+							<a class="finish-area-btn" href="/screening">이전</a> <input
+								type="submit" class="finish-area-btn active" value="결제" />
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
-		
 	</div>
+
+</div>
+<script type="text/javascript">
+	var list = [];
+	<c:forEach items="${seats}" var="seat">
+		list.push("${seat.seat_name}");
+	</c:forEach>
+	
+
+	/*
+	for (var i = 0; i < list.length; i++) {
+		if(list[i]== $('#seat_btn1').val){
+			$( '#seat_btn1' ).addClass( 'sel' );
+		}
+		
+	}
+	*/
+	
+	
+	for (var i = 0; i < list.length; i++) { // 이미 예매된 좌석 선택 불가
+		for (var j = 1; j < $("input:checkbox[class='seat']").length + 1; j++) {
+			if (list[i] == $("input:checkbox[id='seat" + j + "']").val()) {
+				$("input:checkbox[id='seat" + j + "']").parents("td").attr(
+						"class", "booked");
+				$("input:checkbox[id='seat" + j + "']").attr('disabled',true);
+			}
+		}
+	}
+	$(function() { 
+		$('td').mouseover(function() {
+			if (this.className == 'bookable')
+				$(this).addClass('over');
+		});
+		$('.bookable').mouseout(function() {
+			$(this).removeClass('over');
+		});
+	});
+	
+	
+	
+	
+</script>
+
+
+
+
 <%@ include file="../include/footer.jsp"%>

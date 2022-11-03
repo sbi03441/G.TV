@@ -33,15 +33,19 @@ alter table movietotal add moviename varchar2(38); --영화 이름
 alter table movietotal add branchname varchar2(38); --지점 이름
 alter table movietotal add thname varchar2(38); --상영관 이름
 alter table movietotal add totalseat number(20); --전체 좌석
+alter table movietotal add thnum number(20); --상영관 번호
+
+
+
 
     select * from movietotal;
 
-insert into movietotal values(1,1,1,108,'2022.11.7','09','00','11','00',1,'공조2','강남','1관',108); --공조2,강남,서울
-insert into movietotal values(1,1,1,108,'2022.11.7','12','00','14','00',2,'공조2','강남','2관',108); --공조2,강남,서울
-insert into movietotal values(1,2,1,108,'2022.11.7','08','50','10','50',3,'공조2','잠실','1관',108);--공조2,잠실,서울
-insert into movietotal values(1,2,1,108,'2022.11.7','11','40','13','40',4,'공조2','잠실','2관',108);--공조2,잠실,서울
-insert into movietotal values(2,1,1,108,'2022.11.7','13','10','14','40',5,'블랙아담','강남','1관',108);--블랙아담,강남,서울
-insert into movietotal values(2,1,1,108,'2022.11.7','16','00','17','30',6,'블랙아담','강남','2관',108);--블랙아담,강남,서울
+insert into movietotal values(1,1,1,108,'2022.11.11','09','00','11','00',1,'공조2','강남','1관',108,1); --공조2,강남,서울
+insert into movietotal values(1,1,1,108,'2022.11.11','12','00','14','00',2,'공조2','강남','2관',108,2); --공조2,강남,서울
+insert into movietotal values(1,2,1,108,'2022.11.11','08','50','10','50',3,'공조2','잠실','1관',108,3);--공조2,잠실,서울
+insert into movietotal values(1,2,1,108,'2022.11.11','11','40','13','40',4,'공조2','잠실','2관',108,4);--공조2,잠실,서울
+insert into movietotal values(2,1,1,108,'2022.11.11','13','10','14','40',5,'블랙아담','강남','1관',108,5);--블랙아담,강남,서울
+insert into movietotal values(2,1,1,108,'2022.11.11','16','00','17','30',6,'블랙아담','강남','2관',108,6);--블랙아담,강남,서울
 
 delete movietotal;
 
@@ -68,22 +72,41 @@ insert into regiondetail values('12','구리','2','경기');
 
 
 create table theater(
-    thnum number(20) --상영관 번호 
-    ,thname varchar2(38) -- 상영관 이름
+    thname varchar2(38) -- 상영관 이름
     ,theaternum number(20) --지점번호 강남,잠실(fk)
     , totalseat number(20) --전체 좌석 (nn)
     , constraint theater_theaternum_fk foreign key (theaternum) references
     regiondetail (theaternum)
 );
 
-insert into theater values(1,'1관',1,108);
-insert into theater values(2,'2관',1,108);
-insert into theater values(3,'1관',2,108);
-insert into theater values(4,'2관',2,108);
-insert into theater values(5,'1관',11,108);
-insert into theater values(6,'2관',11,108);
-insert into theater values(7,'1관',12,108);
-insert into theater values(8,'2관',12,108);
+ create table seat_theater(
+    movietotalnum number(20) --(fk)
+    ,thnum number(20)
+    ,seat_name varchar2(38)
+     ,CONSTRAINT seat_theater_movietotalnum_fk FOREIGN key(movietotalnum) REFERENCES movietotal(movietotalnum)
+);
+
+
+
+insert into seat_theater VALUES (1,1,'A1');
+insert into seat_theater VALUES (1,1,'A5');
+
+delete seat_theater;
+COMMIT;
+
+select * from seat_theater;
+
+insert into theater values('1관',1,108);
+insert into theater values('2관',1,108);
+insert into theater values('1관',2,108);
+insert into theater values('2관',2,108);
+insert into theater values('1관',11,108);
+insert into theater values('2관',11,108);
+insert into theater values('1관',12,108);
+insert into theater values('2관',12,108);
+
+
+
 
 create table reservation(
     reservenum number(20) primary key --예매 번호
@@ -98,18 +121,23 @@ create table reservation(
 
 select * from reservation;
 
+/*
 create table seatnumber(
     movietotalnum number(20) --영화정보번호(fk)
     ,seatnum varchar2(38) --좌석 번호
     ,CONSTRAINT seatnumber_movietotalnum_fk FOREIGN key(movietotalnum) REFERENCES movietotal(movietotalnum)
 );
 
+select * from seatnumber;
+
 insert into seatnumber values(1,'a1');
 insert into seatnumber values(1,'a5');
 
 select seatnum from seatnumber where movietotalnum=1;
 
-commit;
+
+drop table seatnumber;
+*/
 
 
 create table com(
