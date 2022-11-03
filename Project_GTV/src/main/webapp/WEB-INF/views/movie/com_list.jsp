@@ -84,13 +84,14 @@
 				}else{return ;}">
 				<%-- <input type="button" value="수정" onclick="location='com_edit?com_num=${c.com_num}&page=${page }';">--%>
 				<input type="button" class="com_open" value="수정"
-					onclick="location.href='javascript:doDisplay();';">
+					onclick="location='com_edit?com_num=${c.com_num}&page=${page}';">
+				 	<%--<a href="com_edit?com_num=${c.com_num}&page=${page}&state=edit">수정</a>--%>
 
 <script>
 
 </script>
 				<!-- 평점주기 레이어 -->
-				<div class="com_ly" id="open_ly" style="display: none;">
+				<div class="com_ly" id="open_ly">
 					<strong class="ly_tit">내 코멘트 등록</strong>
 					<div class="ly_inner">
 						<div class="recom">
@@ -101,16 +102,18 @@
 						<!-- recom -->
 					</div>
 					<!-- ly_inner -->
-					<form method="post" action="com_edit_ok"
-						>
+					<form method="post" action="com_edit_ok" id="testForm">					
 						<div class="input_request">
 							<input type="hidden" name="movienum" value="1"> <input
 								type="hidden" name="moviename" value="공조2">
+							<input type="hidden" name="com_num" value="${com_num2}">
+							<input type="hidden" name="page" value="${page}">
+							
 							<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="수정할 글을 적어주세요!"></textarea>
 						</div>
 						<!-- input_request -->
 
-						<input type="submit" value="수정" class="btn_complet" onclick="location='com_edit_ok';"><input
+						<input type="submit" value="수정" class="btn_complet"><input
 							type="reset" value="취소" class="btn_cancel"
 							onclick="$('#cont_com').focus();">
 					</form>
@@ -131,12 +134,20 @@
 						location='com_edit?com_num=${c.com_num}&page=${page }';
 					}
 
-					let btnPopClose = document
+			/*	let btnPopClose = document
 							.querySelector('.com_ly .btn_cancel');
 					btnPopClose.addEventListener('click', function(event) {
 						this.parentNode.parentNode.style.display = 'none';
-					});
+					}); */
 					
+					function submit(){
+						let myform = document.getElementById('testForm');
+						fromData = new FormData(myform);
+						fetch('http://localhost:8080/com_edit',{
+							method:'POST',
+							body: myform
+						});
+					}
 				</script>
 			</c:forEach>
 		</c:if>
@@ -156,7 +167,7 @@
 		[이전]&nbsp;
 	</c:if>
 		<c:if test="${page > 1 }">
-			<a href="com_list?page=${page-1}">[이전]</a>&nbsp;
+			<a href="com_list?page=${page-1}&com_num=${com_num2}">[이전]</a>&nbsp;
 	</c:if>
 
 		<%--현재 쪽번호 출력 --%>
@@ -167,7 +178,7 @@
 		</c:if>
 			<c:if test="${a != page }">
 				<%--현재 쪽번호가 선택 안된 경우 --%>
-				<a href="com_list?page=${a }">[${a }]</a>&nbsp;
+				<a href="com_list?page=${a }&com_num=${com_num2}">[${a }]</a>&nbsp;
 		</c:if>
 		</c:forEach>
 
@@ -175,7 +186,7 @@
 		다음
 	</c:if>
 		<c:if test="${page < maxpage }">
-			<a href="com_list?page=${page+1 }">[다음]</a>
+			<a href="com_list?page=${page+1 }&com_num=${com_num2}">[다음]</a>
 		</c:if>
 	</ul>
 </div>

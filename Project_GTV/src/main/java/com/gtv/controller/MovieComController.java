@@ -70,12 +70,13 @@ public class MovieComController {
 	
 	//코멘트 리스트
 	@GetMapping("com_list")
-	public String com_list(Model m,HttpServletRequest request,ComVO c) {
+	public String com_list(Model m,HttpServletRequest request,ComVO c,int com_num) {
 		int page=1;
 		int limit=5; //한페이지에 보여지는 목록개수
 		if(request.getParameter("page") != null) {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
+		
 		c.setStartrow((page-1)*5+1);
 		c.setEndrow(c.getStartrow()+limit-1);
 		
@@ -97,6 +98,7 @@ public class MovieComController {
 		m.addAttribute("endpage", endpage);
 		m.addAttribute("maxpage", maxpage);
 		m.addAttribute("page", page);
+		m.addAttribute("com_num2",com_num);
 		
 		return "movie/com_list";
 			
@@ -107,30 +109,44 @@ public class MovieComController {
 	public String com_editPopUp(Model m, int com_num, int page,HttpServletRequest request) {
 		ComVO c=moviecomService.getCont(com_num);
 		
-		com_num =Integer.parseInt(request.getParameter("com_num"));
-		System.out.println("번호: " + com_num);
+		//com_num =Integer.parseInt(request.getParameter("com_num"));
+		System.out.println("번호 수정폼: " + com_num);
+		System.out.println("==========================>");
 		
-		String cont_com=request.getParameter("cont_com");
-		System.out.println("코멘트: "+cont_com);
-		m.addAttribute("c", c);
-		m.addAttribute("page", page);
+		//m.addAttribute("c", c);
+		//m.addAttribute("com_num", com_num);
+		//m.addAttribute("page", page);
 		
-		return "redirect:/com_list";
+		return "redirect:/com_list?com_num="+com_num+"&page="+page;
 	}
 	
 	//수정완료
 	@PostMapping("/com_edit_ok")
-	public String com_edit_ok(ComVO ec, HttpServletRequest request,RedirectAttributes rttr) {
+	public ModelAndView com_edit_ok(Model m,ComVO ec,int com_num, int page, HttpServletRequest request,RedirectAttributes rttr) {
 		
-		String cont_com=request.getParameter("cont_com");
-		
-		System.out.println("코멘트: " +cont_com);
-		
-//		ec.setCont_com(cont_com);
 		moviecomService.editCom(ec);
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
-		return "redirect:/com_list";
+//		String cont_com=request.getParameter("cont_com");
+//		System.out.println("코멘트: " +cont_com);
+		//com_num =Integer.parseInt(request.getParameter("com_num"));
+		System.out.println("번호: " + ec.getCom_num());
+		System.out.println("페이지: " + page);
+		System.out.println(ec.getCont_com());
+		
+		
+		String movienum=request.getParameter("movienum");
+		String moviename=request.getParameter("moviename");
+		System.out.println("=================>");
+		System.out.println("영화 번호: "+movienum + "영화 이름: "+moviename);
+		
+		ModelAndView cm=new ModelAndView();
+		cm.setViewName("redirect:/com_list");
+		cm.addObject("page", page);
+		cm.addObject("com_num",com_num);
+		return cm;
+	
+//		rttr.addFlashAttribute("msg", "SUCCESS");
+//		return new ModelAndView("movie/com_list?page="+page);
 		
 	}
 	
