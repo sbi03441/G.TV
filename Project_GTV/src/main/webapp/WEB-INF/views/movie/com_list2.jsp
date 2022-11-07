@@ -61,7 +61,7 @@
 			</div>
 			 <!-- input_request -->
 
-			<input type="submit" class="btn_complet" value="확인"> <input
+			<input type="submit" class="com_list_btn" value="확인"> <input
 				type="reset" value="취소" class="btn_cancel"
 				onclick="$('#cont_com').focus();">
 		</form>
