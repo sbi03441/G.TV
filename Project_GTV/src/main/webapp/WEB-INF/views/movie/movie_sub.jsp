@@ -65,12 +65,12 @@
 	<div class="reviews">
 
 		<div class="review-tit">
-			평점 및 관람평(4,032)<a href="com_list" class="write_mycom">내
-				평점 등록</a>
+			평점 및 관람평(4,032)<a href="#open_ly" class="write_mycom com_open">내
+				평점 등록</a><a href="com_list" class="write_mycom">후기 보기</a>
 		</div>
 		<hr>
 		<!-- 평점주기 레이어 -->
-		<div class="com_ly"  style="display: none;">
+		<div class="com_ly" id="open_ly" style="display: none;">
 			<strong class="ly_tit">내 코멘트 등록</strong>
 			<div class="ly_inner">
 				<div class="recom">

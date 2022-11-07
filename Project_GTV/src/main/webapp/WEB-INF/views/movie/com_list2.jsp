@@ -49,15 +49,17 @@
 	<div class="review-tit">평점 및 관람평(4,032)</div>
 	<hr>
 	<div class="com_write">
-		<form method="post" action="com_write_ok"
+		<form method="post" action="com_edit_ok"
 			onsubmit="return com_check();">
 			<div class="input_request">
 				<input type="hidden" name="movienum" value="1"> <input
 					type="hidden" name="moviename" value="공조2">
+					<input type="hidden" name="com_num" value="${com_num}">
+							<input type="hidden" name="page" value="${page}">
 				<textarea name="cont_com" id="cont_com" rows="5" cols="80"
-					placeholder="코멘트를 입력해주세요."></textarea>
+					placeholder="코멘트를 수정해주세요."></textarea>
 			</div>
-			<!-- input_request -->
+			 <!-- input_request -->
 
 			<input type="submit" class="btn_complet" value="확인"> <input
 				type="reset" value="취소" class="btn_cancel"
@@ -88,60 +90,7 @@
 				 	<%--<a href="com_edit?com_num=${c.com_num}&page=${page}&state=edit">수정</a>--%>
 
 
-				<!-- 평점주기 레이어 
-				<div class="com_ly" id="open_ly">
-					<strong class="ly_tit">내 코멘트 수정</strong>
-					<div class="ly_inner">
-						<div class="recom">
-							<strong class="com_tit">공조2: 인터내셔널</strong> <img
-								src="./resources/images/main_movie/thumbsup.png" alt="추천"
-								class="thumbsup">
-						</div>
-						<!-- recom 
-					</div>
-					<!-- ly_inner 
-					<form method="post" action="com_edit_ok" id="testForm">					
-						<div class="input_request">
-							<input type="hidden" name="movienum" value="1"> <input
-								type="hidden" name="moviename" value="공조2">
-							<input type="hidden" name="com_num" value="${com_num}">
-							<input type="hidden" name="page" value="${page}">
-							
-							<textarea name="cont_com" id="cont_com" rows="5" cols="80" placeholder="수정할 글을 적어주세요!"></textarea>
-						</div>
-						<!-- input_request 
 
-						<input type="submit" value="수정" class="btn_complet"><input
-							type="reset" value="취소" class="btn_cancel"
-							onclick="$('#cont_com').focus();">
-					</form>
-				</div>
-				<!-- com_ly -->
-
-				<script>
-				let target = document.querySelector('.com_open');
-				let btnPopClose = document.querySelector('.com_ly .btn_cancel');
-				let targetID;
-
-				target.addEventListener('click', function(event) {
-					targetID = this.getAttribute('href');
-					document.querySelector(targetID).style.display = 'block';
-				});
-
-				btnPopClose.addEventListener('click', function(event) {
-					this.parentNode.parentNode.style.display = 'none';
-				});
-					
-					function goPage(){
-						location='com_edit?com_num=${c.com_num}&page=${page }';
-					}
-
-					/*let btnPopClose = document
-							.querySelector('.com_ly .btn_cancel');
-					btnPopClose.addEventListener('click', function(event) {
-						this.parentNode.parentNode.style.display = 'none';
-					}); */
-				</script>
 			</c:forEach>
 		</c:if>
 	</ul>
