@@ -1,10 +1,10 @@
 package com.gtv.vo;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.util.List;
 
-@Getter
-@Setter
+import lombok.Data;
+
+@Data
 public class MemberVO {
 
 	private int user_no;
@@ -25,4 +25,10 @@ public class MemberVO {
 	private String del_cont;
 	private String del_date;
 	
+	// 권한정보
+	private List<AuthVO> auth;
+	
+	// 어드민 페이징 변수
+	private int startrow;
+	private int endrow;
 }
