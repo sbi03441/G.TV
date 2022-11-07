@@ -37,7 +37,7 @@
 		<div class="detail-botton">
 			<img id="click-like" src="./resources/images/main_movie/icon2.svg">
 			<div id="booking-btm">
-				<a href="#">예매하기</a>
+				<a href="screening">예매하기</a>
 			</div>
 		</div>
 		<!-- detail-botton -->
@@ -61,7 +61,7 @@
 			</div>
 			 <!-- input_request -->
 
-			<input type="submit" class="btn_complet" value="확인"> <input
+			<input type="submit" class="com_list_btn" value="확인"> <input
 				type="reset" value="취소" class="btn_cancel"
 				onclick="$('#cont_com').focus();">
 		</form>
