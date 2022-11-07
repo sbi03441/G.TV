@@ -17,7 +17,7 @@
 					<input type="hidden" id="dateSel" name="dateSel" value=""/>
 					<input type="hidden" id="dateSel2" name="dateSel2" value=""/>
 					<input type="hidden" id="movieTotalSel" name="movieTotalSel" value=""/>
-					
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 					
 					<div class="movie-choice">
 						<p class="tit" style="color: white;">영화</p>
