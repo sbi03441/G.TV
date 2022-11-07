@@ -271,7 +271,7 @@
 								${movietotal.strhour}:${movietotal.strmin}~${movietotal.endhour}:${movietotal.endmin}
 							</div>
 							<p class="poster">
-								<img src="">
+								<img src="${movietotal.poster}" style="width:72px;">
 							</p>
 						</div>
 						<div class="choice-seat-area"></div>
