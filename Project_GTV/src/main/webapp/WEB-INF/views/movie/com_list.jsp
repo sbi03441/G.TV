@@ -74,8 +74,10 @@
 		<li class="totalCont">코멘트 수: ${totalCount}개</li>
 		<c:if test="${!empty clist }">
 			<c:forEach var="c" items="${clist }">
+			<ul class="com_det">
 				<li class="com_num">${c.com_num }</li>
 				<li class="cont">${c.cont_com }</li>
+				</ul>
 				<!--  <li>${c.cont_com }</li> 아이디 받아오기-->
 				<li class="cont_detail">${c.upload_com }</li>
 				<input type="submit" value="삭제" id="com-remove"
@@ -85,6 +87,7 @@
 				<%-- <input type="button" value="수정" onclick="location='com_edit?com_num=${c.com_num}&page=${page }';">--%>
 				<input type="button" class="com_open" value="수정"
 					onclick="location='com_edit?com_num=${c.com_num}&page=${page}';">
+					<hr class="dot">
 				 	<%--<a href="com_edit?com_num=${c.com_num}&page=${page}&state=edit">수정</a>--%>
 
 

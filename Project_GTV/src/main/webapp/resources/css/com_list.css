@@ -37,3 +37,50 @@
 	font-style: bold;
 	margin-bottom: 10px;
 }
+
+.com_det{
+	display: flex;
+	margin-left: 42%;
+}
+
+.com_det .com_num{
+	border: solid 1px #fff;
+	border-radius: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 30px;
+}
+
+.cont_detail,
+#com-remove
+{
+	margin-left: 540px;
+}
+
+#com-remove{
+	color: #fff;
+    font-weight: border;
+    border: solid 1px #ff5257;
+    background-color: #ff5257;
+    border-radius: 2px;
+}
+
+.com_open{
+	color: #000;
+    font-weight: border;
+    border: solid 1px #fff;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.com_open:after{
+    display: block;
+    clear: both;
+    content: " ";
+    height: 0;
+    visibility: hidden;
+}
+
+.dot{
+	border: 1px dashed #bbb;
+}
