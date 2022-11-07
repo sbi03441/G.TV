@@ -13,7 +13,7 @@
 	</p>
 	<div class="time">${movieselect.strhour}:${movieselect.strmin}~${movieselect.endhour}:${movieselect.endmin}</div>
 	<p class="poster">
-		<img src="">
+		<img src="${movieselect.poster}" style="width:72px;">
 	</p>
 </div>
 <div class="result-area">

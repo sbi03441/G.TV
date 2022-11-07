@@ -19,5 +19,5 @@ public class MovietotalVO {
 	private String branchname;
 	private String thname;
 	private int totalseat;
-
+	private String poster;
 }
