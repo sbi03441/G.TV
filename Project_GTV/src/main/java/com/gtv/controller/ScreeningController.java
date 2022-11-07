@@ -23,6 +23,7 @@ import com.gtv.vo.MovietotalVO;
 import com.gtv.vo.RegiondetailVO;
 
 @Controller
+@RequestMapping("/*")
 public class ScreeningController {
 
 	@Autowired

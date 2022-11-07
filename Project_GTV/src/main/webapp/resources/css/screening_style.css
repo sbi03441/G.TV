@@ -676,7 +676,7 @@ input[type="radio"]{
 	display:none;
 }
 
-input[type="radio"] + label{
+input[id="tab01"] + label{
 	display: block;
     background: #eee;
     color: #000;
@@ -688,7 +688,21 @@ input[type="radio"] + label{
     border-radius: 10px;
 }
 
-input[type="radio"]:checked + label{
+input[type="tab02"] + label{
+	display: block;
+    background: #eee;
+    color: #000;
+    cursor: pointer;
+    text-align: center;
+    width: 154px;
+    /* border: 1px solid; */
+    margin-bottom: 7px;
+    border-radius: 10px;
+}
+
+
+
+input[id="tab01"]:checked + label{
 	background: #e1e1e1;
     color: #000;
     display: block;
@@ -697,6 +711,17 @@ input[type="radio"]:checked + label{
     border: 1px solid;
     margin-bottom: 7px;
 }
+
+input[id="tab02"]:checked + label{
+	background: #e1e1e1;
+    color: #000;
+    display: block;
+    width: 154px;
+    text-align: center;
+    border: 1px solid;
+    margin-bottom: 7px;
+}
+
 
 .theaterbox{
 	width: 154px;

@@ -18,5 +18,12 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select * from seat_theater where movietotalnum=#{movietotalnum}
 	</select>
 	
+	<insert id="insertbook">
+		insert into seat_theater values(#{movietotalnum},#{seat})
+	</insert>
+	
+	<insert id="insertbooking">
+		insert into reservation values(reservenum_seq.nextval,#{movietotalnum},#{adult},#{teen},#{seat},#{payment})
+	</insert>
 	
 </mapper>

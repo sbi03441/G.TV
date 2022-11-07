@@ -8,8 +8,6 @@ public class ComVO {
 	private int com_num;
 	private int movienum;
 	private String moviename;
-	// private String user_id varchar2(38)
 	private String cont_com;
 	private String upload_com;
-
 }

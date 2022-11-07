@@ -192,7 +192,7 @@ h2.tit{
 }
 
 .seat-select-section .seat-section .seat-area .seat-layout{
-	position: relative;
+	/* position: relative; */
 	height: 454px;
 	border:1px solid #d8d9db;
 	border-top:0;
@@ -465,9 +465,6 @@ button.seat-condition.standard:hover{
 	width:20px;
 }
 
-
-
-
 tbody{
 	top: 38px;
     position: absolute;
@@ -574,6 +571,7 @@ section {
 
 h4, h3 {
 	font-size: 13px;
+	color: black;
 }
 
 #frm {
@@ -639,10 +637,11 @@ b {
 .radio-group label {
 	color: #e71a0f;
 	/* color: #fcfcf0; */
-	display: inline-block;
+	/* display: inline-block; */
 	cursor: pointer;
 	font-weight: bold;
-	padding: 5px 10px;
+	/* padding: 5px 10px; */
+	/* width: 20px; */
 }
 
 .radio-group input[type=radio]:checked+label {
@@ -651,27 +650,40 @@ b {
 }
 
 .radio-group {
-	border: solid 3px #e71a0f;
-	display: inline-block;
-	margin: 10px 10px 10px 0px;
+	/* border: solid 3px #e71a0f; */
+	/* display: inline-block; */
+	/* margin: 10px 10px 10px 0px; */
 	border-radius: 10px;
 	overflow: hidden;
+	width: 92px;
 }
 
 .selectInnerWrap {
 	margin-top: 50px;
 }
 
-.selecter1, .selecter2, .selecter3, .selecter4 {
+.selecter1 {
 	margin-left: 20px;
-	margin-top: 10px;
+	/* margin-top: 10px; */
+	position: absolute;
+	top: 222px;
 }
+
+.selecter2{
+	margin-left: 20px;
+	/* margin-top: 10px; */
+	position: absolute;
+	top: 222px;
+	left: 600px;
+}
+
+
 
 input[type="text"] {
 	background-color: transparent;
-	font-size: 13px;
-	color: white;
-	width: 40px;
+    font-size: 21px;
+    color: white;
+    width: 68px;
 }
 
 .price_wrap {
@@ -711,21 +723,5 @@ input[type="text"] {
 	background: linear-gradient(#1f1f1f 25%, #000000 75%);
 	border-radius: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gtv.dao.ReserveDAO;
 import com.gtv.vo.MovietotalVO;
+import com.gtv.vo.ReservationVO;
 import com.gtv.vo.SeatNumberVO;
 import com.gtv.vo.Seat_theaterVO;
 
@@ -23,6 +24,18 @@ public class ReserveServiceImpl implements ReserveService {
 	@Override
 	public List<Seat_theaterVO> getSeat(MovietotalVO mtvo) {
 		return reserveDao.getSeat(mtvo);
+	}
+
+	@Override
+	public void insertbook(ReservationVO rvo) {
+		reserveDao.insertbook(rvo);
+		
+	}
+
+	@Override
+	public void insertbooking(ReservationVO rvo2) {
+		reserveDao.insertbooking(rvo2);
+		
 	}
 
 	
