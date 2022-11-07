@@ -34,6 +34,7 @@ public class MovieComController {
 		return m;
 	}
 	
+	
 //	//영화 상세정보
 //	@GetMapping("/movie_sub")
 //	public ModelAndView movie_sub(HttpServletRequest request) {

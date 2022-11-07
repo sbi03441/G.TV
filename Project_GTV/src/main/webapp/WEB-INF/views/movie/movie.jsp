@@ -73,7 +73,7 @@
 				<div class="img-gradient"></div>
 				<img src="./resources/images/main_movie/hansan.jpg" alt="한산">
 				<div class="text-wrap">
-					<div id="booking"><a href="#">예매하기</a></div>
+					<div id="booking"><a href="screening">예매하기</a></div>
 					<div class="btm-info"><a href="movie_sub?공조2">상세정보</a></div>
 				</div>
 			</div>
