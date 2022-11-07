@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.com_write{
+	text-align: center;
+	margin-top: 30px;
+	/*background: #f7f4e3;*/
+}
+
+#cont_com{
+	margin-top: 15px;
+	color: #000;
+}
+.btn_complet{
+	margin-left: -10px;
+}
+
+.com_result{
+	text-align: center;
+	margin-top: -70px;
+}
+
+.totalCont{
+	text-align: left;
+	margin-left: 400px;
+	font-size: 20px;
+}
+
+.cont{
+	font-style: bold;
+	margin-bottom: 10px;
+}
