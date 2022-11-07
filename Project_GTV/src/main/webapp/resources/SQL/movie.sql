@@ -3,7 +3,7 @@ create table movie(
     ,moviename varchar2(38) UNIQUE -- 영화 제목 (uq)
 );
 
-insert into movie values(1,'블랙팬서');
+insert into movie values(1,'공조2');
 insert into movie values(2,'동감');
 insert into movie values(3,'데시벨');
 
@@ -41,10 +41,10 @@ alter table movietotal add poster varchar2(500); -- 포스터 url
 
 select * from movietotal;
 
-insert into movietotal values(1,1,1,108,'2022.11.11','09','00','11','00',1,'블랙팬서','강남','1관',108,1,'https://img.megabox.co.kr/SharedImg/2022/11/03/X05TL2nmMexR8UF58WhSN86zC7bHdDDJ_420.jpg'); 
-insert into movietotal values(1,1,1,108,'2022.11.11','12','00','14','00',2,'블랙팬서','강남','2관',108,2,'https://img.megabox.co.kr/SharedImg/2022/11/03/X05TL2nmMexR8UF58WhSN86zC7bHdDDJ_420.jpg'); 
-insert into movietotal values(1,2,1,108,'2022.11.11','08','50','10','50',3,'블랙팬서','잠실','1관',108,3,'https://img.megabox.co.kr/SharedImg/2022/11/03/X05TL2nmMexR8UF58WhSN86zC7bHdDDJ_420.jpg');
-insert into movietotal values(1,2,1,108,'2022.11.11','11','40','13','40',4,'블랙팬서','잠실','2관',108,4,'https://img.megabox.co.kr/SharedImg/2022/11/03/X05TL2nmMexR8UF58WhSN86zC7bHdDDJ_420.jpg');
+insert into movietotal values(1,1,1,108,'2022.11.11','09','00','11','00',1,'공조2','강남','1관',108,1,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg'); 
+insert into movietotal values(1,1,1,108,'2022.11.11','12','00','14','00',2,'공조2','강남','2관',108,2,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg'); 
+insert into movietotal values(1,2,1,108,'2022.11.11','08','50','10','50',3,'공조2','잠실','1관',108,3,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg');
+insert into movietotal values(1,2,1,108,'2022.11.11','11','40','13','40',4,'공조2','잠실','2관',108,4,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg');
 insert into movietotal values(2,1,1,108,'2022.11.11','13','10','14','40',5,'동감','강남','1관',108,5,'https://img.megabox.co.kr/SharedImg/2022/10/27/sR9KJsn9NMeZhJbakY9FsDcFcAO6A92k_420.jpg');
 insert into movietotal values(2,1,1,108,'2022.11.11','16','00','17','30',6,'동감','강남','2관',108,6,'https://img.megabox.co.kr/SharedImg/2022/10/27/sR9KJsn9NMeZhJbakY9FsDcFcAO6A92k_420.jpg');
 
