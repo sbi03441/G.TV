@@ -118,6 +118,7 @@ public class MovieComController {
 		
 		//com_num =Integer.parseInt(request.getParameter("com_num"));
 		System.out.println("번호 수정폼: " + com_num);
+		System.out.println("수정할 내용: " + c.getCont_com());
 		System.out.println("==========================>");
 		
 		//m.addAttribute("c", c);
@@ -153,6 +154,7 @@ public class MovieComController {
 		m.addAttribute("maxpage", maxpage);
 		m.addAttribute("page", page);
 		m.addAttribute("com_num", com_num);
+		m.addAttribute("cont_com", c.getCont_com());
 		
 		return "movie/com_list2";
 	}

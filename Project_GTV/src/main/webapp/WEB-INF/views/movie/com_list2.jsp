@@ -57,7 +57,7 @@
 					<input type="hidden" name="com_num" value="${com_num}">
 							<input type="hidden" name="page" value="${page}">
 				<textarea name="cont_com" id="cont_com" rows="5" cols="80"
-					placeholder="코멘트를 수정해주세요."></textarea>
+					>${cont_com }</textarea>
 			</div>
 			 <!-- input_request -->
 
