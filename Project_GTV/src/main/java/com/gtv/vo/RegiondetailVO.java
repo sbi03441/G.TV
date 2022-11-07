@@ -5,8 +5,9 @@ import lombok.Data;
 @Data
 public class RegiondetailVO {
 	
-	private int theaternum;
-	private String branchname;
-	private int regionnum;
 
+	private int theaternum; 
+    private String branchname; 
+    private int regionnum; 
+    private String regionname; 
 }
