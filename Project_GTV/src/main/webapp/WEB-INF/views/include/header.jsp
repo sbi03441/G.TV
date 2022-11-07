@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +15,8 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/movie.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/movie_sub.css">
+
+
 <link rel="stylesheet" type="text/css" href="./resources/css/com_write.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/com_list.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/reserve_style.css">
@@ -20,6 +24,7 @@
 <script src="./resources/js/jquery.js"></script>
 <script src="./resources/js/movie/com_write.js"></script>
 <script src="./resources/js/movie/reserve.js"></script>
+
 
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400"
 	rel="stylesheet">
@@ -35,11 +40,14 @@
 			<h1 class="logo">
 				<a href="/">G.TV</a>
 			</h1>
+
+				
 			<ul class="nav">
 				<li><a href="/">HONE</a></li>
 				<li><a href="/screening">RESERVE</a></li>
 				<li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
 				<li><a href="movie">MOVIE</a></li>
+
 				<li><a href="./html/login.jsp" id="sign_in">SIGN IN</a></li>
 			</ul>
 			<div class="search_area">
@@ -54,5 +62,7 @@
 	</div>
 	<!-- wrap -->
 	<div style="clear: both;"></div>
+
+
 
 

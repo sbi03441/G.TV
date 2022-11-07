@@ -4,11 +4,16 @@
 <%--상단 공통 페이지 외부 포함 파일 불러오기 --%>
 
 <div class="video-wrap">
+
+	<video src="../video/gonjo.mp4" controls></video>
 	<video src="./resources/video/gonjo.mp4" controls></video>
+
 </div>
 
 <div class="detail-top-wrap">
 	<div class="poster">
+		<img src="../image/gongjo_sub.png" alt="공조포스터">
+
 		<img src="./resources/images/main_movie/gongjo_sub.png" alt="공조포스터">
 	</div>
 	<!-- poster -->
@@ -25,6 +30,8 @@
 			<li class="sub-info3"><em>누적관객수</em> <strong>5,838,905</strong>
 				<em>명</em></li>
 		</ul>
+		<hr>
+
 		<!-- detail-info1 -->
 		<ul class="detail-info2">
 			<li class="sub-info4"><em>장르</em> <strong><em>액션
@@ -35,6 +42,9 @@
 		</ul>
 		<!-- detail-info2 -->
 		<div class="detail-botton">
+			<img id="click-like" src="../image/icon2.svg">
+			<div id="booking-btm">
+				<a href="#">예매하기</a>
 			<img id="click-like" src="./resources/images/main_movie/icon2.svg">
 			<div id="booking-btm">
 				<a href="screening">예매하기</a>
@@ -45,6 +55,8 @@
 	<!-- detail-gongjo -->
 </div>
 <!-- detail-top-wrap -->
+<hr>
+=======
 <div class="reviews">
 	<div class="review-tit">평점 및 관람평(4,032)</div>
 	<hr>
