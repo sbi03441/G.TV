@@ -31,7 +31,7 @@
                    <li><a href="/screening">RESERVE</a></li>
                   <li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
                   <li><a href="movie">MOVIE</a></li>
-                  <li><a href="./html/login.jsp" id="sign_in">SIGN IN</a></li>
+                  <li><a href="customlogin" id="sign_in">SIGN IN</a></li>
                </ul>
                <div class="search_area">
                   <form>
