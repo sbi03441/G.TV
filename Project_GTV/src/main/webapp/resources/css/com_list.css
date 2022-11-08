@@ -29,7 +29,7 @@
 
 .totalCont{
 	text-align: left;
-	margin-left: 400px;
+	margin-left: 480px;
 	font-size: 20px;
 }
 
@@ -65,22 +65,36 @@
     border-radius: 2px;
 }
 
-.com_open{
+.write_mycom{
 	color: #000;
-    font-weight: border;
+    font-weight: bolder;
     border: solid 1px #fff;
     background-color: #fff;
     border-radius: 2px;
 }
 
-.com_open:after{
+.see_coms{
+	color: #fff;
+    font-weight: bolder;
+    border: solid 3px #fff;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+/*.com_open:after{
     display: block;
     clear: both;
     content: " ";
     height: 0;
     visibility: hidden;
-}
+}*/
 
 .dot{
 	border: 1px dashed #bbb;
+    width: 50%;
+    margin-left: 480px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

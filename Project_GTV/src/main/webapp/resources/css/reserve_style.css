@@ -387,6 +387,48 @@ button.seat-condition.standard:hover{
 	margin: 10px 0 0 20px;
 	border-radius: 5px;
 	border: 1px solid #434343;
+	display: flex;
+}
+
+.my_seatnum img{
+	width: 50px;
+	height: 50px;
+	margin: 20px;
+	margin-top: 30px;
+}
+/*.seat_condition,
+.my_seatnum{
+	border: 1px solid #434343;
+}*/
+
+.cond_list li{
+	display: flex;
+	margin: 10px;
+	margin-top: 30px;
+}
+#checked-seat{
+	border: 1px solid #e4620d;
+    margin: 10px;
+    padding: 5px;
+    background-color: #e4620d;
+}
+
+#reserved_seat{
+	border: 1px solid #400040;
+    margin: 10px;
+    padding: 5px;
+    background-color: #400040;
+}
+
+#no_choice{
+	border: 1px solid #ffc952;
+    margin: 10px;
+    padding: 5px;
+    background-color: #ffc952;
+}
+
+.cond_list li em{
+	margin: 5px;
 }
 
 .seat-select-section .seat-result .seat_wrap .pay-area{
