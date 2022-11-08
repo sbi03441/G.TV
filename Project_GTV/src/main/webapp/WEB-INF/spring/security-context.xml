@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<bean id="UserDetailsService" class="com.gtv.security.UserDetailsService" />
@@ -26,6 +27,9 @@
 			username-parameter="user_id" password-parameter="user_pw"
 			login-page="/customlogin" authentication-success-handler-ref="customLoginSuccess"
 		/>
+		
+		<!-- 자동로그인 설정(지속시간 일주일) -->
+		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
 		
 		<!-- 로그아웃 설정 -->
 		<security:logout
