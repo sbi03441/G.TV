@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 코멘트 저장 -->
 	<insert id="com_in" parameterType="com">
-		insert into com values (1,'공조2',#{cont_com},sysdate,com_num_seq.nextval)
+		insert into com(com_num,movienum,moviename,user_id,cont_com,upload_com) values(com_num_seq.nextval,1,'공조2',#{user_id},#{cont_com},sysdate) 
 	</insert>
   
   	<!-- 총 코멘트 개수 -->

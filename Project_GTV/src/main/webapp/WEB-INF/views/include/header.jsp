@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -50,7 +50,17 @@
 				<li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
 				<li><a href="movie">MOVIE</a></li>
 
-				<li><a href="./html/login.jsp" id="sign_in">SIGN IN</a></li>
+			    <sec:authorize access="isAnonymous()">
+                          <li><a href="/customlogin" id="sign_in">SIGN IN</a></li>
+                       </sec:authorize>
+                     <sec:authorize access="hasRole('MEMBER')">
+                        <li><a href="#">MyPage</a></li>
+                           <li><a href="/cus_info" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                       </sec:authorize>
+                       <sec:authorize access="hasRole('ADMIN')">
+                           <li><a href="/admin/main">AdminPage</a></li>
+                           <li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                       </sec:authorize>
 			</ul>
 			<div class="search_area">
 				<form>

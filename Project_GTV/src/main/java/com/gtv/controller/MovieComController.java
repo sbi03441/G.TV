@@ -65,11 +65,12 @@ public class MovieComController {
    @PostMapping("/com_write_ok")
    public String com_write_ok(ComVO c,RedirectAttributes rttr, HttpServletRequest request, Authentication auth) throws Exception{
       
-	  String id = auth.getName();
 	  
-      String movienum=request.getParameter("movienum");
-      String moviename=request.getParameter("moviename");
-      System.out.println("  ȭ   ȣ: "+movienum + "  ȭ  ̸ : "+moviename);
+	  String id = auth.getName();
+	  System.out.println(id);
+	  System.out.println(c.getCont_com());
+	  c.setUser_id(id);
+      System.out.println(c.getUser_id());
       moviecomService.insertCom(c);
       rttr.addFlashAttribute("msg", "SUCCESS");
       //rttr.addFlashAttribute               url ڿ        ʴ´ .   ȸ   ̶                      Ͱ   Ҹ  Ѵ .

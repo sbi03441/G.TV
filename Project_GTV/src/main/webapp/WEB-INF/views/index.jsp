@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +32,17 @@
                    <li><a href="/screening">RESERVE</a></li>
                   <li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
                   <li><a href="movie">MOVIE</a></li>
-                  <li><a href="customlogin" id="sign_in">SIGN IN</a></li>
+                  <sec:authorize access="isAnonymous()">
+                          <li><a href="/customlogin" id="sign_in">SIGN IN</a></li>
+                       </sec:authorize>
+                     <sec:authorize access="hasRole('MEMBER')">
+                        <li><a href="#">MyPage</a></li>
+                           <li><a href="cus_info" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                       </sec:authorize>
+                       <sec:authorize access="hasRole('ADMIN')">
+                           <li><a href="/admin/main">AdminPage</a></li>
+                           <li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                       </sec:authorize>
                </ul>
                <div class="search_area">
                   <form>
