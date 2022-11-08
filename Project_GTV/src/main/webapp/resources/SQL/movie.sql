@@ -120,7 +120,11 @@ create table reservation(
     ,seat varchar2(38) -- 좌석
     ,payment number(20) -- 가격
      ,CONSTRAINT reservation_movietotalnum_fk FOREIGN key(movietotalnum) REFERENCES movietotal(movietotalnum)
+     ,total number(20) -- 총 좌석
 );
+
+alter table reservation add  total number(20);
+
 
 alter table reservation add user_id varchar2(38);
 

@@ -18,6 +18,7 @@
 					<input type="hidden" id="dateSel" name="dateSel" value=""/>
 					<input type="hidden" id="dateSel2" name="dateSel2" value=""/>
 					<input type="hidden" id="movieTotalSel" name="movieTotalSel" value=""/>
+					<input type="hidden" id="idSel" name="idSel" value="${id}"/>
 					
 					
 					<div class="movie-choice">
