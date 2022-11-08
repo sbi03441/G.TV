@@ -12,7 +12,7 @@ public class ReservationVO {
 	private int teen; //청소년
 	private String seat; //좌석
 	private int payment; // 가격 
-	
-	private int totalpeople; //총 인원수
-	
+
+	private String user_id; //유저 아이디
+
 }

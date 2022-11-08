@@ -148,6 +148,8 @@ public class MemberController {
 	@RequestMapping("payment_history")
 	public ModelAndView payment_history() {
 		
+		
+		
 		ModelAndView view = new ModelAndView();
 		view.setViewName("/user/payment_history");
 		
