@@ -54,7 +54,7 @@ public class ReserveController {
 		String id = request.getParameter("idSel");
 		int total = Integer.parseInt(request.getParameter("count"));
 		
-		System.out.println(total);
+	
 		
 		ReservationVO rvo1 = new ReservationVO();
 		for (int i = 0; i < seat_names.length; i++) {
@@ -73,13 +73,14 @@ public class ReserveController {
 		rvo2.setTotal(total);
 		reserveService.insertbooking(rvo2);
 		
+		//reservation num 가져오기
 		
-		MovietotalVO mav =  new MovietotalVO ();
+		MovietotalVO mav =  new MovietotalVO();
 		mav.setMovietotalnum(movietotalnum);
 		
 		
 		
-		
+		reserveService.updateremain(mav);
 		
 
 		return "reserve/result";

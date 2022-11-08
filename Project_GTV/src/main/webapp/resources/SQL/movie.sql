@@ -28,6 +28,8 @@ create table movietotal( -- 영화 정보
 );
 
 
+update movietotal set remainseat=remainseat-(select total from reservation where reservenum=100008) where movietotalnum=1;
+
         
 alter table movietotal add movietotalnum number(20) primary key; -- 영화 정보 번호
 alter table movietotal add moviename varchar2(38); --영화 이름
@@ -39,7 +41,7 @@ alter table movietotal add poster varchar2(500); -- 포스터 url
 
 
 
-select * from movietotal;
+select * from movietotal where movietotalnum=1;
 
 insert into movietotal values(1,1,1,108,'2022.11.11','09','00','11','00',1,'공조2','강남','1관',108,1,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg'); 
 insert into movietotal values(1,1,1,108,'2022.11.11','12','00','14','00',2,'공조2','강남','2관',108,2,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg'); 
@@ -125,6 +127,7 @@ create table reservation(
 
 alter table reservation add  total number(20);
 
+alter table reservation drop column remainseat;
 
 alter table reservation add user_id varchar2(38);
 
