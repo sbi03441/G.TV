@@ -52,9 +52,9 @@ public class MovieComController {
 //      if(request.getParameter("page") != null) {
 //         page=Integer.parseInt(request.getParameter("page"));
 //      }
-	   
-	  int totalCount=this.moviecomService.getRowCount();//총 코멘트 개수
-	   
+      
+     int totalCount=this.moviecomService.getRowCount();//총 코멘트 개수
+      
       ModelAndView mv = new ModelAndView();
       movieVo.setMovienum(1);
       movieVo.setMoviename("공조2");
@@ -68,9 +68,9 @@ public class MovieComController {
    @PostMapping("/com_write_ok")
    public String com_write_ok(ComVO c,RedirectAttributes rttr, HttpServletRequest request,Authentication auth) throws Exception{
       
-	  String id = auth.getName();
-	  c.setUser_id(id);
-	   
+     String id = auth.getName();
+     c.setUser_id(id);
+      
       String movienum=request.getParameter("movienum");
       String moviename=request.getParameter("moviename");
       System.out.println("영화 번호: "+movienum + "영화 이름: "+moviename);

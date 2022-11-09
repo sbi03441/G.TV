@@ -13,48 +13,48 @@ import com.gtv.vo.Seat_theaterVO;
 
 @Repository
 public class ReserveDAOImpl implements ReserveDAO {
-	
-	@Autowired
-	private SqlSession sqlSession;
+   
+   @Autowired
+   private SqlSession sqlSession;
 
-	@Override
-	public MovietotalVO getMovie(MovietotalVO mtvo) {
-		return sqlSession.selectOne("getmovie", mtvo);
-	}
+   @Override
+   public MovietotalVO getMovie(MovietotalVO mtvo) {
+      return sqlSession.selectOne("getmovie", mtvo);
+   }
 
-	@Override
-	public List<Seat_theaterVO> getSeat(MovietotalVO mtvo) {
-		return sqlSession.selectList("getseat", mtvo);
-	}
+   @Override
+   public List<Seat_theaterVO> getSeat(MovietotalVO mtvo) {
+      return sqlSession.selectList("getseat", mtvo);
+   }
 
-	@Override
-	public void insertbook(ReservationVO rvo) {
-		sqlSession.insert("insertbook",rvo);
-		
-	}
+   @Override
+   public void insertbook(ReservationVO rvo) {
+      sqlSession.insert("insertbook",rvo);
+      
+   }
 
-	@Override
-	public void insertbooking(ReservationVO rvo2) {
-		sqlSession.insert("insertbooking", rvo2);
-	}
+   @Override
+   public void insertbooking(ReservationVO rvo2) {
+      sqlSession.insert("insertbooking", rvo2);
+   }
 
-	@Override
-	public ReservationVO getnum(ReservationVO rvo2) {
-		return sqlSession.selectOne("getnum", rvo2);
-	}
+   @Override
+   public ReservationVO getnum(ReservationVO rvo2) {
+      return sqlSession.selectOne("getnum", rvo2);
+   }
 
-	@Override
-	public void updatermain(ReservationVO rvo3) {
-		sqlSession.update("updateremain", rvo3);
-		
-	}
+   @Override
+   public void updatermain(ReservationVO rvo3) {
+      sqlSession.update("updateremain", rvo3);
+      
+   }
 
-	
+   
 
-	
+   
 
-	
+   
 
 
-	
+   
 }

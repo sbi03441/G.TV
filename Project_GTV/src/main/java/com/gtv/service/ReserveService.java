@@ -8,24 +8,24 @@ import com.gtv.vo.Seat_theaterVO;
 
 public interface ReserveService {
 
-	MovietotalVO getMovie(MovietotalVO mtvo);
+   MovietotalVO getMovie(MovietotalVO mtvo);
 
-	List<Seat_theaterVO> getSeat(MovietotalVO mtvo);
+   List<Seat_theaterVO> getSeat(MovietotalVO mtvo);
 
-	void insertbook(ReservationVO rvo);
+   void insertbook(ReservationVO rvo);
 
-	void insertbooking(ReservationVO rvo2);
+   void insertbooking(ReservationVO rvo2);
 
-	ReservationVO getnum(ReservationVO rvo2);
+   ReservationVO getnum(ReservationVO rvo2);
 
-	void updateremain(ReservationVO rvo3);
-
-
-
-	
+   void updateremain(ReservationVO rvo3);
 
 
 
-	
+   
+
+
+
+   
 
 }

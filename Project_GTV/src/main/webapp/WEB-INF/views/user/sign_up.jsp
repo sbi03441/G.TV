@@ -142,6 +142,7 @@ href="/resources/css/sign_up.css" />
 				<div id="email_text">
 					<input type="text" id="sign_email_input" name = "email">
 				</div>
+				<a>@</a>
 				<div id="email_domain">
 					<input type="text" id="sign_email_input2" name = "email_domain">
 				</div>

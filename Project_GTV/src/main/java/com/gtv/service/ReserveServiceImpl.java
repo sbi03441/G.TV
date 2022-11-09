@@ -13,45 +13,45 @@ import com.gtv.vo.Seat_theaterVO;
 
 @Service
 public class ReserveServiceImpl implements ReserveService {
-	@Autowired
-	private ReserveDAO reserveDao;
+   @Autowired
+   private ReserveDAO reserveDao;
 
-	@Override
-	public MovietotalVO getMovie(MovietotalVO mtvo) {
-		return reserveDao.getMovie(mtvo);
-	}
+   @Override
+   public MovietotalVO getMovie(MovietotalVO mtvo) {
+      return reserveDao.getMovie(mtvo);
+   }
 
-	@Override
-	public List<Seat_theaterVO> getSeat(MovietotalVO mtvo) {
-		return reserveDao.getSeat(mtvo);
-	}
+   @Override
+   public List<Seat_theaterVO> getSeat(MovietotalVO mtvo) {
+      return reserveDao.getSeat(mtvo);
+   }
 
-	@Override
-	public void insertbook(ReservationVO rvo) {
-		reserveDao.insertbook(rvo);
-		
-	}
+   @Override
+   public void insertbook(ReservationVO rvo) {
+      reserveDao.insertbook(rvo);
+      
+   }
 
-	@Override
-	public void insertbooking(ReservationVO rvo2) {
-		reserveDao.insertbooking(rvo2);
-		
-	}
+   @Override
+   public void insertbooking(ReservationVO rvo2) {
+      reserveDao.insertbooking(rvo2);
+      
+   }
 
-	@Override
-	public ReservationVO getnum(ReservationVO rvo2) {
-		return reserveDao.getnum(rvo2);
-	}
+   @Override
+   public ReservationVO getnum(ReservationVO rvo2) {
+      return reserveDao.getnum(rvo2);
+   }
 
-	@Override
-	public void updateremain(ReservationVO rvo3) {
-		reserveDao.updatermain(rvo3);
-	}
+   @Override
+   public void updateremain(ReservationVO rvo3) {
+      reserveDao.updatermain(rvo3);
+   }
 
-	
-	
+   
+   
 
-	
+   
 
 
 }

@@ -27,59 +27,58 @@
 
 
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400"
-	rel="stylesheet">
+   rel="stylesheet">
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+   href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </head>
 <body style="background-color: #1b1b1b;">
 
-	<div class="wrap">
-		<div class="header">
-			<h1 class="logo">
-				<a href="/">G.TV</a>
-			</h1>
+   <div class="wrap">
+      <div class="header">
+         <h1 class="logo">
+            <a href="/">G.TV</a>
+         </h1>
 
-				
-			<ul class="nav">
+            
+         <ul class="nav">
 
-				<li><a href="/">HOME</a></li>
-				<li><a href="/screening">RESERVE</a></li>
-				<li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
-				<li><a href="movie">MOVIE</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/screening">RESERVE</a></li>
+            <li><a href="./sub-main/view_movie.jsp">CATEGORY</a></li>
+            <li><a href="movie">MOVIE</a></li>
 
 
-						
-           				<sec:authorize access="isAnonymous()">
-              				<li><a href="/customlogin" id="sign_in">SIGN IN</a></li>
-           				</sec:authorize>
-            			<sec:authorize access="hasRole('MEMBER')">
-            				<li><a href="#">MyPage</a></li>
-               				<li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
-           				</sec:authorize>
-           				<sec:authorize access="hasRole('ADMIN')">
-               				<li><a href="/admin/main">AdminPage</a></li>
-               				<li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
-           				</sec:authorize>
+                  
+                       <sec:authorize access="isAnonymous()">
+                          <li><a href="/customlogin" id="sign_in">SIGN IN</a></li>
+                       </sec:authorize>
+                     <sec:authorize access="hasRole('MEMBER')">
+                        <li><a href="cus_info">MyPage</a></li>
+                           <li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                       </sec:authorize>
+                       <sec:authorize access="hasRole('ADMIN')">
+                           <li><a href="/admin/main">AdminPage</a></li>
+                           <li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                       </sec:authorize>
 
-			</ul>
-			<div class="search_area">
-				<form>
-					<input type="search" placeholder="Ready to watch?"> <span>검색</span>
-				</form>
-			</div>
-			<form id="logout" method="post" action="/logout">
+         </ul>
+         <div class="search_area">
+            <form>
+               <input type="search" placeholder="Ready to watch?"> <span>검색</span>
+            </form>
+         </div>
+         <form id="logout" method="post" action="/logout">
              <input type="hidden" name="${_csrf.parameterName}" class="logout" value="${_csrf.token}" />
-         	</form>
-			<!-- search_area -->
-		</div>
-		<!-- header -->
+            </form>
+         <!-- search_area -->
+      </div>
+      <!-- header -->
 
-	</div>
-	<!-- wrap -->
-	<div style="clear: both;"></div>
-
+   </div>
+   <!-- wrap -->
+   <div style="clear: both;"></div>
 
 
 
