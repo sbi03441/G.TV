@@ -1,11 +1,14 @@
 package com.gtv.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gtv.dao.MemberDAO;
 import com.gtv.vo.MemberVO;
+import com.gtv.vo.ReservationVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -50,4 +53,6 @@ public class MemberServiceImpl implements MemberService {
 		this.MemberDao.edit_info(vo);
 		
 	}
+
+	
 }

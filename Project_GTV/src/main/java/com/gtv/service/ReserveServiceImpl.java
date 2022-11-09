@@ -38,6 +38,31 @@ public class ReserveServiceImpl implements ReserveService {
 		
 	}
 
+	@Override
+	public ReservationVO getmvList(String id) {
+		return reserveDao.getmvList(id);
+	}
+
+	@Override
+	public ReservationVO gettotalnum(int reservenum) {
+		return reserveDao.gettotalnum(reservenum);
+	}
+
+	@Override
+	public void deleteSeat(ReservationVO re) {
+		reserveDao.deleteSeat(re);
+		
+	}
+
+	@Override
+	public void deleteReserve(int reservenum) {
+		reserveDao.deleteReserve(reservenum);
+		
+	}
+
+	
+	
+
 	
 
 

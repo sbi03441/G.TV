@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -54,8 +54,8 @@
                           <li><a href="/customlogin" id="sign_in">SIGN IN</a></li>
                        </sec:authorize>
                      <sec:authorize access="hasRole('MEMBER')">
-                        <li><a href="#">MyPage</a></li>
-                           <li><a href="/cus_info" onclick="document.getElementById('logout').submit();">LogOut</a></li>
+                        <li><a href="/cus_info">MyPage</a></li>
+                           <li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
                        </sec:authorize>
                        <sec:authorize access="hasRole('ADMIN')">
                            <li><a href="/admin/main">AdminPage</a></li>

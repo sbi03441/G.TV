@@ -17,4 +17,15 @@ public interface ReserveDAO {
 
 	void insertbooking(ReservationVO rvo2);
 
+	ReservationVO getmvList(String id);
+
+	ReservationVO gettotalnum(int reservenum);
+
+	void deleteSeat(ReservationVO re);
+
+	void deleteReserve(int reservenum);
+
+	
+	
+
 }

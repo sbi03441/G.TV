@@ -5,6 +5,26 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace = "Reserve"> 
+    
+    <resultMap type = "reservation" id = "reserveMap">
+      <result property = "reservenum" column = "reservenum"/>
+      <result property = "adult" column = "adult"/>
+      <result property = "teen" column = "teen"/>
+      <result property = "seat" column = "seat"/>
+      <result property = "payment" column = "payment"/>
+      
+      <collection property="mvlist" resultMap="movieTMap"></collection>
+      
+    </resultMap>
+    
+    <resultMap type = "total" id = "movieTMap">
+      <result property = "moviename" column = "moviename"/>
+      <result property = "strdate" column = "strdate"/>
+      <result property = "strhour" column = "strhour"/>
+      <result property = "strmin" column = "strmin" />
+      <result property = "branchname" column = "branchname"/>
+      <result property = "thname" column = "thname"/>
+    </resultMap>
 
 	<select id="getmovie" resultType="total">
 		select * from movietotal where movietotalnum=#{movietotalnum}
@@ -23,7 +43,26 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="insertbooking">
-		insert into reservation values(reservenum_seq.nextval,#{movietotalnum},#{adult},#{teen},#{seat},#{payment})
+		insert into reservation values(reservenum_seq.nextval,#{movietotalnum},#{adult},#{teen},#{seat},#{payment},#{user_id},#{total})
 	</insert>
+	
+	<select id = "get_List" resultMap = "reserveMap">
+	 	SELECT r.reservenum, r.adult, r.teen, r.seat, r.payment , m.moviename, m.strdate, m.strhour, m.strmin, m.branchname,m.thname FROM reservation r LEFT JOIN movietotal m
+    ON r.movietotalnum = m.movietotalnum where r.user_id = #{id}
+	</select>
+	
+	<select id = "mv_cancel" resultType = "reservation">
+	   select movietotalnum,seat from reservation where reservenum=#{reservenum}
+	</select>
+	
+	<delete id = "del">
+	   delete seat_theater where movietotalnum=#{movietotalnum} and seat_name=#{seat}
+	</delete>
+	
+	<delete id = "del_re">
+	   delete reservation where reservenum=#{reservenum}
+	</delete>
+	
+	
 	
 </mapper>

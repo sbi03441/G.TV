@@ -1,6 +1,9 @@
 package com.gtv.service;
 
+import java.util.List;
+
 import com.gtv.vo.MemberVO;
+import com.gtv.vo.ReservationVO;
 
 
 public interface MemberService {
@@ -18,5 +21,7 @@ public interface MemberService {
 	MemberVO view_info(String id);
 
 	void edit_info(MemberVO vo);
+
+	
 
 }

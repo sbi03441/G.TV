@@ -1,6 +1,7 @@
 package com.gtv.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -16,7 +17,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +24,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.MemberService;
+import com.gtv.service.ReserveService;
+import com.gtv.service.ScreeningService;
 import com.gtv.vo.MemberVO;
+import com.gtv.vo.MovietotalVO;
+import com.gtv.vo.ReservationVO;
 
 @Controller
 public class MemberController {
@@ -37,6 +41,9 @@ public class MemberController {
 	
 	@Autowired
 	public JavaMailSender mailSender;
+	
+	@Autowired
+	public ReserveService reserveService;
 	
 	//
 	@RequestMapping("/customlogin")
@@ -146,11 +153,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping("payment_history")
-	public ModelAndView payment_history() {
+	public ModelAndView payment_history(Authentication auth) {
+		String id = auth.getName();
+		ReservationVO rvo = reserveService.getmvList(id);
 		
 		
-		
-		ModelAndView view = new ModelAndView();
+        ModelAndView view = new ModelAndView();
+        view.addObject("mlist", rvo);
+	    
+
 		view.setViewName("/user/payment_history");
 		
 		return view;
