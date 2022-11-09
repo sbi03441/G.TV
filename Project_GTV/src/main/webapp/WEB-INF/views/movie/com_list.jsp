@@ -46,11 +46,12 @@
 </div>
 <!-- detail-top-wrap -->
 <div class="reviews">
-   <div class="review-tit">평점 및 관람평(4,032)</div>
+   <div class="review-tit">평점 및 관람평(${totalCount})</div>
    <hr>
    <div class="com_write">
       <form method="post" action="com_write_ok"
          onsubmit="return com_check();">
+         <input type="hidden" name="${_csrf.parameterName}" class="logout" value="${_csrf.token}" />
          <div class="input_request">
             <input type="hidden" name="movienum" value="1"> <input
                type="hidden" name="moviename" value="공조2">
@@ -187,9 +188,4 @@
    </ul>
 </div>
 <!--com_result-->
-
-
-
-
-
 <%@ include file="../include/footer.jsp"%>

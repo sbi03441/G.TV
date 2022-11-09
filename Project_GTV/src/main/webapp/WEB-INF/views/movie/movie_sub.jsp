@@ -35,7 +35,14 @@
       </ul>
       <!-- detail-info2 -->
       <div class="detail-botton">
-         <img id="click-like" src="./resources/images/main_movie/icon2.svg">
+           <img id="click-like" src="./resources/images/main_movie/icon2.svg">
+         <!--  <input type="button" onclick="count('plus')" class="click-like">-->
+        <!--   <form name="heart" id="heart">
+            <input type="hidden" name="likeT" id="likeT" value="${likebtn }">
+            <input type="button" name="likebtn" id="likebtn" class="click-like" onclick="ajax()">
+            <input type="hidden" name="${_csrf.parameterName}" class="logout" value="${_csrf.token}" />
+         </form>
+         <div id="result">${likebtn }</div>-->
          <div id="booking-btm">
             <a href="screening">예매하기</a>
          </div>
@@ -65,7 +72,7 @@
    <div class="reviews">
 
       <div class="review-tit">
-         평점 및 관람평(4,032)<a href="#open_ly" class="write_mycom com_open">내
+         평점 및 관람평(${totalCount})<a href="#open_ly" class="write_mycom com_open">내
             평점 등록</a><a href="com_list" class="see_coms">후기 보기</a>
       </div>
       <hr>
@@ -83,6 +90,7 @@
          <!-- ly_inner -->
          <form method="post" action="com_write_ok"
             onsubmit="return com_check();">
+            <input type="hidden" name="${_csrf.parameterName}" class="logout" value="${_csrf.token}" />
             <div class="input_request">
                <input type="hidden" name="movienum" value="1"> <input
                   type="hidden" name="moviename" value="공조2">
@@ -111,6 +119,33 @@
          btnPopClose.addEventListener('click', function(event) {
             this.parentNode.parentNode.style.display = 'none';
          });
+         
+         function count(type){
+            const resultElement=document.getElementById('result'); //결과표시
+            let likecnt = resultElement.innerText; //현재 화면에 표시
+            
+            if(type=='plus'){
+               likecnt = parseInt(likecnt)+1;
+            }
+            
+            resultElement.innerText=likecnt;
+         }
+         
+         function ajax(){
+            let likeUp=$('#likeT').val();
+            
+            $.ajax({
+               type:'post',
+               url:"/movie_sub",
+               data:{likeUp:likeUp},
+               error:function(xhr, status, error){
+                  alert(error);
+               },
+               success:function(data){
+                  alert(data);
+               }
+            });
+         }
       </script>
 
 

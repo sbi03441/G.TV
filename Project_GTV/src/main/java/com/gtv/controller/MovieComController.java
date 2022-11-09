@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,23 +48,29 @@ public class MovieComController {
    //영화 상세 정보 + 관람객 코멘트 쓰기
    @GetMapping("/movie_sub")
    public ModelAndView com_write(HttpServletRequest request, MovieVO movieVo) {
-      int page=1;
-      if(request.getParameter("page") != null) {
-         page=Integer.parseInt(request.getParameter("page"));
-      }
+//      int page=1;
+//      if(request.getParameter("page") != null) {
+//         page=Integer.parseInt(request.getParameter("page"));
+//      }
+	   
+	  int totalCount=this.moviecomService.getRowCount();//총 코멘트 개수
+	   
       ModelAndView mv = new ModelAndView();
       movieVo.setMovienum(1);
       movieVo.setMoviename("공조2");
       mv.setViewName("movie/movie_sub");//뷰리졸브 경로 설정. 즉 뷰페이지 경로는 
       // /WEB-INF/views/movie/com_write.jsp
-      mv.addObject("page", page);
+      mv.addObject("totalCount", totalCount);
       return mv;
    }//movie_sub()
    
    //코멘트 저장
    @PostMapping("/com_write_ok")
-   public String com_write_ok(ComVO c,RedirectAttributes rttr, HttpServletRequest request) throws Exception{
+   public String com_write_ok(ComVO c,RedirectAttributes rttr, HttpServletRequest request,Authentication auth) throws Exception{
       
+	  String id = auth.getName();
+	  c.setUser_id(id);
+	   
       String movienum=request.getParameter("movienum");
       String moviename=request.getParameter("moviename");
       System.out.println("영화 번호: "+movienum + "영화 이름: "+moviename);
