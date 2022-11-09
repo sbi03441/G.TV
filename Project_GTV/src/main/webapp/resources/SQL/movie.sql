@@ -40,7 +40,7 @@ alter table movietotal add thnum number(20); --상영관 번호
 alter table movietotal add poster varchar2(500); -- 포스터 url
 
 
-
+select * from movietotal;
 select * from movietotal where movietotalnum=1;
 
 insert into movietotal values(1,1,1,108,'2022.11.11','09','00','11','00',1,'공조2','강남','1관',108,1,'https://img.megabox.co.kr/SharedImg/2022/08/29/oUQrNQTflUqvHUQG6kvlzF8SEhJSomfh_420.jpg'); 
@@ -91,6 +91,8 @@ select * from theater;
      ,CONSTRAINT seat_theater_movietotalnum_fk FOREIGN key(movietotalnum) REFERENCES movietotal(movietotalnum)
 );
 
+
+
 alter table seat_theater drop column thnum;
 
 insert into seat_theater VALUES (1,'A1');
@@ -125,6 +127,10 @@ create table reservation(
      ,total number(20) -- 총 좌석
 );
 
+SELECT r.reservenum, r.adult, r.teen, r.seat, r.payment , m.moviename, m.strdate, m.strhour, m.strmin, m.branchname,m.thname FROM reservation r INNER JOIN movietotal m
+    ON r.movietotalnum = m.movietotalnum where r.user_id='aaaa';
+
+
 alter table reservation add  total number(20);
 
 alter table reservation drop column remainseat;
@@ -134,9 +140,15 @@ alter table reservation add user_id varchar2(38);
 ALTER TABLE reservation
 ADD CONSTRAINT fk_reservation_user_id_fk foreign KEY(user_id) references movie_user (user_id);
 
-
+select * from reservation where movietotalnum=1 and seat='C7,C8';
 
 select * from reservation;
+
+select movietotalnum,seat from reservation where reservenum=100009;
+
+delete reservation where reservenum=100009;
+
+
 
 delete reservation;
 

@@ -30,5 +30,12 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 		select remainseat from movietotal where movietotalnum=#{movietotalnum}
 	</select>
 	
+	<select id="getnum" resultType="reservation">
+		select * from reservation where movietotalnum=#{movietotalnum} and seat=#{seat}
+	</select>
+	
+	<update id="updateremain">
+		update movietotal set remainseat=remainseat-(select total from reservation where reservenum=#{reservenum}) where movietotalnum=#{movietotalnum}
+	</update>
 	
 </mapper>

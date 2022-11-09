@@ -38,6 +38,17 @@ public class ReserveDAOImpl implements ReserveDAO {
 		sqlSession.insert("insertbooking", rvo2);
 	}
 
+	@Override
+	public ReservationVO getnum(ReservationVO rvo2) {
+		return sqlSession.selectOne("getnum", rvo2);
+	}
+
+	@Override
+	public void updatermain(ReservationVO rvo3) {
+		sqlSession.update("updateremain", rvo3);
+		
+	}
+
 	
 
 	

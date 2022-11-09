@@ -16,6 +16,10 @@ public interface ReserveDAO {
 
 	void insertbooking(ReservationVO rvo2);
 
+	ReservationVO getnum(ReservationVO rvo2);
+
+	void updatermain(ReservationVO rvo3);
+
 
 
 	

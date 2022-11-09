@@ -38,6 +38,16 @@ public class ReserveServiceImpl implements ReserveService {
 		
 	}
 
+	@Override
+	public ReservationVO getnum(ReservationVO rvo2) {
+		return reserveDao.getnum(rvo2);
+	}
+
+	@Override
+	public void updateremain(ReservationVO rvo3) {
+		reserveDao.updatermain(rvo3);
+	}
+
 	
 	
 

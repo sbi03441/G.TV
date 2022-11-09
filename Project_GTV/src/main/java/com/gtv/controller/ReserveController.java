@@ -73,17 +73,12 @@ public class ReserveController {
 		rvo2.setTotal(total);
 		reserveService.insertbooking(rvo2);
 		
-		//reservation num 가져오기
-		
-		MovietotalVO mav =  new MovietotalVO();
-		mav.setMovietotalnum(movietotalnum);
-		
-		
-		
-		reserveService.updateremain(mav);
-		
-
-		return "reserve/result";
+	    ReservationVO rvo3 = new ReservationVO();
+	    rvo3 = reserveService.getnum(rvo2);
+	      
+	    reserveService.updateremain(rvo3);
+	   
+		return "index";
 	}
 	
 	

@@ -16,6 +16,10 @@ public interface ReserveService {
 
 	void insertbooking(ReservationVO rvo2);
 
+	ReservationVO getnum(ReservationVO rvo2);
+
+	void updateremain(ReservationVO rvo3);
+
 
 
 	
