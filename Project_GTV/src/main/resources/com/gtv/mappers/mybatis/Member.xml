@@ -55,6 +55,7 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	 select * from movie_user where user_id = #{user_id} and user_name = #{user_name}
 	</select>
 	 
+
 	<update id = "pw_edit">
 	 update movie_user set user_pw = #{user_pw} where user_id = #{user_id}
 	</update>
@@ -67,4 +68,5 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 	 update movie_user set user_name = #{user_name}, user_phone1 = #{user_phone1}, 
 	 user_phone2 = #{user_phone2}, user_phone3 = #{user_phone3}, email = #{email}, email_domain = #{email_domain} where user_id = #{user_id}
 	</update>
+
 </mapper>

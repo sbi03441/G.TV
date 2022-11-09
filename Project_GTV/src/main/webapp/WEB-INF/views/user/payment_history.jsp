@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+=======
+>>>>>>> c292d2ef857f75cb6d8a46060956bea02e7ddb12
 
 
  <div id="payment_info">

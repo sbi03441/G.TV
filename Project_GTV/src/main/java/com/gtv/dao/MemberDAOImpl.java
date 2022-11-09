@@ -46,6 +46,7 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+
 	@Override
 	public MemberVO view_info(String id) {
 		return this.sqlSession.selectOne("vw_info", id);
@@ -56,5 +57,6 @@ public class MemberDAOImpl implements MemberDAO {
 		this.sqlSession.update("edit_info", vo);
 		
 	}
+
 
 }

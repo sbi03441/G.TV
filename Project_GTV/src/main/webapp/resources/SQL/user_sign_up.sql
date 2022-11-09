@@ -52,8 +52,18 @@ delete from gtv_authorities where user_id = 'member';
 drop table movie_user;
 drop table gtv_authorities;
 
+<<<<<<< HEAD
 insert into gtv_authorities values ('member', 'ROLE_MEMBER');
 
 commit;
 
 update gtv_authorities set authority = 'ROLE_ADMIN' where user_id = 'admin';
+=======
+insert into gtv_authorities values ('member', 'MEMBER');
+
+commit;
+
+select mem.user_id, user_no, user_pw, user_name, user_state, user_date, authority
+			from movie_user mem LEFT OUTER JOIN gtv_authorities auth on mem.user_id = auth.user_id
+			where mem.user_id = 'member'
+>>>>>>> c292d2ef857f75cb6d8a46060956bea02e7ddb12

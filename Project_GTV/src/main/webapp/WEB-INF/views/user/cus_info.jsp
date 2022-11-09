@@ -55,7 +55,11 @@ td, th {
 }
 #cus_info_main{
  width:100%;
+<<<<<<< HEAD
  height:1500px;
+=======
+ height:1000px;
+>>>>>>> c292d2ef857f75cb6d8a46060956bea02e7ddb12
  background-color:white;
 }
 #cus_info_main li a span{
@@ -95,7 +99,11 @@ li a:hover{
  position:absolute;
  left:50px;
  top:550px;
+<<<<<<< HEAD
  width:57%;
+=======
+ width:65%;
+>>>>>>> c292d2ef857f75cb6d8a46060956bea02e7ddb12
  
 }
 </style>
@@ -103,7 +111,11 @@ li a:hover{
 <script>
 $(function(){
 	 $('#payment_info_btn').click(function(){
+<<<<<<< HEAD
 		 $('#payment_history').load('payment_history');
+=======
+		 $('#payment_history').load('payment_history.jsp');
+>>>>>>> c292d2ef857f75cb6d8a46060956bea02e7ddb12
 		 $('#inquiry_history').empty();
 		 $('#info_edit').empty();
 	 });
@@ -119,9 +131,13 @@ $(function(){
 
 $(function(){
 	 $('#info_edit_btn').click(function(){
+<<<<<<< HEAD
 		 $('#info_edit').load('info_edit');
 		 $('#inquiry_history').empty();
 		 $('#payment_history').empty();
+=======
+		 
+>>>>>>> c292d2ef857f75cb6d8a46060956bea02e7ddb12
 	 });
 });
 

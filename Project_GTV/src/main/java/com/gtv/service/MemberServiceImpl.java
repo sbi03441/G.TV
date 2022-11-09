@@ -40,6 +40,7 @@ public class MemberServiceImpl implements MemberService {
 		this.MemberDao.updatePwd(m);		
 	}
 
+
 	@Override
 	public MemberVO view_info(String id) {
 		return this.MemberDao.view_info(id);
@@ -50,4 +51,5 @@ public class MemberServiceImpl implements MemberService {
 		this.MemberDao.edit_info(vo);
 		
 	}
+
 }

@@ -6,15 +6,32 @@ PUBLIC "-//mybtis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "admin">
 
-	<select id="adm_mem_count" resultType="int">
-		select count(*) from movie_user
-	</select>
-	
-	<select id="adm_mem_list" parameterType="member" resultType="member">
-		select * from (select rowNum rNum, user_no, user_id, user_name, user_gender, 
-			user_phone1, user_phone2, user_phone3, email, email_domain, user_date, user_state, replycnt from
-		(select * from movie_user order by user_no desc))
-		where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
-	</select>
+   <select id="adm_mem_count" resultType="int">
+      select count(*) from movie_user
+   </select>
+   
+   <select id="adm_mem_list" parameterType="member" resultType="member">
+      select * from (select rowNum rNum, user_no, user_id, user_name, user_gender,
+        user_phone1, user_phone2, user_phone3, email, email_domain, user_date, user_state 
+        from (select * from movie_user order by user_no desc))
+      where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+   </select>
 
+   <update id="adm_del_mem">
+      update movie_user set user_state = 0 where user_no = #{num}
+   </update>
+   
+   <select id="adm_mov_count" resultType="int">
+      select count(*) from movietotal
+   </select>
+   
+   <select id="adm_mov_list" parameterType="total" resultType="total">
+      select * from (select rowNum rNum, movienum, moviename, branchname, totalseat, movietotalnum,
+        strdate, poster from (select * from movietotal order by movietotalnum desc))
+      where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+   </select>
+   
+   <delete id="adm_mov_del">
+      delete from movietotal where movietotalnum = #{num}
+   </delete>
 </mapper>

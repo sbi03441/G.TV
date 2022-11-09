@@ -16,8 +16,10 @@ public interface MemberDAO {
 
 	void insertAuth(String id);
 
+
 	MemberVO view_info(String id);
 
 	void edit_info(MemberVO vo);
+
 	
 }
