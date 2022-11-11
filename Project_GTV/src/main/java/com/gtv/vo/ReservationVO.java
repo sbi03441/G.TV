@@ -1,7 +1,5 @@
 package com.gtv.vo;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,6 +19,6 @@ public class ReservationVO {
 	private String user_id; //유저 아이디
 	private int total; //총 좌석
 	
-	private List<MovietotalVO> mvlist;
+	private MovietotalVO mvlist;
 
 }

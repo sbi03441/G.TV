@@ -76,7 +76,8 @@ $(function(){
 		var user_id = $("#find_pwd_id").val();
 		var user_name = $("#find_pwd_name").val();
 		
-	
+		var token = $("meta[name='_csrf']").attr("content");
+	    var header = $("meta[name='_csrf_header']").attr("content");
 		
 		var param = {"user_id":user_id, "user_name":user_name}
 		
@@ -86,8 +87,11 @@ $(function(){
 			url:"/SerPwd_in_ok",
 			contentType:"application/json",
 			data:JSON.stringify(param),
+			beforeSend : function (xhr){
+	            xhr.setRequestHeader(header, token)
+	        },
 			success: function(){
-				
+				 alert("고객님의 이메일로 임시비밀번호를 전송했습니다!");
 			},
 			error: function(){
 				$('#find_pwd_id').val('');
@@ -106,7 +110,7 @@ $(function(){
 
  <input type = "text" id = "find_pwd_id" placeholder = "아이디">
  <input type = "text" id = "find_pwd_name" placeholder = "이름">
- <button type = "button" id = "SerPwd_button">찾아보기</button>
+ <button type = "button" id = "SerPwd_button" onclick = "location.href='customlogin'" >찾아보기</button>
 <b id = "SerPwd_in_desc">찾고자 하는 비밀번호의 아이디와 이름을 입력해주세요.</b>
 
  

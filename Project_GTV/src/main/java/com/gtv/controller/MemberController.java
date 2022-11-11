@@ -1,6 +1,7 @@
 package com.gtv.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -12,10 +13,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,13 +24,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gtv.service.MemberService;
+import com.gtv.service.ReserveService;
 import com.gtv.vo.MemberVO;
+import com.gtv.vo.ReservationVO;
 
 @Controller
 public class MemberController {
    
    @Autowired
    private MemberService memberService;
+   
+   @Autowired
+   private ReserveService reserveService;
    
    @Inject
    BCryptPasswordEncoder pwdEncoder;
@@ -54,9 +60,13 @@ public class MemberController {
     }
    
    @RequestMapping("cus_info")
-   public String cus_info() {
+   public ModelAndView cus_info(Authentication auth) {
+      String id = auth.getName();
+      ModelAndView mov = new ModelAndView();
       
-      return "/user/cus_info";
+      mov.addObject("id",id);
+      mov.setViewName("/user/cus_info");
+      return mov;
    }   
    
    // 회원가입
@@ -157,16 +167,7 @@ public class MemberController {
       return view;
    }
    
-   @RequestMapping("payment_history")
-   public ModelAndView payment_history() {
-      
-      
-      
-      ModelAndView view = new ModelAndView();
-      view.setViewName("/user/payment_history");
-      
-      return view;
-   }
+  
       
    @RequestMapping("SerPwd_in")
    public ModelAndView SerPwd_in() {
@@ -199,7 +200,8 @@ public class MemberController {
    @ResponseBody
    @RequestMapping(value = "/SerPwd_in_ok",method = RequestMethod.POST, consumes = "application/json")
    public ModelAndView SerPwd_in_ok(HttpServletRequest request, HttpServletResponse response, @RequestBody MemberVO m) throws Exception{
-      response.setContentType("text/html;charset=UTF-8");
+	  
+	   response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
 
       
@@ -214,14 +216,16 @@ public class MemberController {
          Random r = new Random();
          int pwd_random = r.nextInt(10000);
          String ran_pwd = Integer.toString(pwd_random);
-         sendEmail(pm,ran_pwd);         
+         sendEmail(pm,ran_pwd);
+         
+         String ran_pwd2 = pwdEncoder.encode(ran_pwd);
       
-         m.setUser_pw(ran_pwd);
+         m.setUser_pw(ran_pwd2);
          
          this.memberService.updatePwd(m); //암호화된 비밀번호 DB저장
          
          ModelAndView view = new ModelAndView();
-         view.setViewName("/");
+         view.setViewName("/customlogin");
          return view;
       }
       
@@ -232,7 +236,7 @@ public class MemberController {
    
    public void sendEmail(MemberVO pm, String ran_pw) throws Exception {
       
-      String subject = "test 메일";
+      String subject = "안녕하세요. gtv입니다.";
       String content = "고객님의 임시비밀번호는" + ran_pw +"입니다.";
       String from = "tmd020419@gmail.com";
       String to = pm.getEmail()+"@"+pm.getEmail_domain(); 
@@ -254,5 +258,26 @@ public class MemberController {
       
       
    }
+   
+   @RequestMapping("payment_history")
+   public ModelAndView payment_history(Authentication auth) {
+      String id = auth.getName();
+      List<ReservationVO> rvo = reserveService.getmvList(id);
+      
+      
+        ModelAndView view = new ModelAndView();
+        view.addObject("mlist", rvo);
+       
+
+      view.setViewName("/user/payment_history");
+      
+      return view;
+   }
+   
+   
+   
+   
+   
+   
    
 }

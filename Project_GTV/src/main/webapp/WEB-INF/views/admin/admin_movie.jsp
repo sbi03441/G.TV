@@ -96,8 +96,8 @@ function del_check() {
          <div id="admin_cont">
          
             <table border="1" id="adm_mem_table">
-               <tr>
-                  <td align="center"><strong>총 영화 : ${totalCount }</strong>편</td>
+              <tr>
+                  <td align="center"><strong>총 영화 : ${totalCount }</strong>편</td> <td colspan="6"></td>
                </tr>
                
                <tr>

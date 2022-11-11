@@ -148,6 +148,7 @@ select movietotalnum,seat from reservation where reservenum=100009;
 
 delete reservation where reservenum=100009;
 
+delete seat_theater where movietotalnum=1 and seat_name='E13';
 
 
 delete reservation;
@@ -179,31 +180,50 @@ drop table seatnumber;
 
 create table com(
     com_num number(20) primary key
-    ,movienum number(20) --��ȭ��ȣ(fk  pk)
-    ,moviename varchar2(38) --��ȭ����(fk  uq)
-    --,user_id varchar2(38) 
-    ,cont_com varchar2(500) -- ���� (nn)
-    ,upload_com date --��¥ (nn)
+    ,movienum number(20)
+    ,moviename varchar2(38) 
+    ,user_id varchar2(38) 
+    ,cont_com varchar2(500) 
+    ,upload_com date
      ,CONSTRAINT com_movienum_fk FOREIGN key(movienum) REFERENCES movie(movienum)
      ,CONSTRAINT com_moviename_fk FOREIGN key(moviename) REFERENCES movie(moviename)
+     ,CONSTRAINT com_user_id_fk FOREIGN key(user_id) REFERENCES movie_user(user_id)
 );
 
+update movietotal set remainseat=remainseat+(select
+		total from reservation where reservenum=100030) where
+		movietotalnum=2;
 
+update movietotal set remainseat=remainseat-(select
+		total from reservation where reservenum=#{reservenum}) where
+		movietotalnum=#{movietotalnum}
 
+select * from movietotal where movietotalnum =2;
 
-select * from com;
+select total from reservation where reservenum=100030;
+
+alter table com add edit_com date;
+select *from com;
+
+--alter table com add user_id varchar2(38);
+
+--alter table com add CONSTRAINT com_user_id_fk FOREIGN key(user_id) REFERENCES movie_user(user_id);
+
 
 delete com;
 commit;
 
---������ com_num 
+--sequence com_num 
 create SEQUENCE com_num_seq
 start with 1
 INCREMENT by 1
 NOCACHE;
 
 
-
+create sequence movietotalnum_seq
+start with 7 -- 7부터 시작
+increment by 1 -- 1씩 증가
+nocache; -- 임시메모리 사용안함
 
 
 

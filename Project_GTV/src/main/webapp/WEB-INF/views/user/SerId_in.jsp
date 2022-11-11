@@ -144,7 +144,9 @@ $(function(){
 		var user_birth1 = $("#user_birth1").val();
 		var user_birth2 = $("#user_birth2").val();
 		var user_birth3 = $("#user_birth3").val();
-	
+		
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
 		
 		var param = {"user_name":user_name, "user_birth1":user_birth1, "user_birth2": user_birth2, "user_birth3":user_birth3}
 		
@@ -155,6 +157,9 @@ $(function(){
 			dataType:"html",
 			contentType:"application/json",
 			data:JSON.stringify(param),
+			beforeSend : function (xhr){
+				xhr.setRequestHeader(header, token)
+				},
 			success: function(data){
 				var id = data;
 				var result = "<div id = 'SerId_show'>고객님의 id는 <b>"+id+"</b>입니다.</div>";
@@ -177,7 +182,7 @@ $(function(){
 <body>
 	<div id="SerId_in">
 		<b id="SerId_in_title">아이디 찾기</b> 
-		<button type = 'button' id = 'login_page' onclick = "location.href = 'login'" style='cursor:pointer'>로그인</button>
+		<button type = 'button' id = 'login_page' onclick = "location.href = 'customlogin'" style='cursor:pointer'>로그인</button>
 		<div id = "SerId_reslt">
 		<input type="text" id="user_name" 
 			placeholder="이름">

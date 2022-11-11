@@ -299,7 +299,7 @@ button.seat-condition.standard:hover{
 .seat-select-section .seat-result{
    overflow: hidden;
    position: absolute;
-   left:1150px;
+   left:1000px;
    width:310px;
    height: 556px;
    margin-left: 20px;
@@ -507,6 +507,8 @@ button.seat-condition.standard:hover{
    width:20px;
 }
 
+
+
 tbody{
    top: 38px;
     position: absolute;
@@ -515,7 +517,7 @@ tbody{
 
 
 
-input[type="checkbox"] { /* 실제 체크박스는 화면에서 숨김 */
+input[class="seat"] { /* 실제 체크박스는 화면에서 숨김 */
    position: absolute;
    width: 1px;
    height: 1px;
@@ -648,12 +650,14 @@ h4, h3 {
    margin-top: 50px;
 }
 
+/*
 b {
    color: white;
    margin-left: 20px;
    margin-top: 13px;
    position: absolute;
 }
+*/
 
 #right-wrap {
    text-align: center;

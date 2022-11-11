@@ -19,10 +19,10 @@
 	<security:http auto-config="true" use-expressions="true"> <!-- 스프링 시큐리티가 http프로토콜(통신규약)에서 알 수 있게 하는 시작 지점 설정 -->
 		
 		<security:intercept-url pattern="/customlogin" access="isAnonymous()" /> <!-- 로그인 이후 로그인페이지 접속차단 -->
-		<security:intercept-url pattern="/sign_up" access="isAnonymous()" /> <!-- 로그인 이후 회원가입 페이지 접속차단 -->
-		<security:intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/> <!-- 어드민 페이지 -->
-		<security:intercept-url pattern="/com_write_ok" access="hasRole('MEMBER')"/>
-		<!-- 해당부분 합칠때 매퍼에 따라 변경해야함 -->
+      <security:intercept-url pattern="/sign_up" access="isAnonymous()" /> <!-- 로그인 이후 회원가입 페이지 접속차단 -->
+      <security:intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/> <!-- 어드민 페이지 -->
+      <security:intercept-url pattern="/screening" access="hasAnyRole('MEMBER','ADMIN')"/> <!-- 영화 예메 페이지 -->
+      <security:intercept-url pattern="/com_write_ok" access="hasAnyRole('MEMBER','ADMIN')"/> <!-- 영화 평점 등록 -->
 		
 		<!-- 로그인 설정 -->
 		<security:form-login

@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 #sign_up {
-	background-color: white;
-	width: 900px;
-	height: 2500px;
-	position: relative;
-	left: 295px;
-	margin-top:-10px;
-	margin-bottom:-10px;
+   background-color: white;
+   width: 900px;
+   height: 2500px;
+   position: relative;
+   left: 295px;
+   margin-top:-10px;
+   margin-bottom:-10px;
 }
 
 input {
-	display: flex;
+   display: flex;
 }
 
 
@@ -98,13 +98,20 @@ input{
  top:1400px;
  left:320px;
  display:flex;
+ font-size: 25px;
+ font-weight: bold;
 }
+#sign_email_input{
+   width: 150px;
+   height: 39px;
+}
+
 #email_text{
  position:relative;
  right:10px
 }
 #email_text input{
- width:192px;
+ width:100px;
  height:39px;
  font-size:18px;
  border-width: 2px 2px 2px 2px;
@@ -115,9 +122,7 @@ input{
  font-size:18px;
  border-width: 2px 2px 2px 2px;
 }
-b{
- display:flex;
-}
+
 #id_title{
  position:relative;
  top:194px;

@@ -48,5 +48,10 @@ public class MovieComDAOImpl implements MovieComDAO {
 		sqlSession.delete("c_del", com_num);
 	}
 
+	@Override
+	public List<ComVO> getComEList(ComVO c) {
+		return sqlSession.selectList("e_list", c);
+	}
+
 
 }

@@ -22,5 +22,7 @@ public interface MovieComDAO {
 
 	void delCom(int com_num);
 
+	List<ComVO> getComEList(ComVO c);
+
 
 }

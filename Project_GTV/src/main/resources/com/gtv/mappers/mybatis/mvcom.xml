@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
    <!-- 코멘트 저장 -->
    <insert id="com_in" parameterType="com">
-      insert into com values (1,'공조2',#{cont_com},sysdate,com_num_seq.nextval)
+      insert into com(com_num,movienum,moviename,user_id,cont_com,upload_com) values(com_num_seq.nextval,1,'공조2',#{user_id},#{cont_com},sysdate)
    </insert>
   
      <!-- 총 코멘트 개수 -->
@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      
      <!-- 코멘트 목록 -->
      <select id="c_list" resultType="com" parameterType="com">
-        select * from (select rowNum rNum,1,'공조2',cont_com,upload_com,com_num from
+        select * from (select rowNum rNum,1,'공조2',cont_com,upload_com,edit_com,com_num from
         (select * from com order by com_num desc))
         where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
         <!-- rowNum 컬럼은 오라클에서 테이블생성시 기본으로 알아서 추가되는 시스템 테이블로 최초 레코드 저장시 
@@ -28,12 +28,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      
      <!-- 수정 내용 보기 -->
      <select id="c_cont" parameterType="int" resultType="com">
-        select cont_com from com where com_num=#{com_num}
+        select cont_com,edit_com from com where com_num=#{com_num}
      </select>
      
      <!-- 수정 -->
      <update id="c_edit" parameterType="com">
-        update com set cont_com=#{cont_com} where com_num=#{com_num}
+        update com set cont_com=#{cont_com},edit_com=sysdate where com_num=#{com_num}
      </update>
      
      <!-- 삭제 -->
@@ -50,5 +50,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      <select id="l_cont" parameterType="int">
         select likebtn from movie_sub where movienum=1
      </select>
-
+	
+	<select id="e_list">
+		    select * from (select rowNum rNum,1,'공조2',cont_com,edit_com,com_num from
+        (select * from com order by com_num desc))
+        where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+	</select>
+	
 </mapper> 

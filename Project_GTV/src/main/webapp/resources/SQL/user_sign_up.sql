@@ -53,7 +53,7 @@ drop table movie_user;
 drop table gtv_authorities;
 
 <<<<<<< HEAD
-insert into gtv_authorities values ('member', 'ROLE_MEMBER');
+insert into gtv_authorities values ('admin', 'ROLE_MEMBER');
 
 commit;
 

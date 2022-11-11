@@ -93,12 +93,12 @@ function del_check() {
         
          <div id="admin_cont">
             <table border="1" id="adm_mem_table">
-               <tr>
-                  <td align="right"><strong>총 사용자 : ${totalCount }</strong>명</td>
+           <tr>
+                  <td align="right"><strong>총 사용자 : ${totalCount }</strong>명</td><td colspan="7"></td>
                </tr>
                
                <tr>
-                  <th>.NO</th> <th>ID</th> <th>유저명</th> <th>성별</th> <th>연락처</th> <th>이메일</th> <th>가입일</th>
+                  <th>.NO</th> <th>ID</th> <th>유저명</th> <th>성별</th> <th>연락처</th> <th>이메일</th> <th>가입일</th> <th></th>
                </tr>
                
                <c:if test="${!empty list }">

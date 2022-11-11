@@ -21,5 +21,7 @@ public interface MovieComService {
 
 	void delCom(int com_num);
 
+	List<ComVO> getComEList(ComVO c);
+
 
 }

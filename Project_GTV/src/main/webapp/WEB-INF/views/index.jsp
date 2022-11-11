@@ -35,7 +35,7 @@
                      <li><a href="/customlogin" id="sign_in">SIGN IN</a></li>
                  </sec:authorize>
                <sec:authorize access="hasRole('MEMBER')">
-                   <li><a href="#">MyPage</a></li>
+                   <li><a href="/cus_info">MyPage</a></li>
                       <li><a href="#" onclick="document.getElementById('logout').submit();">LogOut</a></li>
                  </sec:authorize>
                  <sec:authorize access="hasRole('ADMIN')">
@@ -81,58 +81,58 @@
       <div class="top5_programes">
          <div class="card-box">
             <div class="img-gradient"></div>
-            <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
+            <img src="./resources/images/main_movie/black.jpg" alt="블랙팬서">
             <div class="text-wrap">
-               <h1>용의 출현</h1>
-               <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
+               <h1>블랙 팬서:와칸다 포에버</h1>
+               <p>와칸다를 지켜라!</p>
             </div>
             <div class="play-btn"></div>
          </div>
-         <!-- 한산 -->
+         <!-- 블랙팬서 -->
 
          <div class="card-box">
             <div class="img-gradient"></div>
-            <img src="./resources/images/main_movie/money.jpeg" alt="money_heist">
+            <img src="./resources/images/main_movie/dong.jpg" alt="dong">
             <div class="text-wrap">
-               <h1>용의 출현</h1>
-               <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
+               <h1>동감</h1>
+               <p>1999년, '용'은 첫눈에 반하게 된 '한솔'을 사로잡기 위해</p>
             </div>
             <div class="play-btn"></div>
          </div>
-         <!-- moneyheist -->
+         <!-- 동감 -->
 
          <div class="card-box">
             <div class="img-gradient"></div>
-            <img src="./resources/images/main_movie/woyoungwo.jpeg" alt="우영우">
+            <img src="./resources/images/main_movie/decibel.jpg" alt="decibel">
             <div class="text-wrap">
-               <h1>용의 출현</h1>
-               <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
+               <h1>데시벨</h1>
+               <p>소음이 커지는 순간 폭.발.한.다</p>
             </div>
             <div class="play-btn"></div>
          </div>
-         <!-- 우영우 -->
+         <!-- 데시벨 -->
 
          <div class="card-box">
             <div class="img-gradient"></div>
-            <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
+            <img src="./resources/images/main_movie/confession.jpg" alt="자백">
             <div class="text-wrap">
-               <h1>용의 출현</h1>
-               <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
+               <h1>자백</h1>
+               <p>제대로 함정에 빠졌다!</p>
             </div>
             <div class="play-btn"></div>
          </div>
-         <!-- 한산 -->
+         <!-- 자백 -->
 
          <div class="card-box">
             <div class="img-gradient"></div>
-            <img src="./resources/images/main_movie/money.jpeg" alt="money_heist">
+            <img src="./resources/images/main_movie/owl.jpg" alt="owl">
             <div class="text-wrap">
-               <h1>용의 출현</h1>
-               <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
+               <h1>올빼미</h1>
+               <p>맹인이지만 뛰어난 침술 실력을 지닌 ‘경수’는</p>
             </div>
             <div class="play-btn"></div>
          </div>
-         <!-- moneyheist -->
+         <!-- 올빼미 -->
 
       </div>
       <!-- top5_programes -->
@@ -155,54 +155,58 @@
                <a href="#">
                   <div class="new_programes">
                      <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/black.jpg" alt="블랙팬서">
+            <div class="text-wrap">
+               <h1>블랙 팬서:와칸다 포에버</h1>
+               <p>와칸다를 지켜라!</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 블랙팬서 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/dong.jpg" alt="dong">
+            <div class="text-wrap">
+               <h1>동감</h1>
+               <p>1999년, '용'은 첫눈에 반하게 된 '한솔'을 사로잡기 위해</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 동감 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/decibel.jpg" alt="decibel">
+            <div class="text-wrap">
+               <h1>데시벨</h1>
+               <p>소음이 커지는 순간 폭.발.한.다</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 데시벨 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/confession.jpg" alt="자백">
+            <div class="text-wrap">
+               <h1>자백</h1>
+               <p>제대로 함정에 빠졌다!</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 자백 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/owl.jpg" alt="owl">
+            <div class="text-wrap">
+               <h1>올빼미</h1>
+               <p>맹인이지만 뛰어난 침술 실력을 지닌 ‘경수’는</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
                   </div>
                </a>
             </div>
@@ -211,54 +215,58 @@
                <a href="#">
                   <div class="new_programes">
                      <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/black.jpg" alt="블랙팬서">
+            <div class="text-wrap">
+               <h1>블랙 팬서:와칸다 포에버</h1>
+               <p>와칸다를 지켜라!</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 블랙팬서 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/dong.jpg" alt="dong">
+            <div class="text-wrap">
+               <h1>동감</h1>
+               <p>1999년, '용'은 첫눈에 반하게 된 '한솔'을 사로잡기 위해</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 동감 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/decibel.jpg" alt="decibel">
+            <div class="text-wrap">
+               <h1>데시벨</h1>
+               <p>소음이 커지는 순간 폭.발.한.다</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 데시벨 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/confession.jpg" alt="자백">
+            <div class="text-wrap">
+               <h1>자백</h1>
+               <p>제대로 함정에 빠졌다!</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 자백 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/owl.jpg" alt="owl">
+            <div class="text-wrap">
+               <h1>올빼미</h1>
+               <p>맹인이지만 뛰어난 침술 실력을 지닌 ‘경수’는</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
                   </div>
                </a>
             </div>
@@ -267,54 +275,58 @@
                <a href="#">
                   <div class="new_programes">
                      <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/black.jpg" alt="블랙팬서">
+            <div class="text-wrap">
+               <h1>블랙 팬서:와칸다 포에버</h1>
+               <p>와칸다를 지켜라!</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 블랙팬서 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/dong.jpg" alt="dong">
+            <div class="text-wrap">
+               <h1>동감</h1>
+               <p>1999년, '용'은 첫눈에 반하게 된 '한솔'을 사로잡기 위해</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 동감 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/decibel.jpg" alt="decibel">
+            <div class="text-wrap">
+               <h1>데시벨</h1>
+               <p>소음이 커지는 순간 폭.발.한.다</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 데시벨 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/confession.jpg" alt="자백">
+            <div class="text-wrap">
+               <h1>자백</h1>
+               <p>제대로 함정에 빠졌다!</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
+         <!-- 자백 -->
 
-                     <div class="card-box">
-                        <div class="img-gradient"></div>
-                        <img src="./resources/images/main_movie/hansan.jpg" alt="한산">
-                        <div class="text-wrap">
-                           <h1>용의 출현</h1>
-                           <p>왜군에 한양을 빼앗기며 절체절명의 위기에 놓인다.</p>
-                        </div>
-                        <div class="play-btn"></div>
-                     </div>
+         <div class="card-box">
+            <div class="img-gradient"></div>
+            <img src="./resources/images/main_movie/owl.jpg" alt="owl">
+            <div class="text-wrap">
+               <h1>올빼미</h1>
+               <p>맹인이지만 뛰어난 침술 실력을 지닌 ‘경수’는</p>
+            </div>
+            <div class="play-btn"></div>
+         </div>
                   </div>
                </a>
             </div>
@@ -329,7 +341,7 @@
 
       </div>
 
-      <script src="../JS/customer.js"></script>
+      <script src="./resources/js/movie/customer.js"></script>
    </div>
    <!--new_section -->
    
@@ -523,7 +535,7 @@
 
       </div>
 
-      <script src="../JS/customer.js"></script>
+      <script src="./resources/js/movie/customer.js"></script>
    </div>
    <!--only_section -->
    <div class="footer">

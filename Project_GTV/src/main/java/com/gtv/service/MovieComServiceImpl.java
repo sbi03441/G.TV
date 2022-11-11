@@ -49,5 +49,10 @@ public class MovieComServiceImpl implements MovieComService {
 		moviecomDao.delCom(com_num);
 	}
 
+	@Override
+	public List<ComVO> getComEList(ComVO c) {
+		return moviecomDao.getComEList(c);
+	}
+
 	
 }

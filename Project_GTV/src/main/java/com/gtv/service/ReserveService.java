@@ -20,9 +20,15 @@ public interface ReserveService {
 
    void updateremain(ReservationVO rvo3);
 
+   ReservationVO gettotalnum(int reservenum);
+
+   void deleteSeat(ReservationVO re);
+
+   void deleteReserve(int reservenum);
+
+   List<ReservationVO> getmvList(String id);
 
 
-   
 
 
 

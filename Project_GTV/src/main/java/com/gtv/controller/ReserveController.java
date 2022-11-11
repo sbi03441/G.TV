@@ -75,12 +75,28 @@ public class ReserveController {
       
        ReservationVO rvo3 = new ReservationVO();
        rvo3 = reserveService.getnum(rvo2);
-         
        reserveService.updateremain(rvo3);
       
       return "index";
    }
    
+   @RequestMapping(value = "mv_cancel")
+   public ModelAndView mv_cancel(HttpServletRequest request) {
+      int reservenum = Integer.parseInt(request.getParameter("reservenum"));
+      
+      ReservationVO re = new ReservationVO();
+      re = reserveService.gettotalnum(reservenum);
+      System.out.println(re);
+
+      reserveService.deleteReserve(reservenum);
+      reserveService.deleteSeat(re);
+
+      ModelAndView view = new ModelAndView();
+      view.setViewName("jsonView");
+      return view;
+   }
+   
+
    
    
    
