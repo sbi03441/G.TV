@@ -8,8 +8,7 @@
 - 2022.10.11 - 2023.11.11
 
 <br />
-<img src="https://file.notion.so/f/f/733d2ec5-944e-43ee-8a68-d090b5cd1a1a/500e9f31-41f7-430a-a9c0-0791909cfa12/asdasd.png?id=510840c6-b350-43be-b78a-9ab5eb9a1d37&table=block&spaceId=733d2ec5-944e-43ee-8a68-d090b5cd1a1a&expirationTimestamp=1713276000000&signature=fd1FI_pgC9UXxc00ideHV62-tRKcLW08eJyNbYstEaA&downloadName=asdasd.png
-"/>
+<img src="https://file.notion.so/f/f/733d2ec5-944e-43ee-8a68-d090b5cd1a1a/500e9f31-41f7-430a-a9c0-0791909cfa12/asdasd.png?id=510840c6-b350-43be-b78a-9ab5eb9a1d37&table=block&spaceId=733d2ec5-944e-43ee-8a68-d090b5cd1a1a&expirationTimestamp=1713276000000&signature=fd1FI_pgC9UXxc00ideHV62-tRKcLW08eJyNbYstEaA&downloadName=asdasd.png"/>
 
 
 
