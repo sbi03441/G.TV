@@ -8,7 +8,8 @@
 - 2022.10.11 - 2023.11.11
 
 <br />
-<img src="https://file.notion.so/f/f/733d2ec5-944e-43ee-8a68-d090b5cd1a1a/500e9f31-41f7-430a-a9c0-0791909cfa12/asdasd.png?id=510840c6-b350-43be-b78a-9ab5eb9a1d37&table=block&spaceId=733d2ec5-944e-43ee-8a68-d090b5cd1a1a&expirationTimestamp=1713276000000&signature=fd1FI_pgC9UXxc00ideHV62-tRKcLW08eJyNbYstEaA&downloadName=asdasd.png"/>
+
+![asdasd](https://github.com/sbi03441/issue/assets/115928654/136acc1d-08d1-48f8-97ce-7d1781857c8d)
 
 
 
@@ -22,7 +23,8 @@
 
 # ERD
 
-<img src="https://file.notion.so/f/f/733d2ec5-944e-43ee-8a68-d090b5cd1a1a/b1527ac5-b690-4368-a493-6d0926d0c45a/Untitled.png?id=52a1b140-9a3b-44c6-b130-005e4bec2f5a&table=block&spaceId=733d2ec5-944e-43ee-8a68-d090b5cd1a1a&expirationTimestamp=1713276000000&signature=Ou6xPCqwHsbCqx1SXwgW6XCyHjpfYulegNvYWBHOIX4&downloadName=Untitled.png"/>
+![erd_3](https://github.com/sbi03441/issue/assets/115928654/5a2b54b4-4595-4462-8d10-9b86b1964eb2)
+
 
 ## 🛠 기술 스택
 
